@@ -1,0 +1,54 @@
+#theme("/onegate/css/codemirror/codemirror")
+#theme("/onegate/css/codemirror/show-hint")
+#theme("/onegate/css/codemirror/eclipse")
+#script("/js/onegate/codemirror/plugins/codemirror-core.min.js")
+#script("/js/onegate/codemirror/plugins/codemirror-addons.min.js")
+#script("/js/onegate/codemirror/plugins/codemirror-plugins.min.js")
+#script("/js/onegate/inet/lib/admin-wf-search.min.js")
+#script("/js/onegate/inet/lib/admin-wf-detail.min.js")
+#script("/js/onegate/inet/lib/admin-wf.min.js")
+<div id="div-wf-search" style="display: none" class="main-container">
+    <div class="wg-toolbar navbar-fixed-top">
+        <button id="btn-wf-create" class="btn btn-primary btn-sm">
+            <i class="icon-plus"></i> $text.getText("app.button.create")
+        </button>
+    </div>
+    <div class="wg-content">
+        <div class="row-fluid">
+            <div id="wf-grid-id"></div>
+        </div>
+    </div>
+</div>
+
+<div id="div-wf-detail" style="display: none" class="main-container">
+    <div id="wg-toolbar" class="navbar-fixed-top">
+        <button id="btn-wf-detail-back" class="btn btn-primary btn-sm">
+            <i class="icon-arrow-left"></i> $text.getText("app.button.back")
+        </button>
+        <button id="btn-wf-detail-save" class="btn btn-success btn-sm">
+            <i class="icon-ok"></i> $text.getText("app.button.save")
+        </button>
+    </div>
+    <div id="wg-content">
+        <div class="row">
+            <div class="col-sm-12 alert-info">
+                <form id="frm-wf-detail" action="#" class="form-horizontal" style="margin-top: 5px;">
+                    <div class="form-group">
+                        <label class="control-label col-sm-2" for="txt-wf-brief">
+                            $text.getText("Mô tả") <span class="required"/>:
+                        </label>
+
+                        <div class="col-sm-10">
+                            <input id="txt-wf-brief" class="form-control" type="text">
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <textarea id="txt-content" name="content"></textarea>
+            </div>
+        </div>
+    </div>
+</div>

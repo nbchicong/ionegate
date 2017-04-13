@@ -1,0 +1,52 @@
+#dataservice("xgate_hcm_report_review")
+#set($data = $xgate_hcm_report_review.data)
+<style>
+    .table-result thead tr th {
+        text-align: center;
+    }
+</style>
+<table id="sample-table-1" class="table table-striped table-bordered table-hover table-result">
+    <colgroup>
+        <col style="width: 30%;">
+        <col style="width: 10%;">
+        <col style="width: 10%;">
+        <col style="width: 10%;">
+        <col style="width: 10%;">
+        <col style="width: 10%;">
+        <col style="width: 10%;">
+    </colgroup>
+    <thead>
+    <tr>
+        <th rowspan="2">Đơn vị</th>
+        <th rowspan="2">Đã tiếp nhận</th>
+        <th rowspan="2">Không hợp lệ</th>
+        <th colspan="2">Đã giải quyết</th>
+        <th colspan="2">Chưa giải quyết</th>
+    </tr>
+    <tr>
+        <th>đúng hạn</th>
+        <th>quá hạn</th>
+        <th>trong hạn</th>
+        <th>trễ hạn</th>
+    </tr>
+    </thead>
+    <tbody>
+    #if($data.items.size() > 0)
+    #foreach($item in $data.items)
+    <tr>
+        <td class="text-left">$item.firm</td>
+        <td class="text-right">$item.received</td>
+        <td class="text-right">$item.invalid</td>
+        <td class="text-right">$item.ontime</td>
+        <td class="text-right">$item.outtime</td>
+        <td class="text-right">$item.intime</td>
+        <td class="text-right">$item.delayed</td>
+    </tr>
+    #end
+    #else
+    <tr>
+        <td colspan="7"><i>Không có dữ liệu để hiển thị</i></td>
+    </tr>
+    #end
+    </tbody>
+</table>

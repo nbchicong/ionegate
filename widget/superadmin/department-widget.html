@@ -1,0 +1,236 @@
+#theme("/common/css/jquery/select2")
+#theme("/onegate/css/jquery/bootstrap-timepicker")
+#theme("/onegate/css/jquery/bootstrap-multiselect")
+#script("/js/common/jquery/plugins/jquery.maskedinput.min.js")
+#script("/js/common/jquery/plugins/jquery.filter-input.min.js")
+#script("/js/common/inet/lib/select.min.js")
+#script("/js/onegate/bootstrap/plugins/bootstrap-timepicker.min.js")
+#script("/js/onegate/bootstrap/plugins/bootstrap-multiselect.min.js")
+#script("/js/onegate/inet/lib/ionegate-superadmin-department.min.js")
+
+#dataservice("onegatedatalevellist")
+#set($levels = $onegatedatalevellist)
+
+<div id="department-new-widget" style="display: none">
+    <div class="wg-toolbar navbar-fixed-top">
+        <button id="dept-btn-back" type="button" class="btn btn-primary">
+            <i class="icon-arrow-left"></i> $text.getText("onegate.button.back")
+        </button>
+        #if(!$ctx.pattern)
+        <button id="dept-btn-create" class="btn btn-primary">
+            <i class="icon-plus"></i> $text.getText("onegate.admin.dept.create")
+        </button>
+        #end
+        <button id="dept-btn-save" class="btn btn-success hide" disabled="disabled">
+            <i class="icon-save"></i> $text.getText("onegate.button.save")
+        </button>
+    </div>
+    <div class="wg-content">
+        <div class="row-fluid">
+            <form id="form-service" class="form-horizontal">
+                <div class="row" style="margin: 0px">
+                    <div class="alert alert-info col-xs-12 col-sm-12" style="padding: 5px;">
+                        <strong><i class="icon-info-sign"></i> $text.getText("onegate.admin.dept.info")</strong>
+                    </div>
+                 </div>
+                <div class="row" style="margin: 0px">
+                    <div class="col-xs-12 col-sm-12">
+                        <div class="form-group">
+                            <label class="col-sm-2 no-padding-right lbl-bold" for="dept-txt-name">$text.getText("onegate.admin.dept.name") (<span class="required"/>):</label>
+
+                            <div class="col-sm-4">
+                                <input type="text" id="dept-txt-name" name="name" value="" class="col-xs-12 col-sm-12">
+                            </div>
+
+							<label class="col-sm-2 no-padding-right lbl-bold" for="dept-select-bucket-data">$text.getText("onegate.admin.dept.bucket_data") (<span class="required"/>):</label>
+                            <div class="col-sm-4">
+                                <input id="dept-select-bucket-data" placeholder='$text.getText("onegate.admin.dept.bucket_placeholder")' type="text" style="width: 100%">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 no-padding-right lbl-bold" for="dept-txt-brief">$text.getText("onegate.admin.dept.code") :</label>
+                            <div class="col-sm-4">
+                                <input type="text" id="dept-txt-brief" name="brief" value="" class="col-xs-12 col-sm-12">
+                            </div>
+
+							<label class="col-sm-2 no-padding-right lbl-bold" for="dept-txt-bucket-prefix">$text.getText("onegate.admin.dept.bucket_prefix") (<span class="required"/>):</label>
+                            <div class="col-sm-4">
+                                <input id="dept-txt-bucket-prefix" type="text" style="width: 100%">
+                            </div>	
+                        </div>
+                        <div class="form-group">
+                           <label class="col-sm-2 no-padding-right lbl-bold" for="dept-select-level">$text.getText("onegate.admin.dept.level") (<span class="required"/>):</label>
+                            <div class="col-sm-4">
+                                <select id="dept-select-level" style="width: 100%">
+                                    #foreach($level in $levels.items)
+                                    <option value="$level.level">$level.name</option>
+                                    #end
+                                </select>
+                            </div> 
+                            
+                            <label class="col-sm-2 no-padding-right lbl-bold" for="dept-select-departmentGroup">$text.getText("Nhóm") (<span class="required"/>):</label>
+                            <div class="col-sm-4">
+                                <select id="dept-select-departmentGroup" style="width: 100%">
+                                    <option value="1">Ngành dọc</option>
+                                    <option value="2">Sở ngành</option>
+                                    <option value="3">Quận huyện</option>
+                                    <option value="4">Phường xã</option>
+                                </select>
+                            </div>
+                            
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 no-padding-right lbl-bold" for="dept-txt-order">$text.getText("onegate.admin.dept.order") (<span class="required"/>):</label>
+                            <div class="col-sm-4">
+                                <input type="number" id="dept-txt-order" name="order" value="1" max="100" min="1" style="width: 100%">
+                            </div>
+                            
+                            <label class="col-sm-2 no-padding-right lbl-bold" for="dept-txt-max-number">$text.getText("onegate.admin.dept.max_appt") (<span class="required"/>):</label>
+                            <div class="col-sm-4">
+                                <input type="number" id="dept-txt-max-number" name="maxNumber" value="480" style="width: 100%">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 no-padding-right lbl-bold" for="dept-txt-address">$text.getText("onegate.admin.dept.address") (<span class="required"/>):</label>
+                            <div class="col-sm-10">
+                                <input type="text" id="dept-txt-address" name="address" value="" class="col-xs-12 col-sm-12">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 no-padding-right lbl-bold" for="dept-txt-address">$text.getText("onegate.admin.office.phone"):</label>
+                            <div class="col-sm-4">
+                                <input type="text" id="dept-txt-phone" name="phone" value="" class="col-xs-12 col-sm-12">
+                            </div>
+                            <label class="col-sm-2 no-padding-right lbl-bold" for="dept-txt-address">$text.getText("onegate.admin.office.fax"):</label>
+                            <div class="col-sm-4">
+                                <input type="text" id="dept-txt-fax" name="fax" value="" class="col-xs-12 col-sm-12">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 no-padding-right lbl-bold" for="dept-txt-email">$text.getText("onegate.admin.office.email"):</label>
+                            <div class="col-sm-4">
+                                <input type="text" id="dept-txt-email" name="email" value="" class="col-xs-12 col-sm-12">
+                            </div>
+                            <label class="col-sm-2 no-padding-right lbl-bold" for="dept-txt-website">$text.getText("onegate.admin.office.website"):</label>
+                            <div class="col-sm-4">
+                                <input type="text" id="dept-txt-website" name="website" value="" class="col-xs-12 col-sm-12">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-2 no-padding-right"></div>
+                            <div class="col-sm-4 no-padding">
+                                <div class="checkbox no-padding-top">
+                                    <label>
+                                        <input id="dept-txt-psp-version" type="checkbox" class="ace">
+                                        <span class="lbl ilabel no-padding-top" style="font-weight:600"> Đang sử dụng phiên bản PSP cũ</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-sm-12 no-padding-right lbl-bold" for="dept-txt-address">$text.getText("onegate.admin.dept.working_time") :</label>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-12">
+                                    <table class="table table-bordered" style="width:100%">
+                                        <thead>
+                                        <tr>
+                                            <th style="text-align: center;vertical-align: middle" rowspan="2">$text.getText("onegate.admin.dept.weekdays")</th>
+                                            <th style="text-align: center" colspan="2">$text.getText("onegate.admin.dept.morning")</th>
+                                            <th style="text-align: center" colspan="2">$text.getText("onegate.admin.dept.afternoon")</th>
+                                        </tr>
+                                        <tr>
+                                            <th style="text-align: center;width: 100px;">$text.getText("onegate.admin.dept.from_time")</th>
+                                            <th style="text-align: center;width: 100px;">$text.getText("onegate.admin.dept.to_time")</th>
+                                            <th style="text-align: center;width: 100px;">$text.getText("onegate.admin.dept.from_time")</th>
+                                            <th style="text-align: center;width: 100px;">$text.getText("onegate.admin.dept.to_time")</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr id="dept-worktime-container">
+                                            <td>$text.getText("onegate.admin.dept.mon_to_fri")</td>
+                                            <td>
+                                                <div class="ace-icon input-icon input-icon-right date bootstrap-timepicker" style="width: 100px;">
+                                                  <input id="dept-txt-worktime-morning-stime" type="text" value="08:00" class="col-xs-12 col-sm-12 time-picker">
+                                                    <i class="ace-icon add-on icon-time"></i>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="ace-icon input-icon input-icon-right date bootstrap-timepicker" style="width: 100px;">
+                                                    <input id="dept-txt-worktime-morning-etime" type="text" value="11:30" class="col-xs-12 col-sm-12 time-picker">
+                                                    <i class="ace-icon add-on icon-time"></i>
+                                                 </div>
+                                            </td>
+                                            <td>
+                                                <div class="ace-icon input-icon input-icon-right date bootstrap-timepicker" style="width: 100px;">
+                                                <input id="dept-txt-worktime-afternoon-stime" type="text" value="13:30" class="col-xs-12 col-sm-12 time-picker">
+                                                    <i class="ace-icon add-on icon-time"></i>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="ace-icon input-icon input-icon-right date bootstrap-timepicker" style="width: 100px;">
+                                                <input id="dept-txt-worktime-afternoon-etime" type="text" value="17:30" class="col-xs-12 col-sm-12 time-picker">
+                                                    <i class="ace-icon add-on icon-time"></i>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>$text.getText("onegate.admin.dept.saturday")</td>
+                                            <td colspan="4">
+                                                <div class="col-sm-10 radio">
+                                                    <label>
+                                                        <input name="saturdayState" type="radio" class="ace" value="2">
+                                                        <span class="lbl"> $text.getText("onegate.admin.dept.fulltime")</span>
+                                                    </label>
+                                                    <label>
+                                                        <input name="saturdayState" type="radio" class="ace" value="1">
+                                                        <span class="lbl"> $text.getText("onegate.admin.dept.parttime")</span>
+                                                    </label>
+                                                    <label>
+                                                        <input name="saturdayState" type="radio" class="ace" value="0" checked>
+                                                        <span class="lbl"> $text.getText("onegate.admin.dept.closed")</span>
+                                                    </label>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-12 no-padding-right lbl-bold">$text.getText("onegate.admin.dept.appointment"):</label>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-12">
+                                <table id="dept-schedule-tbl" class="table table-bordered" style="width:100%">
+                                    <thead>
+                                    <tr>
+                                        <th style="text-align: center;vertical-align: middle" rowspan="2">$text.getText("onegate.admin.dept.time_checkout")</th>
+                                        <th style="text-align: center" colspan="2">$text.getText("onegate.admin.dept.morning")</th>
+                                        <th style="text-align: center" colspan="2">$text.getText("onegate.admin.dept.afternoon")</th>
+                                        <th style="width: 16px;" rowspan="2"></th>
+                                    </tr>
+                                    <tr>
+                                        <th style="text-align: center;width: 100px;">$text.getText("onegate.admin.dept.from_time")</th>
+                                        <th style="text-align: center;width: 100px;">$text.getText("onegate.admin.dept.to_time")</th>
+                                        <th style="text-align: center;width: 100px;">$text.getText("onegate.admin.dept.from_time")</th>
+                                        <th style="text-align: center;width: 100px;">$text.getText("onegate.admin.dept.to_time")</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    </tbody>
+                                    <tfoot>
+                                    <tr>
+                                        <td colspan="6" class="text-right"><a href="javascript:;" id="addschedule"><i class="icon-plus"></i> $text.getText("onegate.admin.dept.add_another")</a></td>
+                                    </tr>
+                                    </tfoot>
+                                </table>
+                             </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

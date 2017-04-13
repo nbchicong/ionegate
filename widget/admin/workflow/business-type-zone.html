@@ -1,0 +1,34 @@
+#dataservice("cloudwflbusinesstype")
+#dataservice("cloudwfldefproclist")
+#set($types = $cloudwflbusinesstype)
+#set($process = $cloudwfldefproclist)
+
+<div>
+  <label>Name:</label>
+  <div>
+    <input class="" type="text" id="name" name="name" placeholder="Task name" />
+  </div>
+</div>
+#if ($ctx.valueEqual("type","process"))
+<div>
+  <label>Process:</label>
+  <div>
+    <select id="process" name="process" class="form-control">
+      #foreach($item in $process.items)
+      <option value="$item.name">$item.name</option>
+      #end
+    </select>
+  </div>
+</div>
+#end
+#foreach($item in $types)
+<div>
+  <label for="$item">Business [$item] attribute value:</label>
+  <div>
+    <input type="text" class="" id="$item" name="$item" placeholder="Sender" />
+  </div>
+</div>
+#end
+<input id="type" name="type" type="hidden" value='$ctx.value("type")'>
+<input id="x" name="x" type="hidden" value="0">
+<input id="y" name="y" type="hidden" value="0">

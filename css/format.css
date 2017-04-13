@@ -1,0 +1,31 @@
+.file-icon {
+  height: 16px !important;
+  width: 16px !important;
+  display: inline-block;
+}
+
+.xicon-doc, .xicon-docx {
+  background: url("../../images/onegate/format/doc.gif") !important;
+}
+
+.xicon-xls, .xicon-xlsx {
+  background: url("../../images/onegate/format/xls.gif") !important;
+}
+
+.xicon-pdf {
+  background: url("../../images/onegate/format/pdf.gif") !important;
+}
+
+.xicon-jpg, .xicon-png {
+  background: url("../../images/onegate/format/img.png") !important;
+}
+.xicon-odt {
+  background: url("../../images/onegate/format/odt.png") !important;
+}
+.xicon-ods {
+  background: url("../../images/onegate/format/ods.png") !important;
+}
+.xicon-odp, .xicon-odg, .xicon-odf, .xicon-odb, .xicon-ppt, .xicon-mdb, .xicon-mpp,
+.xicon-vsd, .xicon-txt, .xicon-html, .xicon-xml, .xicon-dtt, .xicon-oth {
+  background: url("../../images/onegate/format/unknown.png") !important;
+}

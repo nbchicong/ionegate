@@ -1,0 +1,359 @@
+#dataservice("bucketxformlist")
+#set($xformlist = $bucketxformlist)
+
+#dataservice("glbgateindustrystructtree")
+#set($tree = $glbgateindustrystructtree)
+
+#dataservice("onegategetwayservices")
+
+#dataservice("onegatepluginapplist")
+#set($plugins = $onegatepluginapplist)
+
+#dataservice("onegategetwayendpoints")
+
+#theme("/common/css/jquery/select2")
+#theme("/onegate/css/select2-custom")
+#theme("/onegate/css/workflow")
+#theme("/onegate/css/jquery/bootstrap-datetimepicker")
+#script("/js/onegate/bootstrap/plugins/bootstrap-datetimepicker.min.js")
+#script("/js/onegate/jquery/jquery-ui-1.9.2.min.js")
+#script("/js/onegate/jquery/plugins/jquery.jsPlumb.1.5.5.min.js")
+#script("/js/common/jquery/plugins/jquery.filter-input.min.js")
+#script("/js/common/inet/lib/select.min.js")
+#script("/js/common/inet/lib/grid-2.0.min.js")
+
+#script("/js/onegate/inet/lib/ionegate-wf-virtual.min.js")
+#script("/js/onegate/inet/lib/ionegate-superadmin-wf-design-search.min.js")
+#script("/js/onegate/inet/lib/ionegate-superadmin-wf-design-detail.min.js")
+#script("/js/onegate/inet/lib/ionegate-superadmin-wf-design-virtual.min.js")
+#script("/js/onegate/inet/lib/ionegate-superadmin-wf-design.min.js")
+
+<div id="div-wf-search" style="display: none">
+  <div class="wg-toolbar navbar-fixed-top">
+    <button id="btn-wf-create" class="btn btn-primary ">
+      <i class="icon-plus"></i> $text.getText("app.button.create")
+    </button>
+  </div>
+  <div class="wg-content">
+      <div id="basic-search">
+          <div class="row-fluid">
+              <div class="col-xs-12 col-sm-12 no-padding-left">
+                  <div class="col-xs-8 col-sm-8 no-padding-left">
+                      <select id="cbb-bs-industry" style="width: 100%">
+                          <option value="">$text.getText("onegate.admin.industry.select_all")</option>
+                          #foreach($group in $tree.children)
+                          <optgroup label="$group.industry">
+                              #foreach($procedure in $group.children)
+                              <option value="$procedure.industry" data-pattern="$procedure.pattern">
+                                  $procedure.industry
+                              </option>
+                              #end
+                          </optgroup>
+                          #end
+                      </select>
+                  </div>
+                  <div class="col-xs-4 col-sm-4 no-padding-left">
+                      <span class="ace-icon input-icon input-icon-right">
+                           <input id="txt-bs-keyword" type="text" placeholder='$text.getText("onegate.common.keyword")'/>
+                           <i class="ace-icon icon-search" data-action-search="search" title='$text.getText("onegate.button.search")'></i>
+                      </span>
+                  </div>
+              </div>
+          </div>
+      </div>
+      <div id="wf-grid-id"></div>
+  </div>
+</div>
+
+<div id="div-wf-detail" style="display: none">
+  <div id="wg-toolbar" class="wg-toolbar navbar-fixed-top">
+    <button id="btn-wf-detail-back" class="btn btn-primary ">
+			<i class="icon-arrow-left"></i> $text.getText("app.button.back")
+		</button>
+		<button id="btn-wf-detail-save" class="btn btn-success ">
+			<i class="icon-save"></i> $text.getText("app.button.save")
+		</button>
+  </div>
+  <div id="wg-content">
+		<div class="col-sm-12">
+			<form id="frm-wf-design-detail" class="form-horizontal">
+				<div class="row">
+		      <div class="alert alert-info col-xs-12 col-sm-12" style="padding:5px">
+		          <!--button id="procedure-info-collapse" type="button" class="close"><i class="icon-chevron-up"></i></button-->
+		          <strong><i class="icon-info-sign"></i> Thông tin thủ tục</strong>
+		          
+		      </div>
+		    </div>
+		    
+		    <div id="procedure-info-container">
+					<div class="row">
+						<div class="col-sm-12">
+							<div class="form-group">
+								<label class="control-label lbl-bold col-sm-2" for="txt-detail-subject">
+									$text.getText("onegate.admin.workflow.name") (<span class="required" />):
+								</label>
+								<div class="col-sm-10">
+									<input id="txt-detail-subject" class="form-control col-xs-12 col-sm-12" type="text">
+								</div>
+							</div>
+						</div>
+					</div>
+				
+					<div class="row">
+						<div class="col-sm-6">
+							<div class="form-group">
+								<label class="control-label lbl-bold col-sm-4" for="txt-detail-industry">
+									$text.getText("onegate.admin.procedure.industry") (<span class="required" />):
+								</label>
+								<div class="col-sm-8">
+									<input id="txt-detail-industry" class="form-control col-xs-12 col-sm-12" type="text">
+								</div>
+							</div>
+						</div>
+						<div class="col-sm-6">
+							<div class="form-group">
+								<label class="control-label lbl-bold col-sm-4" for="txt-detail-hour-date">
+									$text.getText("onegate.admin.workflow.time"):
+								</label>
+								<div class="col-sm-3">
+									<span class="input-group search">
+										<span class="input-group-btn">
+											<input id="txt-detail-hour-date" type="text" class="form-control number">
+											<button class="btn btn-default" type="button">$text.getText("onegate.admin.workflow.day")</button>
+										</span>
+									</span>
+								</div>
+								<div class="col-sm-3" style="padding-left: 40px;">
+									<span class="input-group search">
+										<span class="input-group-btn">
+											<select id="cbb-detail-hour-minute" class="col-sm-6 form-control">
+												<option value=0>0</option>
+												<option value=1>1</option>
+												<option value=2>2</option>
+												<option value=3>3</option>
+												<option value=4>4</option>
+												<option value=5>5</option>
+												<option value=6>6</option>
+												<option value=7>7</option>
+											</select>
+											<button class="btn btn-default" type="button">$text.getText("onegate.admin.workflow.hour")</button>
+										</span>
+									</span>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-sm-6">
+							<div class="form-group">
+								<label class="control-label lbl-bold col-sm-4" for="cbb-detail-xform">
+									$text.getText("onegate.admin.workflow.xform_l3"):
+								</label>
+								<div class="col-sm-8">
+									<select id="cbb-detail-xform" class="col-sm-12 no-padding">
+			                                  <option value="">---</option>
+			                                  #foreach($xform in $xformlist.items)
+			                                      #if($xform.wizard =="creation")
+			                                      <option value="$xform.uuid">$xform.modelName</option>
+			                                      #end
+			                                  #end
+									</select>
+								</div>
+							</div>
+						</div>
+						<div class="col-sm-6">
+							<div class="form-group">
+								<label class="control-label lbl-bold col-sm-4" for="cbb-detail-xform-ex">
+									$text.getText("onegate.admin.workflow.xform_ex"):
+								</label>
+								<div class="col-sm-8">
+									<select id="cbb-detail-xform-ex" class="col-sm-12 no-padding">
+			                                  <option value="">---</option>
+			                                  #foreach($xform in $xformlist.items)
+			                                  #if($xform.wizard =="creation")
+			                                  <option value="$xform.uuid">$xform.modelName</option>
+			                                  #end
+			                                  #end
+									</select>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+
+<div id="div-wf-virtual" style="display: none">
+	<div class="wg-toolbar navbar-fixed-top">
+		<button id="btn-wf-virtual-back" class="btn btn-primary ">
+			<i class="icon-arrow-left"></i> $text.getText("app.button.back")
+		</button>
+		<button id="btn-wf-virtual-add" class="btn btn-primary ">
+      <i class="icon-plus"></i> $text.getText("onegate.admin.workflow.add_node_btn")
+    </button>
+	</div>
+	<div class="wg-content">
+	<div class="col-xs-12 col-sm-12">
+		
+		<div id="workflow-procedure-info-container">
+			<div class="row">
+				<div class="col-sm-12">
+					<div class="form-group">
+						<label class="control-label lbl-bold col-sm-2" for="txt-procedure-subject">
+							$text.getText("onegate.admin.workflow.name") (<span class="required" />):
+						</label>
+						<div class="col-sm-10">
+							<input id="txt-procedure-subject" class="form-control col-xs-12 col-sm-12" type="text" readonly="readonly">
+						</div>
+					</div>
+				</div>
+			</div>
+		
+			<div class="row">
+				<div class="col-sm-6">
+					<div class="form-group">
+						<label class="control-label lbl-bold col-sm-4" for="txt-procedure-industry">
+							$text.getText("onegate.admin.procedure.industry") (<span class="required" />):
+						</label>
+						<div class="col-sm-8">
+							<input id="txt-procedure-industry" class="form-control col-xs-12 col-sm-12" type="text" readonly="readonly">
+						</div>
+					</div>
+				</div>
+				<div class="col-sm-6">
+					<div class="form-group">
+						<label class="control-label lbl-bold col-sm-4" for="txt-procedure-date">
+							$text.getText("onegate.admin.workflow.time"):
+						</label>
+						<div class="col-sm-3">
+							<span class="input-group search">
+								<span class="input-group-btn">
+									<input id="txt-procedure-date" type="text" class="form-control number" readonly="readonly">
+									<button class="btn btn-default" type="button">$text.getText("onegate.admin.workflow.day")</button>
+								</span>
+							</span>
+						</div>
+						<div class="col-sm-3" style="padding-left: 40px;">
+							<span class="input-group search">
+								<span class="input-group-btn">
+									<select id="cbb-procedure-hour" class="col-sm-6 form-control" disabled="disabled">
+										<option value=0>0</option>
+										<option value=1>1</option>
+										<option value=2>2</option>
+										<option value=3>3</option>
+										<option value=4>4</option>
+										<option value=5>5</option>
+										<option value=6>6</option>
+										<option value=7>7</option>
+									</select>
+									<button class="btn btn-default" type="button">$text.getText("onegate.admin.workflow.hour")</button>
+								</span>
+							</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+    <div class="widget-header widget-header-small row">
+			<h4 class="widget-title"> <i class="icon-random"></i> $text.getText("onegate.admin.workflow.title")</h4>
+
+			<div class="widget-toolbar">
+				<a id="workflow-design-resize" data-action="settings" href="#">
+					<i class="icon-resize-full"></i>
+				</a>
+
+				<a id="workflow-design-collapse" data-action="reload" href="#">
+					<i class="icon-th-list"></i>
+				</a>
+			</div>
+		</div>
+		
+		<div id="workflow-design-view" style="border: 1px solid rgb(229, 229, 229);" class="row">
+			<div class="demo statemachine-design col-sm-12" id="statemachine-design"
+				style="border-right: 2px solid rgb(229, 229, 229); min-height: 700px; overflow:auto;">
+      </div>
+      <div class="col-sm-3" id="statemachine-detail" style="display:none;">
+        <div class="col-sm-12" id="wf-node-detail" style="width: 100%; float: left; display:none;">
+	      	<form id="frm-node-detail">
+			     	<div id="div-node-detail" class="w-node-detail">
+			     		<div class="form-group">
+								<label for="txt-node-name" class="control-label">$text.getText("onegate.admin.node.name"): </label>
+								<input id="txt-node-name" class="form-control" type="text">
+							</div>
+							<div class="form-group">
+								<label for="txt-node-task-actor" class="control-label">
+									$text.getText("onegate.admin.node.actor"): </label>
+								<input id="txt-node-task-actor" type="text" style="width:100%;">
+							</div>
+							<div class="form-group">
+								<label for="cbb-node-type" class="control-label">$text.getText("onegate.admin.node.type"): </label>
+								<select id="cbb-node-type" class="form-control" disabled="disabled">
+									<option value="start">$text.getText("onegate.admin.node.type_start")</option>
+									<option value="work">$text.getText("onegate.admin.node.type_work")</option>
+									<option value="end">$text.getText("onegate.admin.node.type_end")</option>
+								</select>
+							</div>
+							<div class="form-group">
+								<label class="control-label" for="txt-node-time-date">$text.getText("onegate.admin.workflow.time"): </label>
+								<div style="border: medium none; padding-left: 0px; padding-right: 0px;" class="form-control">
+									<span class="input-group col-sm-3" style="float:left;">
+										<span class="input-group-btn">
+											<input id="txt-node-time-date" type="text" class="form-control number">
+											<button class="btn btn-default" type="button">$text.getText("onegate.admin.workflow.day")</button>
+										</span>
+									</span>
+									<span class="input-group col-sm-4" style="margin-left: 50px;float:left;">
+										<span class="input-group-btn">
+											<select id="cbb-node-time-hour" class="col-sm-6 form-control">
+												<option value=0>0</option>
+												<option value=1>1</option>
+												<option value=2>2</option>
+												<option value=3>3</option>
+												<option value=4>4</option>
+												<option value=5>5</option>
+												<option value=6>6</option>
+												<option value=7>7</option>
+											</select>
+											<button class="btn btn-default" type="button">$text.getText("onegate.admin.workflow.hour")</button>
+										</span>
+									</span>
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="cbb-node-inxform" class="control-label">$text.getText("onegate.admin.node.xform"): </label>
+								<select id="cbb-node-inxform" class="form-control"></select>
+							</div>
+						</div>
+						<button id="btn-wf-node-save" class="btn btn-success btn-sm" type="button">
+							<i class="icon-ok"></i> $text.getText("app.button.save")
+						</button>
+						<button id="btn-wf-node-del" class="btn btn-danger btn-sm" type="button">
+							<i class="icon-trash"></i> $text.getText("app.button.delete")
+						</button>
+					</form>
+				</div>
+	      
+	      <div class="col-sm-12" id="wf-connect-detail" style="width: 100%; float: left; display:none;">
+	      	<form id="frm-connection-detail" class="w-node-detail">
+		     		<div class="form-group">
+							<label for="txt-connect-name" class="control-label">$text.getText("onegate.admin.conn.name"): </label>
+							<input id="txt-connect-name" class="form-control" type="text">
+						</div>
+						<div>
+							<button id="btn-wf-connection-save" class="btn btn-success btn-sm" type="button">
+								<i class="icon-ok"></i> $text.getText("app.button.save")
+							</button>
+							<button id="btn-wf-connection-del" class="btn btn-danger btn-sm" type="button">
+								<i class="icon-trash"></i> $text.getText("app.button.delete")
+							</button>
+						</div>
+					</form>
+	      </div>
+      </div>
+    </div>
+		</div>
+	</div>
+</div>

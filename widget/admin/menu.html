@@ -1,0 +1,32 @@
+<a id="imenu-toggler" href="javascript:;"><span></span></a>
+<div id="sidebar" class="fixed">
+    <div id="sidebar-shortcuts">
+    </div>
+    <ul class="nav nav-list">
+        <li>
+            <a href="javascript:;" class="dropdown-toggle"><i class="icon-cogs"></i> <span class="menu-text"> $text.getText("onegate.admin.title") </span><b class="arrow icon-angle-down"> </b></a>
+            <ul class="submenu">
+                <!--li id="admin-menu-stc" class="active"><a href='javascript:;' data-url="$ctx.xaction('onegate/page/admin/statistics')"><i class="icon-dashboard"></i> <span>$text.getText("onegate.admin.menu.statistics")</span></a></li-->
+                <li id="admin-menu-users" class="active"><a href='javascript:;' data-url="$ctx.xaction('onegate/page/admin/users')"><i class="icon-group"></i> <span>$text.getText("onegate.admin.menu.organize_users")</span></a></li>
+                <li id="admin-menu-procedure" class="" onclick="javascript:;"><a href='javascript:;' data-url="$ctx.xaction('onegate/page/admin/procedure')"><i class="icon-book"></i> <span>$text.getText("onegate.admin.menu.procedure")</span></a></li>
+                <li id="admin-menu-holiday" class="" onclick="javascript:;"><a href='javascript:;' data-url="$ctx.xaction('onegate/page/admin/holiday')"><i class="icon-calendar"></i> <span>$text.getText("onegate.admin.menu.holiday")</span></a></li>
+                <li id="admin-menu-payment-config" class="" onclick="javascript:;"><a href='javascript:;' data-url="$ctx.xaction('onegate/page/admin/payment-config')"><i class="icon-credit-card"></i> <span>$text.getText("onegate.admin.menu.payment")</span></a></li>
+            </ul>
+        </li>
+        <li id="workflow">
+            <a href="javascript:;"> <i class="icon-vk"></i> <span>$text.getText("onegate.admin.menu.workflow")</span><b class="arrow icon-angle-down"> </b></a>
+            <ul class="submenu">
+                <li id="admin-menu-workflow-wf"><a href="javascript:;" data-url="$ctx.xaction('onegate/page/admin/workflow-procedure')"> <i class="icon-random"> </i><span>$text.getText("onegate.admin.menu.workflow")</span></a></li>
+                <li id="admin-menu-workflow-actor"><a href="javascript:;" data-url="$ctx.xaction('onegate/page/admin/workflow-actor')"> <i class="icon-trello"> </i><span>$text.getText("onegate.admin.menu.workflow_alias")</span></a></li>
+            </ul>
+        </li>
+        #hasRole("$firm_receiver")
+        <li id="receiver">
+            <a href="$ctx.xaction('onegate/page/receiver/index')"> <i class="icon-briefcase"></i> <span>$text.getText("onegate.receiver.title")</span></a>
+        </li>
+        #end
+    </ul>
+    <div id="sidebar-collapse">
+        <i class="icon-double-angle-left"></i>
+    </div>
+</div>

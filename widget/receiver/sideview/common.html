@@ -1,0 +1,38 @@
+#theme("/common/css/inet-core-3.0.min")
+#theme("/common/css/font-awesome")
+#theme("/common/css/jquery/jquery.pnotify")
+#theme("/common/css/grid.min")
+#theme("/onegate/css/bootstrap-modal-bs3patch")
+#theme("/onegate/css/bootstrap-modal")
+#theme("/onegate/css/onegate")
+#theme("/onegate/css/list")
+#theme("/imetadata/css/icons")
+
+#script("/js/onegate/bootstrap/bootstrap3.min.js")
+#script("/js/onegate/inet/lib/modal-bootstrap.min.js")
+#script("/js/onegate/jquery/plugins/jquery.slimscroll.min.js")
+#script("/js/onegate/jquery/plugins/jquery.timeago.min.js")
+#script("/js/common/inet/lib/inet-core.min.js")
+#script("/js/common/inet/lib/inet-ui.min.js")
+#script("/js/common/inet/lib/inet-utilities.min.js")
+#script("/js/onegate/inet/lib/ionegate-namespace.min.js")
+#script("::common/page/resources/common-zone")
+#script("::onegate/page/resources/common/common-zone")
+#script("::onegate/page/resources/receiver/receiver-zone")
+#script("/js/onegate/inet/lib/ionegate-utils.min.js")
+#script("/js/onegate/inet/lib/ionegate-ui.min.js")
+#script("/js/common/inet/lib/grid-2.0.min.js")
+
+#set($lside = "col-sm-3")
+#set($rside = "col-sm-9")
+#set($fside = "col-sm-12")
+#xscript()
+	iNet.prefix="$ctx.site.prefix";
+	iNet.extension = "$ctx.extension()";
+	iNet.path = "$ctx.path()";
+	#if($ctx.pattern)
+	iNet.pattern = "$ctx.pattern";
+	#end
+	iNet.serverDate = new Date();
+
+#end

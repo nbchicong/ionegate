@@ -1,0 +1,1720 @@
+html,div,map,dt,isindex,form {
+	display: block;
+}
+
+#result {
+	float: left;
+	margin: 0px 2px 0px 3px;
+	width: 760px;
+}
+#result_wide {
+  float: left;
+  margin: 0px 2px 0px 3px;
+  width: 994px;
+}
+#category {
+	float: right;
+	margin-right:3px;
+}
+
+#top_views {
+	background-image: url("../../images/onegate/top_views.gif");
+	float: left;
+	font-family: Tahoma, Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	font-size-adjust: none;
+	font-stretch: normal;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: bold;
+	height: 32px;
+	line-height: normal;
+	width: 760px;
+}
+#top_views_wide {
+  background-image: url("../../images/onegate/top_views_wide.gif");
+  float: left;
+  font-family: Tahoma, Arial, Helvetica, sans-serif;
+  font-size: 11px;
+  font-size-adjust: none;
+  font-stretch: normal;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: bold;
+  height: 32px;
+  line-height: normal;
+  width: 994px;
+}
+#content_view {
+	background-attachment: scroll;
+	background-color: #FFFFFF;
+	background-image: none;
+	background-position: 0 0;
+	background-repeat: repeat;
+	border-left-color: #959595;
+	border-left-style: solid;
+	border-left-width: 1px;
+	border-right-color: #959595;
+	border-right-style: solid;
+	border-right-width: 1px;
+	float: left;
+	font-family: Arial, Helvetica, sans-serif;
+	width: 758px;
+}
+#content_view_wide {
+  background-attachment: scroll;
+  background-color: #FFFFFF;
+  background-image: none;
+  background-position: 0 0;
+  background-repeat: repeat;
+  border-left-color: #959595;
+  border-left-style: solid;
+  border-left-width: 1px;
+  border-right-color: #959595;
+  border-right-style: solid;
+  border-right-width: 1px;
+  float: left;
+  font-family: Arial, Helvetica, sans-serif;
+  width: 992px;
+}
+.hotnews {
+	color: #C81D31;
+	float: left;
+	font-family: Tahoma, Arial;
+	font-size: 12px;
+	font-size-adjust: none;
+	font-stretch: normal;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: bold;
+	line-height: normal;
+	padding-bottom: 5px;
+	padding-left: 10px;
+	padding-right: 0;
+	padding-top: 10px;
+	text-align: left;
+	text-transform: uppercase;
+	vertical-align: middle;
+}
+.news-detail-message p{
+	margin-bottom: 10px;
+}
+.line_result_bg {
+	background-attachment: scroll;
+	background-image: url("../../images/onegate/line_result.gif");
+	background-position: left top;
+	background-repeat: repeat-x;
+	float: left;
+	height: 32px;
+	margin-left: 10px;
+	margin-right: 10px;
+	margin-top: 10px;
+}
+
+.search_result {
+	color: #004D8C;
+	font-family: Tahoma, Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-size-adjust: none;
+	font-stretch: normal;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: normal;
+	line-height: normal;
+	padding-bottom: 5px;
+	padding-left: 10px;
+	padding-right: 10px;
+	padding-top: 8px;
+	text-align: left;
+	text-transform: none;
+}
+
+.search_result span {
+	-x-system-font: none;
+	color: #C2070C;
+	font-family: Tahoma, Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-size-adjust: none;
+	font-stretch: normal;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: bold;
+	line-height: normal;
+}
+
+#porlet_subnews {
+	background-attachment: scroll;
+	background-color: #FFFFFF;
+	background-image: none;
+	background-position: 0 0;
+	background-repeat: repeat;
+	width: 750px;
+}
+
+#porlet_subnews h2,em {
+	font-weight: 700;
+}
+
+#proc_content {
+	background-attachment: scroll;
+	background-color: #FFFFFF;
+	background-image: none;
+	background-position: 0 0;
+	background-repeat: repeat;
+	width: 738px;
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+#proc_content blockquote {
+	margin-left: 20px;
+}
+
+#eform_content {
+	background-attachment: scroll;
+	background-color: #FFFFFF;
+	background-image: none;
+	background-position: 0 0;
+	background-repeat: repeat;
+	width: 740px;
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+#proc_download h2 {
+	color: #C81D31;
+	font-weight: bold;
+}
+
+#tbl_result {
+	margin-top: 5px;
+}
+
+#tbl_result th {
+	font: bold 13px Tahoma;
+	height: 30px;
+}
+
+#tbl_result tbody tr td a {
+	color: black;
+}
+
+#tbl_result td {
+	padding: 3px;
+}
+
+#tbl_result tbody tr {
+	line-height: 17px !important;
+}
+
+#tbl_result tbody tr:hover {
+	background-color: #FFFFDD !important;
+}
+
+#tbl_result tbody tr td a:hover { /*color: blue;*/
+	text-decoration: none;
+	cursor: pointer;
+}
+.tbl_result_light {
+  font: 12px Tahoma;
+  background-color: rgb(255, 255, 225);
+}
+
+.tbl_result_gray {
+  font: 12px Tahoma;
+  background-color: rgb(255, 255, 255);
+}
+.tbl_result_property {
+  font: 12px Tahoma;
+  font-weight: bold;
+  background-color: rgb(255, 255, 255);
+  color: black;
+}
+#div_pages {
+	background-attachment: scroll;
+	background-color: #FFFFFF;
+	background-image: none;
+	background-position: 0 0;
+	background-repeat: repeat;
+	float: left;
+	border-left: 1px solid #959595;
+	border-right: 1px solid #959595;
+	width: 758px;
+}
+
+.pagination {
+	color: #000000;
+	font-family: Georgia, "Times New Roman", Times, serif;
+	font-size: 11px;
+	font-size-adjust: none;
+	font-stretch: normal;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: normal;
+	line-height: normal;
+	margin-bottom: 0;
+	padding-bottom: 2px;
+	padding-left: 2px;
+	padding-right: 2px;
+	padding-top: 2px;
+}
+
+.pagination ul {
+	margin-bottom: 0;
+	margin-left: 0;
+	margin-right: 0;
+	margin-top: 0;
+	padding-bottom: 0;
+	padding-left: 0;
+	padding-right: 0;
+	padding-top: 5px;
+	text-align: center;
+}
+
+.pagination li {
+	color: #000000;
+	display: inline;
+	font-family: Arial, Tahoma, Arial;
+	font-size: 12px;
+	font-size-adjust: none;
+	font-stretch: normal;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: normal;
+	line-height: normal;
+	list-style-type: none;
+	padding-bottom: 1px;
+}
+
+.pagination a,.pagination a:visited {
+	border-bottom-color: #D7D7D7;
+	border-bottom-style: solid;
+	border-bottom-width: 1px;
+	border-left-color: #D7D7D7;
+	border-left-style: solid;
+	border-left-width: 1px;
+	border-right-color: #D7D7D7;
+	border-right-style: solid;
+	border-right-width: 1px;
+	border-top-color: #D7D7D7;
+	border-top-style: solid;
+	border-top-width: 1px;
+	color: #000000;
+	padding-bottom: 0;
+	padding-left: 5px;
+	padding-right: 5px;
+	padding-top: 0;
+	text-decoration: none;
+}
+
+.pagination a:hover,.pagination a:active {
+	background-color: #881C1C;
+	border-bottom-color: #D7D7D7;
+	border-bottom-style: solid;
+	border-bottom-width: 1px;
+	border-left-color: #D7D7D7;
+	border-left-style: solid;
+	border-left-width: 1px;
+	border-right-color: #D7D7D7;
+	border-right-style: solid;
+	border-right-width: 1px;
+	border-top-color: #D7D7D7;
+	border-top-style: solid;
+	border-top-width: 1px;
+	color: #FFFFFF;
+}
+
+.pagination li.currentpage {
+	background-color: #900A0A;
+	border-bottom-color: #D7D7D7;
+	border-bottom-style: solid;
+	border-bottom-width: 1px;
+	border-left-color: #D7D7D7;
+	border-left-style: solid;
+	border-left-width: 1px;
+	border-right-color: #D7D7D7;
+	border-right-style: solid;
+	border-right-width: 1px;
+	border-top-color: #D7D7D7;
+	border-top-style: solid;
+	border-top-width: 1px;
+	color: #FFFFFF;
+	padding-bottom: 0;
+	padding-left: 5px;
+	padding-right: 5px;
+	padding-top: 0;
+}
+
+.pagination li.disablepage {
+	border-bottom-color: #D7D7D7;
+	border-bottom-style: solid;
+	border-bottom-width: 1px;
+	border-left-color: #D7D7D7;
+	border-left-style: solid;
+	border-left-width: 1px;
+	border-right-color: #D7D7D7;
+	border-right-style: solid;
+	border-right-width: 1px;
+	border-top-color: #D7D7D7;
+	border-top-style: solid;
+	border-top-width: 1px;
+	color: #2B2B2B;
+	padding-bottom: 0;
+	padding-left: 5px;
+	padding-right: 5px;
+	padding-top: 0;
+}
+
+.pagination li.nextpage {
+	color: #000000;
+	font-family: Arial, Tahoma, Arial;
+	font-size: 12px;
+	font-size-adjust: none;
+	font-stretch: normal;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: normal;
+	line-height: normal;
+}
+
+#bottom_porlet_views {
+	background-image: url("../../images/onegate/bottomporlet.gif");
+	height: 22px;
+	margin-bottom: 10px;
+}
+#bottom_porlet_views_wide {
+  background-image: url("../../images/onegate/bottomporlet_wide.gif");
+  height: 22px;
+  margin-bottom: 10px;
+}
+.topic_category {
+	background-attachment: scroll;
+	background-color: transparent;
+	background-image: url("../../images/onegate/bgtopic_porlet.gif");
+	background-position: 0 0;
+	background-repeat: no-repeat;
+	height: 37px;
+	width: 230px;
+}
+
+#topic_video {
+	-moz-background-clip: border;
+	-moz-background-origin: padding;
+	-moz-background-size: auto auto;
+	background-attachment: scroll;
+	background-color: transparent;
+	background-image: url("../../images/onegate/bgtopic_porlet.gif");
+	background-position: 0 0;
+	background-repeat: no-repeat;
+	height: 33px;
+	width: 230px;
+}
+
+.topic_video {
+	-x-system-font: none;
+	color: #FFFFFF;
+	float: left;
+	font-family: Tahoma, Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	font-size-adjust: none;
+	font-stretch: normal;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: bold;
+	line-height: 25px;
+	text-align: left;
+	text-transform: none;
+	vertical-align: middle;
+}
+
+.topic_video a {
+	color: #FFFFFF;
+	text-decoration: none;
+}
+
+.topic_video a:hover {
+	color: #FBCA09;
+	text-decoration: none;
+}
+
+.topic_video p {
+	padding-bottom: 5px;
+	padding-left: 10px;
+	padding-right: 0;
+	padding-top: 3px;
+}
+
+#bgmidporlet {
+	background-attachment: scroll;
+	background-color: transparent;
+	background-image: url("../../images/onegate/bgmid_topic.gif");
+	width: 230px;
+}
+
+.chinhquyen_hotnews ul {
+	color: #004D8C;
+	font-family: Tahoma, Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	font-size-adjust: none;
+	font-stretch: normal;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: bold;
+	line-height: normal;
+	list-style-type: none;
+	margin-bottom: 0;
+	margin-left: 0;
+	margin-right: 0;
+	margin-top: 0;
+	padding-bottom: 0;
+	padding-left: 5px;
+	padding-right: 0;
+	padding-top: 0;
+}
+
+.chinhquyen_hotnews li {
+	background-image: url("../../images/onegate/icon_news.gif");
+	background-position: 6px 9px;
+	background-repeat: no-repeat;
+	color: #004D8C;
+	font-family: Tahoma, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-size-adjust: none;
+	font-stretch: normal;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: bold;
+	line-height: normal;
+	list-style-image: none;
+	margin-bottom: 0;
+	margin-left: 0;
+	margin-right: 0;
+	margin-top: 0;
+	padding-bottom: 5px;
+	padding-left: 20px;
+	padding-right: 5px;
+	padding-top: 5px;
+	text-indent: 0;
+	vertical-align: middle;
+}
+
+.chinhquyen_hotnews li a {
+	color: #004D8C;
+	font-family: Tahoma, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-size-adjust: none;
+	font-stretch: normal;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: bold;
+	line-height: normal;
+	text-decoration: none;
+}
+
+.chinhquyen_hotnews li a:hover {
+	color: #B0080E;
+	text-decoration: underline;
+}
+
+.block_hotnews ul {
+	color: #004D8C;
+	font-family: Tahoma, Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	font-size-adjust: none;
+	font-stretch: normal;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: bold;
+	line-height: normal;
+	list-style-type: none;
+	margin-bottom: 0;
+	margin-left: 0;
+	margin-right: 0;
+	margin-top: 0;
+	padding-bottom: 0;
+	padding-left: 5px;
+	padding-right: 0;
+	padding-top: 0;
+}
+
+.block_hotnews li {
+	background-image: url("../../images/onegate/icon_subnews.gif");
+	background-position: 3px 7px;
+	background-repeat: no-repeat;
+	color: #004D8C;
+	font-family: Tahoma, Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	font-size-adjust: none;
+	font-stretch: normal;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: bold;
+	line-height: normal;
+	list-style-image: none;
+	margin-bottom: 0;
+	margin-left: 0;
+	margin-right: 0;
+	margin-top: 0;
+	padding-bottom: 5px;
+	padding-left: 20px;
+	padding-right: 5px;
+	padding-top: 5px;
+	text-indent: 0;
+	vertical-align: middle;
+}
+
+.block_hotnews li a {
+	color: #004D8C;
+	font-family: Tahoma, Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	font-size-adjust: none;
+	font-stretch: normal;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: bold;
+	line-height: normal;
+	text-decoration: none;
+}
+
+.block_hotnews li a:hover {
+	color: #B0080E;
+	text-decoration: underline;
+}
+
+#bgbottom_topic {
+	background-attachment: scroll;
+	background-color: transparent;
+	background-image: url("../../images/onegate/bgbottom_topic.gif");
+	background-position: 0 0;
+	background-repeat: repeat;
+	height: 23px;
+	margin-bottom: 10px;
+}
+
+/***************RECENTLY***************/
+#header_topic_1 {
+	background-image: url("../../images/onegate/topicporlet_1.gif");
+	color: #000000;
+	float: left;
+	font-family: Tahoma, Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	font-size-adjust: none;
+	font-stretch: normal;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: bold;
+	height: 37px;
+	line-height: normal;
+	padding-bottom: 0;
+	padding-left: 0;
+	padding-right: 0;
+	padding-top: 0;
+	text-align: justify;
+	text-transform: uppercase;
+	width: 200px;
+}
+
+.header_topic_1 {
+	color: #FFFFFF;
+	float: left;
+	font-family: Tahoma, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	font-size-adjust: none;
+	font-stretch: normal;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: bold;
+	line-height: normal;
+	padding-bottom: 5px;
+	padding-left: 10px;
+	padding-right: 0;
+	padding-top: 10px;
+	text-align: left;
+	text-transform: uppercase;
+	vertical-align: middle;
+}
+
+.header_topic_1 a {
+	color: #FFFFFF;
+	text-decoration: none;
+}
+
+#header_topic_2 {
+	background-image: url("../../images/onegate/topicporlet_2.gif");
+	float: left;
+	height: 37px;
+	width: 551px;
+}
+
+.header_topic_2 {
+	color: #FFFFFF;
+	float: right;
+	padding-bottom: 5px;
+	padding-left: 10px;
+	padding-right: 0;
+	padding-top: 8px;
+	text-align: right;
+	text-transform: uppercase;
+	vertical-align: middle;
+}
+
+#header_topic_3 {
+	background-image: url("../../images/onegate/topicporlet_3.gif");
+	float: left;
+	height: 37px;
+	width: 9px;
+}
+
+.content_titlenews a,.content_titlenews_first a {
+	font-family: Tahoma, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-size-adjust: none;
+	font-stretch: normal;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: bold;
+	line-height: normal;
+	text-decoration: none;
+	color: #BB0E17;
+}
+.content_titlenews_first a{
+  color: #C81D31;
+}
+.content_titldetail {
+	color: #C81D31;
+	font-family: Tahoma, Arial, Helvetica, sans-serif;
+	font-size: 16px;
+	font-size-adjust: none;
+	font-stretch: normal;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: bold;
+	line-height: normal;
+	text-decoration: none;
+}
+.content_summary {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+.title_reference a {
+	color: inherit;
+	font-family: Tahoma, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-size-adjust: none;
+	font-stretch: normal;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: bold;
+	line-height: normal;
+	text-decoration: none;
+}
+
+.quickview_more a {
+	color: #C81D31;
+	font-family: Tahoma, Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	font-size-adjust: none;
+	font-stretch: normal;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: bold;
+	line-height: normal;
+	text-decoration: none;
+}
+
+.recently_hotnews ul {
+	color: #004D8C;
+	font-family: Tahoma, Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	font-size-adjust: none;
+	font-stretch: normal;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: bold;
+	line-height: normal;
+	list-style-type: none;
+	margin-bottom: 0;
+	margin-left: 0;
+	margin-right: 0;
+	margin-top: 0;
+	padding-bottom: 0;
+	padding-left: 5px;
+	padding-right: 0;
+	padding-top: 0;
+}
+
+.recently_hotnews li {
+	background-image: url("../../images/onegate/icon_news.gif");
+	background-position: 3px 7px;
+	background-repeat: no-repeat;
+	color: #004D8C;
+	font-family: Tahoma, Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	font-size-adjust: none;
+	font-stretch: normal;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: bold;
+	line-height: normal;
+	list-style-image: none;
+	margin-bottom: 0;
+	margin-left: 0;
+	margin-right: 0;
+	margin-top: 0;
+	padding-bottom: 5px;
+	padding-left: 15px;
+	padding-right: 5px;
+	padding-top: 5px;
+	text-indent: 0;
+	vertical-align: middle;
+}
+
+.recently_hotnews li a {
+	color: #004D8C;
+	font-family: Tahoma, Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	font-size-adjust: none;
+	font-stretch: normal;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: bold;
+	line-height: normal;
+	text-decoration: none;
+}
+
+#bottom_porlet {
+	background-image: url("../../images/onegate/bottomporlet.gif");
+	height: 22px;
+	margin-bottom: 10px;
+}
+
+.more_video {
+	color: #DC1301;
+	font-family: Tahoma, Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	font-size-adjust: none;
+	font-stretch: normal;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: bold;
+	line-height: 18px;
+	margin-bottom: 0;
+	margin-left: 0;
+	margin-right: 0;
+	margin-top: 0;
+	padding-right: 10px;
+	text-align: right;
+}
+
+.more_video a {
+	color: #DC1301;
+	font-family: Tahoma, Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	font-size-adjust: none;
+	font-stretch: normal;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: bold;
+	line-height: normal;
+	text-decoration: none;
+}
+
+.border_imgnews {
+	border-bottom-color: #CCCCCC;
+	border-bottom-style: solid;
+	border-bottom-width: 1px;
+	border-left-color: #CCCCCC;
+	border-left-style: solid;
+	border-left-width: 1px;
+	border-right-color: #CCCCCC;
+	border-right-style: solid;
+	border-right-width: 1px;
+	border-top-color: #CCCCCC;
+	border-top-style: solid;
+	border-top-width: 1px;
+	display: inline;
+	float: left;
+	height: 75px;
+	margin-bottom: 10px;
+	margin-left: 10px;
+	margin-right: 10px;
+	margin-top: 15px;
+	padding-bottom: 2px;
+	padding-left: 2px;
+	padding-right: 2px;
+	padding-top: 2px;
+	width: 120px;
+}
+
+/*************Step Flow*********************/
+#step-flow {
+	background-attachment: scroll;
+	background-color: #EFEFEF;
+	background-image: none;
+	background-position: 0 0;
+	background-repeat: repeat;
+	border-bottom-color: #FFFFFF;
+	border-bottom-style: solid;
+	border-bottom-width: 1px;
+	border-left-color-ltr-source: physical;
+	border-left-color-rtl-source: physical;
+	border-left-color-value: #FFFFFF;
+	border-left-style-ltr-source: physical;
+	border-left-style-rtl-source: physical;
+	border-left-style-value: solid;
+	border-left-width-ltr-source: physical;
+	border-left-width-rtl-source: physical;
+	border-left-width-value: 1px;
+	border-right-color-ltr-source: physical;
+	border-right-color-rtl-source: physical;
+	border-right-color-value: #FFFFFF;
+	border-right-style-ltr-source: physical;
+	border-right-style-rtl-source: physical;
+	border-right-style-value: solid;
+	border-right-width-ltr-source: physical;
+	border-right-width-rtl-source: physical;
+	border-right-width-value: 1px;
+	border-top-color: #FFFFFF;
+	border-top-style: solid;
+	border-top-width: 1px;
+	color: #999999;
+	height: 26px;
+	line-height: 26px;
+	margin-bottom: 15px;
+	margin-left: 10px;
+	margin-right: 10px;
+}
+
+#step-menu-form {
+	background-attachment: scroll;
+	background-color: transparent;
+	background-image: url("../../images/onegate/step-bg-news.gif");
+	background-position: 0 0;
+	background-repeat: no-repeat;
+	color: #999999;
+	height: 26px;
+	line-height: 26px;
+	margin-bottom: 10px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 10px;
+	width: 747px;
+}
+
+#step-flow ul li,#step-menu-form ul li {
+	background-attachment: scroll;
+	background-color: transparent;
+	background-image: url("../../images/onegate/step-bg-news.gif");
+	background-position: 100% 100%;
+	background-repeat: no-repeat;
+	float: left;
+	height: 26px;
+	margin-top: 0px;
+	list-style-image: none;
+	list-style-position: outside;
+	list-style-type: none;
+	text-align: center;
+}
+
+#step-three {
+	margin-top: 0px;
+	padding-left: 0px;
+}
+
+#step-three li {
+	width: 33.3%;
+}
+
+#step-four li {
+	width: 25%;
+}
+
+#step-five li {
+	width: 20%;
+}
+
+#step-flow .active,#step-menu-form .active {
+	background-attachment: scroll;
+	background-color: transparent;
+	background-image: url("../../images/onegate/step-bg-news.gif");
+	background-position: 100% 0;
+	background-repeat: no-repeat;
+	color: #FFFFFF;
+	font-weight: bold;
+}
+
+#step-flow .active-last,#step-menu-form .active-last {
+	background-attachment: scroll;
+	background-color: #FF9600;
+	background-image: none;
+	background-position: 0 0;
+	background-repeat: repeat;
+	color: #FFFFFF;
+	font-weight: bold;
+}
+
+#step-flow .previous,#step-menu-form .previous {
+	background-attachment: scroll;
+	background-color: transparent;
+	background-image: url("images/step-bg-news.gif");
+	background-position: 100% -26px;
+	background-repeat: no-repeat;
+}
+
+#step-flow .last {
+	background-attachment: scroll;
+	background-color: transparent;
+	background-image: none;
+	background-position: 0 0;
+	background-repeat: repeat;
+}
+
+/*********************STEP IBS*********************************/
+.ibstepmain {
+	font-size: 11px;
+	line-height: 13px;
+	height: 30px;
+	margin: 15px 0 10px 30px;
+}
+
+.clearfix {
+	display: block;
+}
+
+.ibstepmain .ibstep {
+	background: url("../../images/onegate/step.gif") no-repeat scroll center
+		bottom transparent;
+	float: left;
+	height: 35px;
+	margin-left: -7px;
+	width: 230px;
+}
+
+.ibstepmain .ibstepactive {
+	background: url("../../images/onegate/step.gif") no-repeat scroll center
+		top transparent;
+}
+
+.ibstepmain .ibstep1 {
+	background: url("../../images/onegate/step1.gif") no-repeat scroll center
+		bottom transparent;
+}
+
+.ibstepmain .ibstep1active {
+	background: url("../../images/onegate/step1.gif") no-repeat scroll center
+		top transparent;
+}
+
+.ibstepmain .ibstep span {
+	display: block;
+	float: left;
+	padding: 10px 0 0 15px;
+	width: 45px;
+}
+
+.ibstepmain .ibstep1active span {
+	color: #FFFFFF;
+	padding: 10px 0 0 15px;
+}
+
+.ibstepmain .ibstepactive span {
+	color: #FFFFFF;
+	padding: 10px 0 0 15px;
+}
+
+.ibstepmain .ibstep .intruct {
+	color: #333333;
+	float: right;
+	font-weight: 700;
+	font-size: 12px;
+	padding: 9px 5px 5px 5px;
+	width: 160px;
+}
+
+.ibstepmain .ibstep1active .intruct {
+	color: #FFFFFF;
+	width: 160px;
+	padding: 9px 5px 5px 5px;
+	font-size: 14px;
+	font-weight: bold;
+}
+
+.ibstepmain .ibstepactive .intruct {
+	color: #FFFFFF;
+	width: 160px;
+	padding: 9px 5px 5px 5px;
+	font-size: 14px;
+	font-weight: bold;
+}
+
+/****************************RECORD DETAIL*********************/
+#record_detail {
+	margin-left: 10px;
+	margin-right: 10px;
+	padding-top: 5px;
+}
+
+#record_detail h4 {
+	font-family: Tahoma;
+	font-size: 12pt;
+	font-weight: bold;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	color: #2854b8;
+}
+
+#tbl_record_detail th {
+	text-align: left;
+	font-size: 11pt;
+	font-weight: bold;
+	padding-left: 20px;
+	vertical-align: top;
+}
+
+#tbl_record_detail .authkey {
+	border-color: black;
+	border-style: none solid solid;
+	border-width: 0 1px 1px;
+	color: #FE5F17;
+	font-size: 29px;
+	font-weight: 800;
+	height: 50px;
+	text-align: center;
+	vertical-align: middle;
+}
+
+#tbl_record_detail .authkey-title {
+	background-color: #F1F1F1;
+	border-color: -moz-use-text-color;
+	border-style: solid solid none;
+	border-width: 1px 1px 0;
+	font-size: 20px;
+	font-weight: 700;
+	height: 30px;
+	text-align: center;
+	vertical-align: middle;
+}
+
+#tbl_record_detail .note {
+	color: #333333;
+	font-size: 15px;
+	padding-left: 10px;
+	padding-right: 10px;
+	text-align: justify;
+}
+
+.block-info {
+	border-bottom: 1px solid #CCCCCC;
+	border-top: 4px solid #CCCC00;
+	color: #333333;
+	margin: 0 0 1px;
+	padding: 5px 0;
+}
+
+.statistic_firm {
+	color: #C81D31;
+	font-size: 15px;
+	font-weight: bold;
+	text-align: center;
+}
+/*************************** RECEIPT PRINT ************************/
+#input_authkey .button {
+	background: none repeat scroll 0 0 #B90834;
+	border-color: #F19EB2 #920728 #920728 #F19EB2;
+	border-style: solid;
+	border-width: 1px;
+	color: #FFFFFF;
+	cursor: pointer;
+	font-size: 120%;
+	font-weight: bold;
+	padding: 2px 10px;
+	right: auto;
+	text-transform: uppercase;
+	width: auto;
+}
+
+#input_authkey .textbox {
+	background: none repeat scroll 0 0 #EBEBEB;
+	border: 1px solid #C2C2C2;
+	display: block;
+	margin: 3px 0 0;
+	padding: 0px 3px 3px 4px;
+	width: 200px;
+	margin-top: 0px;
+	height: 21px;
+}
+/*************************** FAQ QUESTION *********************/
+#faq_question {
+	padding-left: 10px;
+	padding-right: 10px;
+	padding-top: 1px;
+	margin-bottom: -30px;
+}
+
+#faq_question h2,em {
+	font-weight: 700;
+}
+
+.personinfo {
+	color: #336699;
+	font-family: Tahoma;
+	font-size: 11px;
+	font-weight: bold;
+}
+
+.questioninfo {
+	color: #C81D31;
+	font-family: Tahoma;
+	font-size: 11px;
+	font-weight: bold;
+}
+
+.questioninfo a {
+	color: #C81D31;
+	font-family: Tahoma;
+	font-size: 11px;
+	font-weight: bold;
+}
+
+.as_title {
+	font-size: 1.2em;
+	margin-top: 0.7em;
+	color: #336699;
+	font-weight: bold;
+}
+
+/*************************** PROCEDURE QUESTION *********************/
+.border_box {
+	border-bottom-color: #9C9C9C;
+	border-bottom-style: solid;
+	border-bottom-width: 1px;
+	border-left-color: #9C9C9C;
+	border-left-style: solid;
+	border-left-width: 1px;
+	border-right-color: #9C9C9C;
+	border-right-style: solid;
+	border-right-width: 1px;
+	border-top-color: #9C9C9C;
+	border-top-style: solid;
+	border-top-width: 1px;
+}
+
+.field_search_pro {
+	color: #004D8C;
+	font-weight: bold;
+}
+
+/*************************** TOP TOPIC ************************/
+.top_topic {
+	background-attachment: scroll;
+	background-color: transparent;
+	background-image: url("../../images/onegate/bgtop_topic_title.gif");
+	background-position: 0 0;
+	background-repeat: no-repeat;
+	height: 37px;
+	width: 320px;
+}
+
+#top_topic_title {
+	background-attachment: scroll;
+	background-color: transparent;
+	background-image: url("../../images/onegate/bgtop_topic_title.gif");
+	background-position: 0 0;
+	background-repeat: no-repeat;
+	height: 33px;
+	width: 320px;
+}
+
+.top_topic_title {
+	color: #FFFFFF;
+	float: left;
+	font-family: Tahoma, Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	font-size-adjust: none;
+	font-stretch: normal;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: bold;
+	line-height: normal;
+	text-align: left;
+	text-transform: none;
+	vertical-align: middle;
+}
+
+.top_topic_title a {
+	color: #FFFFFF;
+	text-decoration: none;
+}
+
+.top_topic_title a:hover {
+	color: #FBCA09;
+	text-decoration: none;
+}
+
+.top_topic_title p {
+	padding-bottom: 5px;
+	padding-left: 10px;
+	padding-right: 0;
+	padding-top: 3px;
+}
+
+#top_topic_content {
+	background-attachment: scroll;
+	background-color: transparent;
+	background-image: url("../../images/onegate/bgmid_top_topic.gif");
+}
+
+.top_topic_news ul {
+	color: #004D8C;
+	font-family: Tahoma, Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	font-size-adjust: none;
+	font-stretch: normal;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: bold;
+	line-height: normal;
+	list-style-type: none;
+	margin-bottom: 0;
+	margin-left: 0;
+	margin-right: 0;
+	margin-top: 0;
+	padding-bottom: 0;
+	padding-left: 5px;
+	padding-right: 0;
+	padding-top: 0;
+}
+
+.top_topic_news li {
+	background-image: url("../../images/onegate/dot.gif");
+	background-position: 3px 7px;
+	background-repeat: no-repeat;
+	color: #004D8C;
+	font-family: Tahoma, Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	font-size-adjust: none;
+	font-stretch: normal;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: bold;
+	line-height: normal;
+	list-style-image: none;
+	margin-bottom: 0;
+	margin-right: 0;
+	margin-top: 0;
+	padding-bottom: 5px;
+	padding-left: 15px;
+	padding-right: 5px;
+	padding-top: 2px;
+	text-indent: 0;
+	vertical-align: middle;
+}
+
+.top_topic_news li a:hover {
+	color: #B0080E;
+	text-decoration: underline;
+}
+
+.top_topic_news li a {
+	color: #4F4F4F;
+	font-family: Tahoma, Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	font-size-adjust: none;
+	font-stretch: normal;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: bold;
+	line-height: normal;
+	text-decoration: none;
+}
+
+#top_topic_bottom {
+	background-attachment: scroll;
+	background-color: transparent;
+	background-image: url("../../images/onegate/bgbottom_top_topic.gif");
+	background-position: 0 0;
+	background-repeat: repeat;
+	height: 23px;
+	margin-bottom: 10px;
+}
+
+.search_form select {
+	font-family: Tahoma, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	margin-top: 7px;
+}
+
+.input_search {
+	background-attachment: scroll;
+	background-color: #F2F2F2;
+	background-image: url("../../images/onegate/bginput.gif");
+	background-position: center bottom;
+	background-repeat: repeat-x;
+	border-bottom-color: #D6DADE;
+	border-bottom-style: solid;
+	border-bottom-width: 1px;
+	border-left-color-ltr-source: physical;
+	border-left-color-rtl-source: physical;
+	border-left-color-value: #8A8B8D;
+	border-left-style-ltr-source: physical;
+	border-left-style-rtl-source: physical;
+	border-left-style-value: solid;
+	border-left-width-ltr-source: physical;
+	border-left-width-rtl-source: physical;
+	border-left-width-value: 1px;
+	border-right-color-ltr-source: physical;
+	border-right-color-rtl-source: physical;
+	border-right-color-value: #D6DADE;
+	border-right-style-ltr-source: physical;
+	border-right-style-rtl-source: physical;
+	border-right-style-value: solid;
+	border-right-width-ltr-source: physical;
+	border-right-width-rtl-source: physical;
+	border-right-width-value: 1px;
+	border-top-color: #8A8B8D;
+	border-top-style: solid;
+	border-top-width: 1px;
+	margin-top: 10px;
+	font-size: 12px;
+	height: 19px;
+}
+
+.btn_search {
+	background-image: url("../../images/onegate/btn_search.gif");
+	border-bottom-color: -moz-use-text-color;
+	border-bottom-style: none;
+	border-bottom-width: 0;
+	border-left-color-ltr-source: physical;
+	border-left-color-rtl-source: physical;
+	border-left-color-value: -moz-use-text-color;
+	border-left-style-ltr-source: physical;
+	border-left-style-rtl-source: physical;
+	border-left-style-value: none;
+	border-left-width-ltr-source: physical;
+	border-left-width-rtl-source: physical;
+	border-left-width-value: 0;
+	border-right-color-ltr-source: physical;
+	border-right-color-rtl-source: physical;
+	border-right-color-value: -moz-use-text-color;
+	border-right-style-ltr-source: physical;
+	border-right-style-rtl-source: physical;
+	border-right-style-value: none;
+	border-right-width-ltr-source: physical;
+	border-right-width-rtl-source: physical;
+	border-right-width-value: 0;
+	border-top-color: -moz-use-text-color;
+	border-top-style: none;
+	border-top-width: 0;
+	color: #FFFFFF;
+	cursor: pointer;
+	font-family: Arial;
+	font-size: 11px;
+	font-weight: bold;
+	height: 23px;
+	padding-left: 0;
+	width: 52px;
+	border-right: 0px;
+}
+.btn_faq_submit {
+  background-image: url("../../images/onegate/btn_faq_submit.gif");
+  border-bottom-color: -moz-use-text-color;
+  border-bottom-style: none;
+  border-bottom-width: 0;
+  border-left-color-ltr-source: physical;
+  border-left-color-rtl-source: physical;
+  border-left-color-value: -moz-use-text-color;
+  border-left-style-ltr-source: physical;
+  border-left-style-rtl-source: physical;
+  border-left-style-value: none;
+  border-left-width-ltr-source: physical;
+  border-left-width-rtl-source: physical;
+  border-left-width-value: 0;
+  border-right-color-ltr-source: physical;
+  border-right-color-rtl-source: physical;
+  border-right-color-value: -moz-use-text-color;
+  border-right-style-ltr-source: physical;
+  border-right-style-rtl-source: physical;
+  border-right-style-value: none;
+  border-right-width-ltr-source: physical;
+  border-right-width-rtl-source: physical;
+  border-right-width-value: 0;
+  border-top-color: -moz-use-text-color;
+  border-top-style: none;
+  border-top-width: 0;
+  color: #FFFFFF;
+  cursor: pointer;
+  font-family: Arial;
+  font-size: 11px;
+  font-weight: bold;
+  height: 23px;
+  padding-left: 0;
+  width: 70px;
+  border-right: 0px;
+}
+/**********NEWS RECENTLY*************/
+.main_porlet {
+	float: left;
+	font-family: Arial, Helvetica, sans-serif;
+	width: 480px;
+	padding: 5px;
+}
+.main_porlet img {
+  border-bottom-color: #CCCCCC;
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  border-left-color: #CCCCCC;
+  border-left-style: solid;
+  border-left-width: 1px;
+  border-right-color: #CCCCCC;
+  border-right-style: solid;
+  border-right-width: 1px;
+  border-top-color: #CCCCCC;
+  border-top-style: solid;
+  border-top-width: 1px;
+  float: left;
+  margin: 0px;
+  margin-right: 5px;
+  padding-bottom: 2px;
+  padding-left: 2px;
+  padding-right: 2px;
+  padding-top: 2px;
+}
+
+.main_porlet p{
+	text-align: justify;
+}
+/***********CONTACT**********/
+#contact td {
+	color: #004D8C;
+}
+
+#contact div {
+	color: #D92212;
+	text-transform: uppercase;
+	margin-bottom: 3px;
+	margin-top: 15px;
+}
+
+#contact table tr td img {
+	cursor: pointer;
+}
+
+#linklh {
+	color: #004D8C;
+}
+
+#linklh:hover {
+	color: #D92212;
+}
+
+#large {
+	display: none;
+	position: absolute;
+	background: #FFFFFF;
+	padding: 5px;
+	z-index: 10;
+	min-height: 200px;
+	min-width: 200px;
+	color: #336699;
+}
+
+#background {
+	display: none;
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	top: 0;
+	left: 0;
+	background: #000000;
+	z-index: 1;
+}
+
+/**********NATURAL &amp;amp;amp;amp;amp;amp;amp;amp; ECONOMIC******/
+.natural-conditions,.economic-social {
+	text-align: justify;
+}
+
+.natural-conditions td,.economic-social td {
+	padding: 0px 10px 0px 20px;
+}
+
+.natural-conditions td img,.economic-social td img {
+	margin: 0px 20px 0px 20px;
+}
+
+.wrapper {
+	margin-top: 15px;
+	border: medium none;
+	padding: 10px 0 5px;
+	position: relative;
+	border-top: 1px dotted #B3B3B3;
+	clear: both;
+	float: left;
+	padding: 10px 0 15px;
+	width: 100%;
+}
+
+.wrapper input {
+	background: none repeat scroll 0 0 #B90834;
+	border-color: #F19EB2 #920728 #920728 #F19EB2;
+	border-style: solid;
+	border-width: 1px;
+	color: #FFFFFF;
+	cursor: pointer;
+	font-size: 120%;
+	font-weight: bold;
+	padding: 2px 10px;
+	margin-left: 20px;
+	right: auto;
+	text-transform: uppercase;
+	width: auto;
+}
+/*.......................NEWS.............................*/
+.news_items {
+	padding: 10px;
+	background-attachment: scroll;
+	background-color: #FFFFFF;
+	background-image: none;
+	background-position: 0 0;
+	background-repeat: repeat;
+	float: left;
+	font-family: Arial, Helvetica, sans-serif;
+	width: background-attachment:      scroll;
+	background-color: #FFFFFF;
+	background-image: none;
+	background-position: 0 0;
+	background-repeat: repeat;
+	float: left;
+	font-family: Arial, Helvetica, sans-serif;
+	width: 738px;
+}
+
+.content_titlenews {
+	padding-left: 10px;
+}
+.content_titlenews p {
+  margin-top: 0px;
+  margin-bottom: 5px;
+}
+.news_items img {
+	border: 1px solid #CCCCCC;
+	float: left;
+	margin: 0 5px 0 0;
+	padding: 2px;
+}
+
+.content_news {
+	padding-left: 131px;
+	text-align: justify;
+}
+
+.uyban_hotnews li {
+	background-image: url("../../images/onegate/icon_topic.gif");
+	background-position: 3px 7px;
+	background-repeat: no-repeat;
+	color: #004D8C;
+	font-family: Tahoma, Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	font-size-adjust: none;
+	font-stretch: normal;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: bold;
+	line-height: normal;
+	list-style-image: none;
+	margin: 0;
+	padding: 5px 5px 5px 11px;
+	text-indent: 0;
+	vertical-align: middle;
+}
+
+.uyban_hotnews ul {
+	color: #004D8C;
+	font-family: Tahoma, Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	font-size-adjust: none;
+	font-stretch: normal;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: normal;
+	line-height: normal;
+	list-style-type: none;
+	margin: 0;
+	padding: 0 0 0 5px;
+}
+
+.uyban_hotnews li a {
+	color: #004D8C;
+	font-family: Tahoma, Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	font-size-adjust: none;
+	font-stretch: normal;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: normal;
+	line-height: normal;
+	text-decoration: none;
+}
+
+.topic_category #subject {
+	text-transform: uppercase;
+}
+
+.date_created {
+	color: #6F706A
+}
+
+.introunit {
+	color: #004D8C;
+	float: left;
+	font-size: 12px;
+	padding-top: 11px;
+}
+
+.hotnews a {
+	color: #C81D31;
+}
+
+.fbotom-subject {
+	color: #000000;
+	padding: 0px;
+	margin: 0px;
+}
+.moreheader{
+  background: url("../../images/bgdot.png") repeat-x scroll center top;
+    font: 11px arial;
+    height: 26px;
+    margin-bottom: 13px;
+    margin-top: 20px;
+    overflow: hidden;
+    width: 100%;
+}
+
+.moreheader span{
+  background-color: #FFF;
+    color: #C81D31;
+    float: left;
+    font-size: 16px;
+    font-weight: bold;
+    margin: 5px 2px 0 0;
+    overflow: hidden;
+    padding: 5px 2px 0 0;
+    text-decoration: none;
+}
+.line_email {
+    background: url("../../images/onegate/line_email.gif") repeat-x scroll 0 0 transparent;
+    height: 29px;
+    width: 740px;
+}
+
+.line_email img{
+    border: none !important;
+}
+.news-box{
+  overflow: hidden; 
+  padding: 0px 10px 10px;
+}
+.news-box p{
+  overflow: hidden; 
+  padding: 0px 10px 10px;
+}

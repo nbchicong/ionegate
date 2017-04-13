@@ -1,0 +1,88 @@
+#script("/js/onegate/jquery/plugins/jquery.numberformatter.min.js")
+#script("/js/common/inet/lib/grid-2.0.min.js")
+#script("/js/onegate/inet/lib/receiver-ticket-payment.min.js")
+<div id="ticket-payment-widget" style="display: none;">
+    <div class="wg-toolbar navbar-fixed-top onegate-toolbar">
+        <button id="ticket-payment-btn-back" class="btn btn-primary">
+            <i class="icon-arrow-left"></i> $text.getText("onegate.button.back")
+        </button>
+        <button id="ticket-payment-btn-create" class="btn btn-primary hide" disabled="disabled">
+            <i class="icon-plus"></i> $text.getText("onegate.button.create")
+        </button>
+        <button id="ticket-payment-btn-paid" class="btn btn-success hide" disabled="disabled">
+            <i class="icon-credit-card"></i> $text.getText("onegate.button.paid")
+        </button>
+
+    </div>
+    <div class="wg-content">
+        <div class="widget-header widget-header-large">
+            <h4 class="widget-title grey">
+                <i class="ace-icon icon-book blue"></i>
+                <span id="ticket-name"></span>
+            </h4>
+
+            <div class="widget-toolbar no-border invoice-info">
+                <span class="red" style="font-weight: bold" id="ticket-sender"></span>
+                <br>
+                <span class="invoice-info-label">$text.getText("onegate.ticket.status"):</span>
+                <span id="ticket-status" style="border-radius: 0px;"></span>
+                <br>
+                <span class="invoice-info-label">$text.getText("onegate.ticket.bill_date"):</span>
+                <span class="blue" id="ticket-date"></span>
+                <br>
+                <span class="invoice-info-label">$text.getText("onegate.ticket.total"):</span>
+                <span class="blue" id="ticket-total" style="font-weight: bold"></span>
+            </div>
+            <div class="widget-toolbar hidden-480" style="line-height: 100px;">
+                <a href="javascript:;">
+                    <i class="ace-icon fa icon-print"></i>
+                </a>
+            </div>
+        </div>
+        <div id="ticket-payment-grid-id"></div>
+    </div>
+    <div id="payment-paid-modal" class="modal fade" tabindex="-1" style="display: none" data-width="550">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h4><i class="icon-credit-card"></i> $text.getText("onegate.button.paid")</h4>
+        </div>
+        <div class="modal-body" style="padding: 0px;margin:0px">
+            <div class="" style="padding: 10px;">
+                <div class="profile-info-row">
+                    <div class="profile-info-name onegate-info-name">$text.getText("onegate.ticket.sender"): </div>
+                    <div class="profile-info-value onegate-info-value">
+                        <span id="payment-paid-sender"></span>
+                    </div>
+                </div>
+
+                <div class="profile-info-row">
+                    <div class="profile-info-name onegate-info-name"> $text.getText("onegate.ticket.bill_date"): </div>
+
+                    <div class="profile-info-value onegate-info-value">
+                        <span id="payment-paid-date"></span>
+                    </div>
+                </div>
+
+                <div class="profile-info-row">
+                    <div class="profile-info-name onegate-info-name"> $text.getText("onegate.ticket.total"): </div>
+
+                    <div class="profile-info-value onegate-info-value">
+                        <span id="payment-paid-total" style="font-weight: bold"></span>
+                    </div>
+                </div>
+
+                <div class="profile-info-row">
+                    <div class="profile-info-name onegate-info-name"> $text.getText("onegate.ticket.paid_serial_number") (<span class="required"/>): </div>
+
+                    <div class="profile-info-value onegate-info-value">
+                        <input class="form-control" type="text" id="payment-paid-txt-serial" class="col-xs-12 col-sm-12">
+                    </div>
+                </div>
+             </div>
+        </div>
+        <div class="modal-footer">
+            <button id="payment-paid-modal-btn-ok" type="button" class="btn btn-primary btn-sm"><i class="icon-ok"></i> $text.getText("app.button.ok")</button>
+            <button id="payment-paid-modal-btn-cancel" type="button" data-dismiss="modal" class="btn btn-sm"><i class="icon-remove"></i> $text.getText("app.button.close")</button>
+        </div>
+    </div><!--/ End Modal -->
+</div>

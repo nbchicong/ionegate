@@ -1,0 +1,32 @@
+#theme("/onegate/css/jquery/bootstrap-datepicker")
+#theme("/onegate/css/jquery/jquery.select2")
+#script("/js/onegate/bootstrap/plugins/bootstrap-datepicker.min.js")
+#script("/js/onegate/inet/lib/select.min.js")
+#script("/js/common/inet/lib/grid-2.0.min.js")
+#script("/js/onegate/inet/lib/superadmin-holiday.min.js")
+<div id="holiday-widget">
+    #if(!$ctx.pattern)
+    #set($toolbar = "")
+    <div class="wg-toolbar navbar-fixed-top">
+        <button id="holiday-btn-create" class="btn btn-primary">
+            <i class="icon-plus"></i> $text.getText("onegate.button.create")
+        </button>
+        <button id="holiday-btn-auto-create" class="btn btn-primary">
+            <i class="icon-calendar"></i> $text.getText("onegate.admin.holiday.auto_create")
+        </button>
+    </div>
+    #else
+    #set($toolbar = "no-toolbar")
+    #end
+    <div class="wg-content $toolbar">
+        <div id="holiday-basic-search">
+            <div class="row-fluid">
+                <div class="col-xs-12 col-sm-12">
+                    <select id="holiday-search-basic-select-year" style="width: 300px">
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div id="holiday-grid-id"></div>
+    </div>
+</div>

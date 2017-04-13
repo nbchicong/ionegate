@@ -1,0 +1,56 @@
+#script("/js/common/inet/lib/grid-2.0.min.js")
+#script("/js/onegate/inet/lib/superadmin-dictionary.min.js")
+<div id="dictionary-widget">
+	<div class="wg-toolbar navbar-fixed-top">
+		<button id="dictionary-btn-create" class="btn btn-primary">
+			<i class="icon-plus"></i> $text.getText("onegate.button.create")
+		</button>
+		<button id="dictionary-btn-import" class="btn btn-primary">
+			<i class="icon-upload-alt"></i> $text.getText("Kết nhập dữ liệu")
+		</button>
+		<button id="dictionary-btn-delete" class="btn btn-danger hide" disabled="disabled">
+			<i class="icon-trash"></i> $text.getText("onegate.button.delete")
+		</button>
+	</div>
+	<form id="dictionary-import-form" action='$ctx.action("onegate/pluginapp/registered")' enctype="multipart/form-data" method="post">
+		<input type="file" name="fileUpload" id="fileUpload" style=" height: 0px;width: 0px;line-height: 0px;">
+	</form>
+	<div class="wg-content">
+		<div class="row" style="margin:0;">
+			<div class="col-xs-6 col-sm-6">
+				<div class="row">
+					<div class="col-sm-3 col-xs-3"><label class="ilabel control-label" for="dictionary-select-type">$text.getText("Loại"):</label></div>
+					<div class="col-sm-9 col-xs-9">
+						<select id="dictionary-select-type" class="col-sm-12 col-xs-12">
+							<option value="area" selected="selected">$text.getText("Danh mục địa điểm")</option>
+							<option value="nation">$text.getText("Hồ sơ")</option>
+						</select>
+					</div>
+				</div>
+			</div>
+			<div class="col-xs-6 col-sm-6">
+				<div class="row">
+					<div class="col-sm-3 col-xs-3"><label class="ilabel control-label" for="dictionary-select-key">$text.getText("Khóa"):</label></div>
+					<div class="col-sm-9 col-xs-9"><select id="dictionary-select-key" class="col-sm-12 col-xs-12"></select></div>
+				</div>
+			</div>
+			<div id="dictionary-select-area-container" style="display: none;">
+				<div class="col-xs-6 col-sm-6">
+					<div class="row">
+						<div class="col-sm-3 col-xs-3"><label class="ilabel control-label" for="dictionary-select-city">$text.getText("Tỉnh/Thành phố"):</label></div>
+						<div class="col-sm-9 col-xs-9">
+							<select id="dictionary-select-city" class="col-sm-12 col-xs-12"></select>
+						</div>
+					</div>
+				</div>
+				<div class="col-xs-6 col-sm-6" id="dictionary-select-district-container" style="display: none">
+					<div class="row">
+						<div class="col-sm-3 col-xs-3"><label class="ilabel control-label" for="dictionary-select-district">$text.getText("Quận/huyện"):</label></div>
+						<div class="col-sm-9 col-xs-9"><select id="dictionary-select-district" class="col-sm-12 col-xs-12"></select></div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="dictionary-grid-id"></div>
+	</div>
+</div>

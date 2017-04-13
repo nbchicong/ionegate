@@ -1,0 +1,59 @@
+<a id="imenu-toggler" href="javascript:;"><span></span></a>
+<div id="sidebar" class="fixed">
+    <div id="sidebar-shortcuts">
+    </div>
+    <ul class="nav nav-list">
+        <li>
+            <a href="javascript:;" class="dropdown-toggle"><i class="icon-cogs"></i> <span class="menu-text"> $text.getText("onegate.admin.title") </span><b class="arrow icon-angle-down"> </b></a>
+            <ul class="submenu">
+                <!---li id="superadmin-menu-stc" class="active"><a href='javascript:;' data-url="$ctx.page('onegate/page/admin/statistics')"><i class="icon-dashboard"></i> <span>$text.getText("onegate.admin.menu.statistics")</span></a></li-->
+                <li id="superadmin-menu-users" class="active"><a href='javascript:;' data-url="$ctx.page('onegate/page/superadmin/users')"><i class="icon-group"></i> <span>$text.getText("onegate.admin.menu.firm")</span></a></li>
+                <li id="superadmin-menu-industry"><a href='javascript:;' data-url="$ctx.page('onegate/page/superadmin/industry')"><i class="icon-tag"></i> <span>$text.getText("onegate.admin.menu.industry")</span></a></li>
+                <li id="superadmin-menu-gateway" class=""><a href='javascript:;' data-url="$ctx.page('onegate/page/superadmin/gateway')"><i class="icon-external-link"></i> <span>$text.getText("onegate.admin.menu.gateway")</span></a></li>
+                <li id="superadmin-menu-procedure" class=""><a href='javascript:;' data-url="$ctx.page('onegate/page/superadmin/procedure')"><i class="icon-book"></i> <span>$text.getText("onegate.admin.menu.procedure")</span></a></li>
+                <li id="superadmin-menu-dictionary" class=""><a href='javascript:;' data-url="$ctx.page('onegate/page/superadmin/dictionary')"><i class="icon-book"></i> <span>$text.getText("onegate.admin.menu.dictionary")</span></a></li>
+                <li id="superadmin-menu-holiday" class=""><a href='javascript:;' data-url="$ctx.page('onegate/page/superadmin/holiday')"><i class="icon-calendar"></i> <span>$text.getText("onegate.admin.menu.holiday")</span></a></li>
+                <li id="superadmin-menu-level" class=""><a href='javascript:;' data-url="$ctx.page('onegate/page/superadmin/datalevel')"><i class="icon-th-large"></i> <span>$text.getText("onegate.admin.menu.datalevel")</span></a></li>
+                <li id="superadmin-menu-office" class=""><a href='javascript:;' data-url="$ctx.page('onegate/page/superadmin/office')"><i class="icon-building"></i> <span>$text.getText("onegate.admin.menu.office")</span></a></li>
+                <li id="superadmin-menu-plugin" class=""><a href='javascript:;' data-url="$ctx.page('onegate/page/superadmin/plugin')"><i class="icon-puzzle-piece"></i> <span>$text.getText("onegate.admin.menu.plugin")</span></a></li>
+                <li id="superadmin-menu-officer-config" class=""><a href='javascript:;' data-url="$ctx.page('onegate/page/superadmin/officer-config')"><i class="icon-building"></i> <span>$text.getText("onegate.admin.menu.config_officer")</span></a></li>
+                <li id="superadmin-menu-notify-config" class=""><a href='javascript:;' data-url="$ctx.page('onegate/page/superadmin/notify-config')"><i class="icon-cog"></i> <span>$text.getText("onegate.admin.menu.config_via_sms")</span></a></li>
+                <li id="admin-menu-import-template" class=""><a href='javascript:;' data-url="$ctx.xaction('onegate/page/superadmin/import-template')"><i class="icon-credit-card"></i> <span>$text.getText("onegate.admin.import-template.title")</span></a></li>
+                <li id="superadmin-menu-sync-data" class=""><a href='javascript:;' data-url="$ctx.page('onegate/page/superadmin/sync-data')"><i class="icon-credit-card"></i> <span>$text.getText("Đồng bộ dữ liệu")</span></a></li>
+                <li id="cost-online-payment" class=""><a href='javascript:;' data-url="$ctx.page('onegate/page/superadmin/online-payment')"><i class="icon-caret-right"></i> <span>$text.getText("Quản lý chi phí sử dụng dịch vụ thanh toán trực truyến")</span></a></li>
+                <li id="prostate-report-mng" class=""><a href='javascript:;' data-url="$ctx.page('onegate/page/superadmin/process-state-report-mng')"><i class="icon-caret-right"></i> <span>$text.getText("Quản lý các báo cáo")</span></a></li>
+                <li id="template-notify" class=""><a href='javascript:;' data-url="$ctx.page('onegate/page/superadmin/template-notify')"><i class="icon-caret-right"></i> <span>$text.getText("Quản lý mẫu thông báo")</span></a></li>
+                <li id="log-esb-transfer" class=""><a href='javascript:;' data-url="$ctx.page('onegate/page/superadmin/logs/esb-transfer')"><i class="icon-caret-right"></i> <span>$text.getText("Log hệ thống")</span></a></li>
+                <li id="notify-tracking" class=""><a href='javascript:;' data-url="$ctx.page('onegate/page/superadmin/logs/notify-tracking')"><i class="icon-caret-right"></i> <span>$text.getText("Log Email & SMS")</span></a></li>
+            </ul>
+        </li>
+        <li id="report">
+            <a href="javascript:;"> <i class="icon-book"></i> <span>$text.getText("Báo cáo")</span><b class="arrow icon-angle-down"> </b></a>
+            <ul class="submenu">
+                <li id="superadmin-menu-report-unit"><a href="javascript:;" data-url="$ctx.page('onegate/page/superadmin/report/report-resolve-firm')"> <i class="icon-caret-right"> </i><span>$text.getText("Báo cáo tóm tắt tình hình xử lý hồ sơ một cửa tại một đơn vị")</span></a></li>
+                <li id="superadmin-menu-report-province"><a href="javascript:;" data-url="$ctx.page('onegate/page/superadmin/report/report-resolve-province')"> <i class="icon-caret-right"> </i><span>$text.getText("Báo cáo tóm tắt tình hình xử lý hồ sơ một cửa")</span></a></li>
+                <li id="report-procedures"><a href="javascript:;" data-url="$ctx.page('onegate/page/superadmin/report/report-procedures')"> <i class="icon-caret-right"> </i><span>$text.getText("Báo cáo danh mục thủ tục hành chính")</span></a></li>
+                <li id="report-usage"><a href="javascript:;" data-url="$ctx.page('onegate/page/superadmin/report/report-usage')"> <i class="icon-caret-right"> </i><span>$text.getText("Báo cáo tóm tắt tình hình công dân/tổ chức sử dụng cổng dịch vụ công thành phố")</span></a></li>
+                <li id="report-process"><a href="javascript:;" data-url="$ctx.page('onegate/page/superadmin/report/report-process')"> <i class="icon-caret-right"> </i><span>$text.getText("Báo cáo chi tiết tình hình xử lý hồ sơ một cửa tại một đơn vị")</span></a></li>
+                <li id="report-unit"><a href="javascript:;" data-url="$ctx.page('onegate/page/superadmin/report/report-unit')"> <i class="icon-caret-right"> </i><span>$text.getText("Báo cáo thống kê số lượng hồ sơ của các đơn vị")</span></a></li>
+            </ul>
+        </li>
+        <li id="workflow">
+           <a href="javascript:;"> <i class="icon-vk"></i> <span>$text.getText("onegate.admin.menu.workflow")</span><b class="arrow icon-angle-down"> </b></a>
+           <ul class="submenu">
+               <li id="superadmin-menu-workflow-wf"><a href="javascript:;" data-url="$ctx.page('onegate/page/superadmin/workflow-procedure')"> <i class="icon-random"> </i><span>$text.getText("onegate.admin.menu.workflow")</span></a></li>
+               <li id="superadmin-menu-workflow-actor"><a href="javascript:;" data-url="$ctx.page('onegate/page/superadmin/workflow-actor')"> <i class="icon-trello"> </i><span>$text.getText("onegate.admin.menu.workflow_alias")</span></a></li>
+               <li id="superadmin-menu-workflow-node-attribute"><a href="javascript:;" data-url="$ctx.page('onegate/page/superadmin/workflow-node-attribute')"> <i class="icon-trello"> </i><span>$text.getText("onegate.admin.menu.workflow_attribute")</span></a></li>
+           </ul>
+       </li>
+        <li id="support">
+           <a href="javascript:;"> <i class="icon-book"></i> <span>$text.getText("Hỗ trợ")</span><b class="arrow icon-angle-down"> </b></a>
+           <ul class="submenu">
+               <li id="superadmin-menu-support-qa"><a href="javascript:;" data-url="$ctx.page('onegate/page/superadmin/support/qa')"> <i class="icon-book"> </i><span>$text.getText("Hỏi đáp")</span></a></li>
+           </ul>
+        </li>
+    </ul>
+    <div id="sidebar-collapse">
+        <i class="icon-double-angle-left"></i>
+    </div>
+</div>

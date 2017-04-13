@@ -1,0 +1,23 @@
+#theme("/onegate/css/jquery/jquery.select2")
+#script("/js/onegate/inet/lib/select.min.js")
+#script("/js/common/inet/lib/grid-2.0.min.js")
+#script("/js/onegate/inet/lib/superadmin-gateway.min.js")
+
+#dataservice("onegategetwayservices")
+#set($services = $onegategetwayservices)
+#xscript()
+  var services = [#foreach( $var in $services.elements )#if($foreach.index> 0),#end {"value": "$var","text": "$var"} #end];
+#end
+<div id="gateway-widget">
+    <div class="wg-toolbar" class="navbar-fixed-top">
+        <button id="gateway-btn-create" class="btn btn-primary">
+            <i class="icon-plus"></i> $text.getText("onegate.button.create")
+        </button>
+        <button id="gateway-btn-delete" class="btn btn-danger hide" disabled="disabled">
+            <i class="icon-trash"></i> $text.getText("app.button.delete")
+        </button>
+    </div>
+    <div class="wg-content">
+        <div id="gateway-grid-id"></div>
+    </div>
+</div>

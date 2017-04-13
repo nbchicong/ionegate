@@ -1,0 +1,257 @@
+.form-wrapper {
+	clear: both;
+}
+
+.form-wrapper fieldset {
+	border: none;
+	margin: 15px 0 15px 0;
+}
+
+.form-wrapper fieldset h2 {
+	margin: 0 0 1px 0;
+	border-top: 4px solid #cccc00;
+	border-bottom: 1px solid #ccc;
+	padding: 5px 0 5px 0;
+	color: #333;
+}
+
+.form-wrapper p.required {
+	text-align: right;
+}
+
+.form-wrapper p.required span,
+.form-wrapper dfn {
+	color: #ec1549;
+	font-weight: bold;
+}
+
+.form-wrapper div {
+	clear: both;
+	float: left;
+	width: 100%;
+	border-bottom: 1px dotted #b3b3b3;
+	padding: 10px 0 15px 0;
+}
+
+.form-wrapper div div {
+	width: auto;
+	border-bottom: none;
+	margin: 0 0 10px 0;
+	padding: 0;
+}
+
+.form-wrapper div div.form-item {
+	margin: 0;	
+	clear: none;
+}
+
+.form-wrapper label {
+	position: relative;
+	display: block;
+	font-size: 130%;
+}
+
+.form-wrapper  fieldset .multiple-labels fieldset input,
+.form-wrapper input,
+.form-wrapper textarea,
+.form-wrapper div.mod input.mod {
+	display: block;
+	background: #ebebeb;
+	width: 400px;
+	margin: 3px 0 0 0;
+	border: 1px solid #c2c2c2;
+	padding: 3px 3px 4px 3px;
+}
+
+.form-item-hidden,
+.form-wrapper input[type=hidden] {
+   display: none;
+}
+
+.form-wrapper .multiple-labels fieldset input.a11y-focus,
+.form-wrapper .multiple-labels fieldset input:focus,
+.form-wrapper input:focus,
+.form-wrapper textarea:focus,
+.form-wrapper input.a11y-focus,
+.form-wrapper textarea.a11y-focus {
+	border: 1px solid #000;
+	background: #fff;
+}
+
+.form-wrapper input[type=radio].a11y-focus,
+.form-wrapper input[type=checkbox].a11y-focus {
+	background: transparent;
+	border: none;	
+}
+
+.form-wrapper textarea {
+	height: 150px;
+	width: 400px;
+	font-family: Tahoma;
+	font-size: 14px;
+}
+.form-wrapper select {
+	display: block;
+	width: 410px;
+	margin: 5px 0 0 0;
+}
+
+.form-wrapper div span {
+	display: block;
+	padding: 5px 0 0 0;
+	color: #555;
+	font-size: 110%;
+}
+.form-wrapper h4 {
+	padding: 0 0 10px 0;
+	color: #000;
+	font-size: 130%;
+	font-weight: bold;
+}
+.form-wrapper div.multiple-labels label span {
+	color: #555;
+	font-size: 110%;
+	font-weight: normal;
+}
+.form-wrapper div label span {
+	display: inline;
+}
+.form-wrapper div label.m span {
+	clear: both;
+	padding: 0 0 5px 0;
+}
+.form-wrapper div span.help a {
+	padding-left: 15px;
+}
+
+/* multiple inputs in one row */
+.form-wrapper div div.form-item-s,
+.form-wrapper div div.form-item-m,
+.form-wrapper div div.form-item-l {
+	float: left;
+	margin: 0;
+	clear: none;
+	width: 138px;
+}
+
+.form-wrapper div div.form-item-m {
+	width: 211px;
+	padding: 0;
+}
+.form-wrapper div div.form-item-l {
+	width: 282px;
+}
+.form-wrapper div div.form-item-s input {
+	width: 118px;
+}
+.form-wrapper div div.form-item-m input {
+	width: 190px;
+}
+.form-wrapper div div.form-item-l input {
+	width: 261px;
+}
+
+/* checkboxes &amp;amp;amp; radiobuttons */
+.form-wrapper fieldset fieldset {
+	float: none; /* ie 6 */
+	margin: 0;
+	padding: 0;
+}
+.form-wrapper fieldset fieldset input {
+	width: auto;
+	display: inline;
+	background: transparent;
+	border: none;
+}
+.form-wrapper fieldset fieldset legend {
+	text-indent: -9999px;
+	font-size: 0;
+}
+.form-wrapper  fieldset fieldset div.form-item label {
+	display: inline;
+}
+/* mod for short elements */
+.form-wrapper fieldset fieldset.mod .form-item {
+	float: left;
+	margin-right: 10px;
+	width: auto;
+}
+.form-wrapper fieldset fieldset.mod .form-item label {
+	display: inline;
+}
+
+.form-wrapper div.button-wrapper {
+	position: relative;
+	border: none;
+	padding: 10px 0 5px 0;
+}
+.form-wrapper fieldset div.button-wrapper em {
+	float: right;
+	margin-top: -24px;
+	font-size: 140%;
+}
+.new-search .button,  /* button outside button-wrapper */
+.form-wrapper div.button-wrapper input { /* button */
+	background: #b90834 ;
+	right: auto;
+	width: auto;
+	border: 1px solid #f19eb2;
+	border-right: 1px solid #920728;
+	border-bottom: 1px solid #920728;
+	padding: 2px 10px;
+	color: #fff;
+	cursor: pointer;
+	font-size: 120%;
+	text-transform: uppercase;
+	font-weight: bold;
+}
+.new-search .button {  /* button outside button-wrapper */
+	padding-top: 3px;
+	padding-bottom: 4px;
+}
+
+.new-search .button:hover, 
+.new-search .button:active,
+.new-search .button:focus,
+.form-wrapper div.button-wrapper input:hover,
+.form-wrapper div.button-wrapper input:active,
+.form-wrapper div.button-wrapper input:focus {
+	background: #333;
+	color: #fff;
+	border: 1px solid #111;
+	border-right: 1px solid #555;
+	border-bottom: 1px solid #555;	
+}
+
+.error{
+	color: red;
+	font-size: 11px;
+	font-style: italic;
+}
+
+
+.button-submit{
+	border: medium none;
+    padding: 0 0 5px;
+    position: relative;
+    border-bottom: 1px dotted #B3B3B3;
+    clear: both;
+    float: left;
+    width: 100%;
+    
+}
+
+.button-submit input{
+    background: none repeat scroll 0 0 #B90834;
+    border-color: #F19EB2 #920728 #920728 #F19EB2;
+    border-style: solid;
+    border-width: 1px;
+    color: #FFFFFF;
+    cursor: pointer;
+    font-size: 120%;
+    font-weight: bold;
+    padding: 2px 10px;
+    right: auto;
+    text-transform: uppercase;
+    width: auto;
+}

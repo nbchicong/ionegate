@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<process-definition xmlns="http://sarasvati.googlecode.com/ProcessDefinition" name="Duyệt lịch">
+    <node name="Tiếp nhận hồ sơ" joinType="or" type="cmsreview" isStart="true">
+        <arc to="Kiểm tra hồ sơ" name="Chuyển phòng chức năng"/>
+        <custom>
+            <site>$site</site>
+            <element>$element</element>
+            <notes>$notes</notes>
+            <recordType>Y</recordType>
+            <recordInherited>N</recordInherited>
+            <recordResult>Đang tiếp nhận</recordResult>
+            <status>Y</status>
+        </custom>
+    </node>
+    <node name="Kiểm tra hồ sơ" joinType="or" type="cmsreview">
+        <arc to="Dự thảo giấy chứng nhận" name="Chuyển chuyên viên phòng kinh tế"/>
+        <custom>
+            <status>Y</status>
+        </custom>
+    </node>
+    <node name="Dự thảo giấy chứng nhận" joinType="or" type="cmsreview">
+        <arc to="Duyệt giấy chứng nhận" name="Chuyển trưởng phòng"/>
+        <custom>
+            <status>Y</status>
+        </custom>
+    </node>
+    <node name="Duyệt giấy chứng nhận" joinType="or" type="cmsreview">
+        <arc to="Nhận kết quả từ phòng chức năng" name="Trả kết quả cho một cửa"/>
+        <custom>
+            <status>Y</status>
+        </custom>
+    </node>
+    <node name="Nhận kết quả từ phòng chức năng" joinType="or" type="cmsreview">
+        <arc to="Trả kết quả cho người dân" name="Trả kết quả cho người dân"/>
+        <custom>
+            <status>Y</status>
+        </custom>
+    </node>
+    <node name="Trả kết quả cho người dân" joinType="or" type="cmsreview">
+        <custom>
+            <status>Y</status>
+        </custom>
+    </node>
+    <node name="Trả hồ sơ không hợp lệ" joinType="or" type="cmsreview">
+        <custom>
+            <status>N</status>
+        </custom>
+    </node>
+    <node name="Node xử lý" joinType="or" type="cmsreview">
+        <custom>
+            <status>Y</status>
+        </custom>
+    </node>
+</process-definition>

@@ -1,0 +1,94 @@
+#script("/js/onegate/inet/lib/sup-officer-config.min.js")
+#dataservice("onegateorganload")
+#set($organ = $onegateorganload)
+<div id="officer-config-wg">
+    <div class="wg-toolbar navbar-fixed-top">
+        <button id="officer-btn-save" class="btn btn-success">
+            <i class="icon-save"></i> $text.getText("onegate.button.save")
+        </button>
+    </div>
+    <div class="wg-content">
+        <div class="col-xs-12 col-sm-12">
+            <form id="officer-config-form" class="form-horizontal" method="POST">
+                <div class="row">
+                    <div class="alert alert-info col-xs-12 col-sm-12" style="padding: 5px;margin-bottom: 2px;">
+                        <strong><i class="icon-cogs"></i> $text.getText("onegate.admin.office.config")</strong>
+                    </div>
+                </div>
+                <div id="officer-config-container" style="margin-top:10px">
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-12">
+                            <label class="col-sm-2 ilabel" for="txt-officer-name">
+                                $text.getText("onegate.admin.office.name") (<span class="required"></span>):
+                            </label>
+                            <div  class="col-sm-6">
+                                <input name="organName" id="txt-officer-name" type="text" class="form-control" value="#if($organ.organName)$organ.organName#end">
+                            </div>
+                            <label class="col-sm-2 ilabel" for="txt-officer-id">
+                                $text.getText("onegate.admin.office.org_id") (<span class="required"></span>):
+                            </label>
+                            <div  class="col-sm-2">
+                                <input name="organId" id="txt-officer-id" type="text" class="form-control" value="#if($organ.organId)$organ.organId#end">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-12">
+                            <label class="col-sm-2 ilabel" for="txt-officer-in-charge">
+                                $text.getText("onegate.admin.office.in_charge"):
+                            </label>
+                            <div class="col-sm-10">
+                                <input name="organizationInCharge" id="txt-officer-in-charge" type="text" class="form-control" value="#if($organ.organizationInCharge)$organ.organizationInCharge#end">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-12">
+                            <label class="col-sm-2 ilabel" for="txt-officer-phone">
+                                $text.getText("onegate.admin.office.phone"):
+                            </label>
+                            <div class="col-sm-4">
+                                <input name="telephone" id="txt-officer-phone" type="tel" class="form-control" value="#if($organ.telephone)$organ.telephone#end">
+                            </div>
+                            <label class="col-sm-2 ilabel" for="txt-officer-fax">
+                                $text.getText("onegate.admin.office.fax"):
+                            </label>
+                            <div class="col-sm-4">
+                                <input name="fax" id="txt-officer-fax" type="tel" class="form-control" value="#if($organ.fax)$organ.fax#end">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-12">
+                            <label class="col-sm-2 ilabel" for="txt-officer-email">
+                                $text.getText("onegate.admin.office.email"):
+                            </label>
+                            <div class="col-sm-4">
+                                <input name="email" id="txt-officer-email" type="email" class="form-control" value="#if($organ.email)$organ.email#end">
+                            </div>
+                            <label class="col-sm-2 ilabel" for="txt-officer-website">
+                                $text.getText("onegate.admin.office.website"):
+                            </label>
+                            <div class="col-sm-4">
+                                <input name="website" id="txt-officer-website" type="text" class="form-control" value="#if($organ.website)$organ.website#end">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-12">
+                            <label class="col-sm-2 ilabel" for="txt-officer-address">
+                                $text.getText("onegate.admin.office.address"):
+                            </label>
+                            <div class="col-sm-10">
+                                <input name="organAdd" id="txt-officer-address" type="text" class="form-control" value="#if($organ.organAdd)$organ.organAdd#end">
+                            </div>
+                        </div>
+                    </div>
+                    #if($organ.uuid)
+                    <input id="txt-officer-uuid" type="hidden" name="organ" value="$organ.uuid">
+                    #end
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

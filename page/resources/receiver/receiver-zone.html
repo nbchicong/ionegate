@@ -1,0 +1,115 @@
+#zone()
+
+#scriptBundle("onegate-receiver-script")
+    iNet.ns('iNet.resources.onegate',
+    'iNet.resources.onegate.receiver',
+    'iNet.resources.onegate.receiver.status',
+    'iNet.resources.onegate.receiver.report',
+    'iNet.resources.onegate.officer',
+    'iNet.resources.onegate.officer.report',
+    'iNet.resources.onegate.ticket',
+    'iNet.resources.onegate.xform');
+
+    if (iNet.resources.onegate.receiver.status) {
+        iNet.apply(iNet.resources.onegate.receiver.status, {
+            all : '$text.getText("onegate.receiver.status.all")',
+            created : '$text.getText("onegate.receiver.status.created")',
+            verified : '$text.getText("onegate.receiver.status.verified")',
+            submited: '$text.getText("onegate.receiver.status.submited")',
+            rejected: '$text.getText("onegate.receiver.status.rejected")',
+            published: '$text.getText("onegate.receiver.status.published")',
+            error: '$text.getText("onegate.receiver.status.error")',
+            onhold_citizen: '$text.getText("onegate.receiver.status.onhold_citizen")',
+            waiting_citizen: '$text.getText("onegate.receiver.status.waiting_citizen")',
+            onhold_esb: '$text.getText("onegate.receiver.status.onhold_esb")',
+            waiting_esb: '$text.getText("onegate.receiver.status.waiting_esb")',
+            completed: '$text.getText("onegate.receiver.status.completed")'
+        });
+    }
+    if (iNet.resources.onegate.ticket) {
+        iNet.apply(iNet.resources.onegate.ticket, {
+            sender : '$text.getText("onegate.ticket.sender")',
+            received : '$text.getText("onegate.ticket.received_date")',
+            procedure_name : '$text.getText("onegate.ticket.procedure_name")',
+            creator: '$text.getText("onegate.ticket.creator")',
+            owner: '$text.getText("onegate.ticket.owner")',
+            status: '$text.getText("onegate.ticket.status")',
+            last_updated: '$text.getText("onegate.ticket.lastupdated")',
+            delete_dlg_title:'$text.getText("onegate.ticket.delete_dlg_title")',
+            delete_success:'$text.getText("onegate.ticket.delete_success")',
+            delete_error:'$text.getText("onegate.ticket.delete_error")',
+            paid: '$text.getText("onegate.ticket.paid")',
+            title: '$text.getText("onegate.ticket.title")',
+            verified_title:'$text.getText("onegate.ticket.verified_title")',
+            verified_content:'$text.getText("onegate.ticket.verified_content")',
+            verified_success:'$text.getText("onegate.ticket.verified_success")',
+            publish_title:'$text.getText("onegate.ticket.publish_title")',
+            publish_content:'$text.getText("onegate.ticket.publish_content")',
+            view_info: '$text.getText("onegate.ticket.view_info")',
+            industry: '$text.getText("onegate.admin.procedure.industry")',
+            order: '$text.getText("onegate.ticket.order")',
+            na: '$text.getText("onegate.ticket.na")',
+            dlg_select_procedure: '$text.getText("onegate.ticket.dlg_select_procedure")',
+            dlg_select_procedure_error: '$text.getText("onegate.ticket.dlg_select_procedure_error")',
+            return_success: '$text.getText("onegate.ticket.return_success")',
+            esb_send_error: '$text.getText("onegate.ticket.esb_send_error")',
+            esb_send_success: '$text.getText("onegate.ticket.esb_send_success")',
+            load_error: '$text.getText("onegate.ticket.load_error")',
+            save_success: '$text.getText("onegate.ticket.save_success")',
+            update_success: '$text.getText("onegate.ticket.update_success")',
+            paid_brief: '$text.getText("onegate.ticket.paid_brief")',
+            paid_amount: '$text.getText("onegate.ticket.paid_amount")',
+            paid_date: '$text.getText("onegate.ticket.paid_date")',
+            paid_brief_required: '$text.getText("onegate.ticket.paid_brief_required")',
+            paid_amount_required: '$text.getText("onegate.ticket.paid_amount_required")',
+            paid_serial_number_required:  '$text.getText("onegate.ticket.paid_serial_number_required")',
+            paid_success:  '$text.getText("onegate.ticket.paid_success")',
+            paid_error:  '$text.getText("onegate.ticket.paid_error")',
+            xform_save: '$text.getText("onegate.ticket.xform_save")',
+            xform_invalid: '$text.getText("onegate.ticket.xform_invalid")',
+            xform_load_error: '$text.getText("onegate.ticket.xform_load_error")',
+            xform_delete_file: '$text.getText("onegate.ticket.xform_delete_file")',
+            xform_delete_file_title: '$text.getText("onegate.ticket.xform_delete_file_title")',
+            xform_delete_file_error: '$text.getText("onegate.ticket.xform_delete_file_error")',
+            xform_delete_file_success: '$text.getText("onegate.ticket.xform_delete_file_success")',
+            xform_file_empty: '$text.getText("onegate.ticket.xform_file_empty")',
+            xform_file_size: '$text.getText("onegate.ticket.xform_file_size")',
+            xform_file_name: '$text.getText("onegate.ticket.xform_file_name")',
+            xform_file_desc: '$text.getText("onegate.ticket.xform_file_desc")',
+            xform_file_created:  '$text.getText("onegate.ticket.xform_file_created")',
+            xform_file_all:  '$text.getText("onegate.ticket.xform_file_all")'
+        });
+    }
+    if (iNet.resources.onegate.xform) {
+        iNet.apply(iNet.resources.onegate.xform, {
+            select_file : '$text.getText("onegate.xform.select_file")',
+            select_file_empty : '$text.getText("onegate.xform.select_file_empty")',
+            change_file : '$text.getText("onegate.xform.change_file")',
+            mutil_file_text: '$text.getText("onegate.xform.mutil_file_text")'
+        });
+    }
+    if (iNet.resources.onegate.receiver.report) {
+        iNet.apply(iNet.resources.onegate.receiver.report, {
+            delete_title : '$text.getText("onegate.receiver.report.delete_title")',
+            delete_success : '$text.getText("onegate.receiver.report.delete_success")',
+            delete_error : '$text.getText("onegate.receiver.report.delete_error")',
+            from : '$text.getText("onegate.receiver.report.from")',
+            to : '$text.getText("onegate.receiver.report.to")',
+            fromdate_not_empty : '$text.getText("onegate.receiver.report.fromdate_not_empty")',
+            todate_not_empty : '$text.getText("onegate.receiver.report.todate_not_empty")'
+        });
+    }
+    if (iNet.resources.onegate.officer.report) {
+        iNet.apply(iNet.resources.onegate.officer.report, {
+            delete_title : '$text.getText("onegate.officer.report.delete_title")',
+            delete_success : '$text.getText("onegate.officer.report.delete_success")',
+            delete_error : '$text.getText("onegate.officer.report.delete_error")',
+            from : '$text.getText("onegate.officer.report.from")',
+            to : '$text.getText("onegate.officer.report.to")',
+            fromdate_not_empty : '$text.getText("onegate.officer.report.fromdate_not_empty")',
+            todate_not_empty : '$text.getText("onegate.officer.report.todate_not_empty")'
+        });
+    }
+#end
+
+#end

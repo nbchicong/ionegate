@@ -1,0 +1,25 @@
+#html()
+	#keywords({"title":"Trang dịch vụ công tỉnh Bình Thuận "})
+	
+	#theme("/main/css/base")
+	#theme("/main/css/menu")
+	#theme("/main/css/home")
+	#theme("/main/css/style")
+	
+  #script("/js/main/jquery/jquery-last.min.js")
+  #script("/js/main/jquery/menu.js")
+
+	#variable("menu","thutuchanhchinh_menu")
+	<div id="main">
+		#widget("/main/widget/header")
+		#widget("/main/widget/menu")
+		<div id="content">
+			#widget("/main/widget/proc/huongdantracuutthc")
+			<div id="category">
+				#widget("/main/widget/record/lienket")
+			</div>
+		</div>
+		#widget("/main/widget/footer")	
+	</div>
+	
+#end

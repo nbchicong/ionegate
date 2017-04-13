@@ -1,0 +1,23 @@
+#theme("/onegate/css/noskin")
+#theme("/onegate/css/jquery/jquery.select2")
+#script("/js/onegate/jquery/plugins/jquery.ba-hashchange.min.js")
+#script("/js/onegate/inet/lib/select.min.js")
+#script("/js/onegate/inet/lib/onegate-processor-main.min.js")
+<div class="no-skin">
+    <div id="sidebar" class="sidebar h-sidebar navbar-collapse collapse">
+        <ul id="nav-list" class="nav nav-list hide">
+            <li id="menu-receiver" class="active open hover">
+                <a href="javascript:;" data-url="$ctx.xaction('onegate/page/processor/sideview/ticket-list')">
+                    <i class="menu-icon icon-briefcase"></i>
+                    <span class="menu-text"> $text.getText("Hồ sơ cần xử lý")</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div class="main-content">
+        <div id="loading-msg">$text.getText("onegate.common.loading_msg")</div>
+        <iframe id="onegate-iframe-content" src="$ctx.xaction('onegate/page/processor/sideview/ticket-list')" style="display:none;border:none;width:100%;"></iframe>
+        <iframe id="onegate-iframe-plugin" src="" width="100%" height="100%" frameborder="0" style="display: none"></iframe>
+
+    </div><!-- /.page-content -->
+</div>

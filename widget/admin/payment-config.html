@@ -1,0 +1,86 @@
+#theme("/onegate/css/jquery/jquery.select2")
+#script("/js/onegate/inet/lib/select.min.js")
+#script("/js/common/inet/lib/grid-2.0.min.js")
+#script("/js/onegate/inet/lib/admin-payment-config.min.js")
+
+#xscript()
+    var payments = [ {"uuid": "BANKNET","text": "BANKNET"} , {"uuid": "AUTHORIZE_NET","text": "AUTHORIZE_NET"} , {"uuid": "PAYPAL","text": "PAYPAL"} ];
+#end
+
+<div id="payment-config-widget">
+    <div class="wg-toolbar navbar-fixed-top">
+        <button id="payment-config-btn-save" class="btn btn-success">
+            <i class="icon-save"></i> $text.getText("onegate.button.save")
+        </button>
+    </div>
+    <div class="wg-content">
+        <div id="payment-config-body" class="col-xs-12 col-sm-12">
+            <form class="form-horizontal" style="margin-top: 5px;" method="post">
+                <div class="row">
+                    <div class="alert alert-info col-xs-12 col-sm-12" style="padding: 5px;margin-bottom: 2px;">
+                        <strong><i class="icon-info-sign"></i> $text.getText("onegate.admin.payment.method_info")</strong>
+                    </div>
+                </div>
+                <div id="payment-config-container">
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-12">
+                            <label class="col-sm-2 lbl-bold" for="payment-config-select-method-name">
+                                $text.getText("onegate.admin.payment.method_name") (<span class="required"/>):
+                            </label>
+                            <div id="payment-config-select-method-container" class="col-sm-4">
+                                <input id="payment-config-select-method-name" placeholder='$text.getText("onegate.admin.payment.method_name_plh")' type="text" style="width: 100%">
+                            </div>
+                            <label class="col-sm-2 lbl-bold" for="payment-config-select-status">
+                                $text.getText("onegate.admin.payment.method_status") (<span class="required"/>):
+                            </label>
+                            <div class="col-sm-4">
+                                <select id="payment-config-select-status" style="width: 100%">
+                                    <option selected="selected" value="AVAILABLE">$text.getText("onegate.admin.payment.status_available")</option>
+                                    <option value="EXPIRED">$text.getText("onegate.admin.payment.status_expired")</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="alert alert-info col-xs-12 col-sm-12" style="padding: 5px;margin-bottom: 2px;">
+                            <strong><i class="icon-building"></i> $text.getText("onegate.admin.payment.provider_info")</strong>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-12">
+                            <div>
+                                <label class="col-sm-2 lbl-bold" for="payment-config-txt-provider-id">
+                                    $text.getText("onegate.admin.payment.provider_id") (<span class="required"/>):
+                                </label>
+                                <div class="col-sm-10">
+                                    <input id="payment-config-txt-provider-id" class="form-control col-xs-12 col-sm-12" type="text">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-12">
+                            <div>
+                                <label class="col-sm-2 lbl-bold" for="payment-config-txt-provider-secretkey">
+                                    $text.getText("onegate.admin.payment.provider_secret_key") (<span class="required"/>):
+                                </label>
+                                <div class="col-sm-10">
+                                    <input id="payment-config-txt-provider-secretkey" class="form-control col-xs-12 col-sm-12" type="password">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="alert alert-info col-xs-12 col-sm-12" style="padding: 5px;margin-bottom: 2px;">
+                            <strong><i class="icon-th"></i> $text.getText("onegate.admin.payment.properties")</strong>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div id="grid-properties-id"></div>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>

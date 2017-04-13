@@ -1,0 +1,14 @@
+#script("/js/onegate/inet/lib/receiver-procedure-dialog.min.js")
+<div id="procedure-modal" class="modal container fade" tabindex="-1" style="display: none" data-height="250">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4><i class="icon-book"></i> $text.getText("onegate.button.select_procedure")</h4>
+    </div>
+    <div class="modal-body" style="padding: 0px;margin:0px">
+        <div id="procedure-modal-grid-id"></div>
+    </div>
+    <div class="modal-footer">
+        <button id="procedure-modal-btn-ok" type="button" class="btn btn-primary btn-sm"><i class="icon-ok"></i> $text.getText("app.button.ok")</button>
+        <button id="procedure-modal-btn-cancel" type="button" data-dismiss="modal" class="btn btn-sm"><i class="icon-remove"></i> $text.getText("app.button.close")</button>
+    </div>
+</div><!--/ End Modal -->

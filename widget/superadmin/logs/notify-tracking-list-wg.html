@@ -1,0 +1,48 @@
+#theme("/common/css/grid.min")
+#theme("/onegate/css/jquery/bootstrap-datepicker")
+#script("/js/onegate/bootstrap/plugins/bootstrap-datepicker.min.js")
+#script("/js/common/inet/lib/grid-2.0.min.js")
+#script("/js/onegate/inet/lib/notify-tracking-list.min.js")
+<div id="notify-tracking-list-wg">
+    <div class="wg-toolbar navbar-fixed-top" style="min-height:41px">
+        <button id="list-btn-remove" class="btn btn-danger btn-sm" style="display:none">
+            <i class="fa fa-times"></i> $text.getText("app.button.del")
+        </button>
+    </div>
+    <div class="wg-content">
+        <div class="hide">
+            <div id="log-list-basic-search">
+                <div class="log-quick-search">
+                    <div class="no-padding" style="float:left">
+                        <select class="grid-search-type form-control no-margin-bottom" style="height:30px">
+                            <option value="">--- Tất cả ---</option>
+                            <option value="EMAIL">EMAIL</option>
+                            <option value="SMS">SMS</option>
+                        </select>
+                    </div>
+                    <div class="col-md-3 col-sm-4 col-xs-6 no-padding-right" style="height:30px">
+                        <span class="input-group search" style="margin-left:0">
+                            <span class="input-group">
+                                <input type="text" class="grid-search-time form-control" data-date="$ctx.day()/$ctx.month()/$ctx.year()" data-date-format="dd/mm/yyyy" placeholder="$text.getText('Từ ngày')" aria-describedby="grid-search-time">
+                                <span class="input-group-addon" id="grid-search-time">
+                                    <i class="fa fa-clock-o"></i>
+                                </span>
+                            </span>
+                        </span>
+                    </div>
+                    <div class="col-md-3 col-sm-4 col-xs-6 no-padding-right" style="height:30px">
+                        <span class="input-group search" style="margin-left:0">
+                            <span class="input-group-btn">
+                                <input type="text" class="grid-search-input form-control" placeholder="Từ khóa">
+                                <button data-action-search="search" type="button" class="btn btn-default grid-search-btn">
+                                    <i class="fa fa-search"></i>
+                                </button>
+                            </span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="notify-tracking-list"></div>
+    </div>
+</div>

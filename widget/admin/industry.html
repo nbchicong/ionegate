@@ -1,0 +1,23 @@
+#script("/js/common/inet/lib/grid-2.0.min.js")
+#script("/js/onegate/inet/lib/admin-industry.min.js")
+<div id="industry-wg">
+    <div class="wg-toolbar" class="navbar-fixed-top">
+        <button id="industry-btn-back" class="btn btn-primary hide" disabled="disabled">
+            <i class="icon-arrow-left"></i> $text.getText("onegate.button.back")
+        </button>
+        <button id="industry-btn-create" class="btn btn-primary">
+            <i class="icon-plus"></i> $text.getText("onegate.button.create")
+        </button>
+        <button id="industry-btn-delete" class="btn btn-danger hide" disabled="disabled">
+            <i class="icon-trash"></i> $text.getText("onegate.button.delete")
+        </button>
+    </div>
+    <div class="wg-content">
+        <div class="alert alert-info" style="padding: 5px;margin-bottom: 2px;width:100%;">
+            <ol id="industry-breadcrumb" class="breadcrumb" style="margin-left:0px">
+                <li class="active"><i class="icon-folder-open-alt"></i> $text.getText("onegate.admin.industry.root")</li>
+            </ol>
+        </div>
+        <div id="industry-grid-id"></div>
+    </div>
+</div>

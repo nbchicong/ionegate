@@ -1,0 +1,44 @@
+#script("/js/onegate/jquery/jquery-ui-1.10.2.min.js")
+<div id="wg-toolbar" class="navbar-fixed-top">
+  <button id="wf-btn-back" class="btn btn-primary btn-sm hide">
+    <i class="icon-arrow-left"> </i> $text.getText("app.button.back")
+  </button>
+</div>
+<div id="xtoolbar" class="navbar-fixed-top hide">
+</div>
+<div id="wg-content">
+  <div id="wg-wf-list">
+    <div id="wf-basic-search">
+      <div class="row-fluid">
+        <span class="input-append search" style="margin-left:0px">
+          <input id="wf-txt-keyword" type="text" class="input-medium" placeholder="$text.getText('firmadmin.system.placeholder_search')">
+          <button class="btn">
+            <i class="icon-search" data-action-search="search"> </i>
+          </button>
+        </span>
+        <div id="wf-filter-zone" class="select filter" style="display: inline-block;">
+          <button type="button" data-toggle="dropdown" class="btn dropdown-toggle">
+            <span class="dropdown-label" style="width: 140px;"></span>
+            <span class="caret"></span></button>
+          <ul class="dropdown-menu" data-value="zone">
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="row-fluid">
+      <div id="wf-grid-id"> </div>
+    </div>
+  </div>
+  <div id="wg-design-zone" class="content hide">
+    <div class="row-fluid" id="wkfzone">
+      <div id="zone" class="span10"></div>
+    </div>
+    <div id="prop-zone" class="prop-zone hide">
+      <h3 class="header smaller lighter green">Form Zone</h3>
+      <div class="row">
+        <input type="text" />
+      </div>
+    </div>
+    <div class="clearfix"></div>
+  </div>
+</div>

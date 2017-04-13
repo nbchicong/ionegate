@@ -1,0 +1,66 @@
+#script("/js/onegate/inet/lib/onegate-superadmin-online-payment-detail-widget.min.js")
+<div id="online-payment-detail-widget" style="display: none;">
+    <div class="wg-toolbar navbar-fixed-top">
+        <button id="tbr-btn-back" class="btn btn-primary btn-sm">
+            <i class="icon-arrow-left"></i>
+            $text.getText("app.button.back")
+        </button>
+    </div>
+    <div class="wg-content">
+        <div class="container-fluid form-horizontal">
+            <div class="row">
+                <div class="alert alert-info" style="padding: 8px; margin-bottom: 3px;">
+                    Nội dung giao dịch: <strong id="txt-name-bill"></strong>
+                </div>
+            </div>
+            <div class="row">
+                <label class="col-md-2 col-sm-2 col-xs-3 control-label no-padding-right lbl-bold">Tên hồ sơ: </label>
+                <div class="col-md-10 col-sm-10 col-xs-9">
+                    <label id="txt-procedure-name" class="control-label text-left"></label>
+                </div>
+            </div>
+            <div class="row">
+                <label class="col-md-2 col-sm-2 col-xs-3 control-label no-padding-right lbl-bold" for="txt-received-code">Số biên nhận: </label>
+                <div class="col-md-5 col-sm-5 col-xs-3">
+                    <label id="txt-received-code" class="control-label"></label>
+                </div>
+                <label class="col-md-2 col-sm-2 col-xs-3 control-label no-padding-right lbl-bold" for="txt-serial-code" style="display: none;">Mã số hồ sơ: </label>
+                <div class="col-md-5 col-sm-5 col-xs-3" style="display: none;">
+                    <label id="txt-serial-code" class="control-label"></label>
+                </div>
+                <label class="col-md-2 col-sm-2 col-xs-3 control-label no-padding-right lbl-bold">Trạng thái: </label>
+                <div class="col-md-3 col-sm-3 col-xs-3">
+                    <label id="txt-procedure-status" class="control-label"></label>
+                </div>
+            </div>
+            <div class="row">
+                <label class="col-md-2 col-sm-2 col-xs-3 control-label no-padding-right lbl-bold" for="txt-received-time">Thời gian tiếp nhận: </label>
+                <div class="col-md-5 col-sm-5 col-xs-3">
+                    <label id="txt-received-time" class="control-label"></label>
+                </div>
+                <label class="col-md-2 col-sm-2 col-xs-3 control-label no-padding-right lbl-bold" for="txt-return-time">Ngày hẹn trả: </label>
+                <div class="col-md-3 col-sm-3 col-xs-3">
+                    <label id="txt-return-time" class="control-label"></label>
+                </div>
+            </div>
+            <div class="row"><h4 class="header blue bolder smaller"></h4></div>
+            <div class="row">
+                <table id="table-list-cost" class="table table-bordered table-hover">
+                    <colgroup>
+                        <col style="width: 5%;" />
+                        <col style="width: auto;" />
+                        <col style="width: 15%;" />
+                    </colgroup>
+                    <thead>
+                    <tr>
+                        <th class="text-center">STT</th>
+                        <th>Nội dung giao dịch</th>
+                        <th>Chi phí giao dịch</th>
+                    </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

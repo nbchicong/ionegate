@@ -1,0 +1,139 @@
+#theme("/common/css/jquery/select2")
+#theme("/onegate/css/select2-custom")
+#theme("/onegate/css/redactor")
+##theme("/onegate/css/jquery/jquery.fileuploader")
+#theme("/onegate/css/format")
+
+#script("/js/onegate/jquery/plugins/jquery.redactor-vi.min.js")
+#script("/js/onegate/jquery/plugins/jquery.redactor.min.js")
+#script("/js/common/jquery/plugins/jquery.filter-input.min.js")
+#script("/js/common/jquery/plugins/jquery.form.min.js")
+#script("/js/common/inet/lib/select.min.js")
+#script("/js/onegate/inet/lib/admin-procedure-detail.min.js")
+
+#dataservice("onegatedatalevellist")
+#set($levels = $onegatedatalevellist)
+
+<div id="procedure-detail-widget" style="display: none">
+    <div class="wg-toolbar navbar-fixed-top">
+        <button id="procedure-btn-back" class="btn btn-primary">
+            <i class="icon-arrow-left"></i> $text.getText("onegate.button.back")
+        </button>
+        #if(!$ctx.pattern)
+        <button id="procedure-btn-create" class="btn btn-primary">
+            <i class="icon-plus"></i> $text.getText("onegate.button.create")
+        </button>
+        #end
+
+        <button id="procedure-btn-save" class="btn btn-success">
+            <i class="icon-save"></i> $text.getText("onegate.button.save")
+        </button>
+    </div>
+    <div class="wg-content">
+        <form id="procedure-frm-detail" class="form-horizontal" method="post">
+            <div class="tabbable">
+                <ul class="nav nav-tabs" id="myTab">
+                    <li class="active">
+                        <a data-toggle="tab" href="#procedure-info-container" aria-expanded="true">
+                            <i class="green ace-icon icon-info-sign bigger-120"></i>
+                            $text.getText("onegate.admin.procedure.information")
+                        </a>
+                    </li>
+                    <li class="">
+                        <a data-toggle="tab" href="#procedure-content-container" aria-expanded="false">
+                            <i class="blue ace-icon icon-code bigger-120"></i>
+                            Nội dung thủ tục
+                        </a>
+                    </li>
+                </ul>
+                <div class="tab-content" style="padding:16px;overflow-y:auto">
+                    <div id="procedure-info-container" class="tab-pane fade active in">
+                        <div class="form-group">
+                            <label class="control-label col-sm-2 lbl-bold" for="procedure-txt-subject">
+                                $text.getText("onegate.admin.procedure.name") (<span class="required"/>):
+                            </label>
+                            <div class="col-sm-10">
+                                <input id="procedure-txt-subject" name="subject" class="form-control col-xs-12 col-sm-12" type="text">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-2 lbl-bold" for="procedure-txt-code">
+                                $text.getText("onegate.admin.procedure.code") (<span class="required"/>):</label>
+                            <div class="col-sm-4">
+                                <input id="procedure-txt-code" name="code" class="form-control col-xs-12 col-sm-12" type="text" disabled="disabled">
+                            </div>
+                            <label class="control-label col-sm-2 lbl-bold" for="procedure-select-industry">
+                                $text.getText("onegate.admin.procedure.industry") (<span class="required"/>):</label>
+                            <div class="col-sm-4" id="procedure-select-industry-container">
+                                <select id="procedure-select-industry" class="col-sm-12 no-padding">
+                                    #foreach($group in $tree.children)
+                                    <optgroup label="$group.industry">
+                                        #foreach($procedure in $group.children)
+                                        <option value="$procedure.industry" data-pattern="$procedure.pattern">$procedure.industry</option>
+                                        #end
+                                    </optgroup>
+                                    #end
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-2 lbl-bold" for="procedure-select-level">
+                                $text.getText("onegate.admin.procedure.level") (<span class="required"/>):</label>
+                            <div class="col-sm-4" id="procedure-select-level-container">
+                                <select id="procedure-select-level" class="col-sm-12 no-padding">
+                                    #foreach($level in $levels.items)
+                                    <option value="$level.level">$level.name</option>
+                                    #end
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-2 lbl-bold" for="procedure-files">
+                                $text.getText("onegate.admin.procedure.attachments"):
+                            </label>
+                            <div class="col-sm-4">
+                                <label class="ace-file-input">
+                                    <input type="file" id="procedure-files" name="FileUpload" multiple>
+                                    <span id="procedure-files-label" class="ace-file-container" data-title='$text.getText("onegate.admin.procedure.choose")'>
+                                        <span class="ace-file-name" data-title='$text.getText("onegate.admin.procedure.no_file")'>
+                                            <i class="ace-icon icon-upload-alt"></i>
+                                        </span>
+                                    </span>
+                                    <a id="procedure-files-remove" class="remove" href="javascript:;"><i class="ace-icon icon-remove"></i></a>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-2 upload-container">
+                            </div>
+                            <div class="col-sm-10">
+                                <ul id="procedure-files-container" class="list-unstyled" style="display: none"></ul>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="alert alert-info col-xs-12 col-sm-12" style="padding:5px;margin-bottom:0">
+                                <strong><i class="icon-th-list"></i> $text.getText("onegate.admin.procedure.firm_list")</strong>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div id="procedure-list-firm"></div>
+                        </div>
+                    </div>
+                    <div id="procedure-content-container" class="tab-pane fade">
+                        <div class="form-group">
+                            <div class="col-xs-12 col-sm-12">
+                                <textarea id="procedure-txt-content" class="form-control col-xs-12 col-sm-12"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--<div class="row">-->
+                <!--<div class="alert alert-info col-xs-12 col-sm-12" style="padding:5px">-->
+                    <!--<button id="procedure-info-collapse" type="button" class="close"><i class="icon-chevron-up"></i></button>-->
+                    <!--<strong><i class="icon-info-sign"></i> $text.getText("onegate.admin.procedure.information")</strong>-->
+                <!--</div>-->
+            <!--</div>-->
+        </form>
+    </div>
+</div>

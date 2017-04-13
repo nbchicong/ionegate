@@ -1,0 +1,256 @@
+#theme("/common/css/jquery/select2")
+#theme("/onegate/css/select2-custom")
+##theme("/onegate/css/jquery/bootstrap-tagsinput")
+##script("/js/onegate/jquery/plugins/jquery.typeahead.min.js")
+#script("/js/common/inet/lib/select.min.js")
+#script("/js/common/inet/lib/grid-2.0.min.js")
+##script("/js/onegate/bootstrap/plugins/bootstrap-tagsinput.min.js")
+#script("/js/onegate/inet/lib/superadmin-procedure-signed.min.js")
+
+#dataservice("glbgateindustrystructtree")
+#set($tree = $glbgateindustrystructtree)
+
+#dataservice("onegategetwayendpoints")
+
+<div id="procedure-signed-widget" style="display: none">
+    <div class="wg-toolbar navbar-fixed-top">
+        <button id="procedure-signed-btn-back" type="button" class="btn btn-primary">
+            <i class="icon-arrow-left"></i> $text.getText("onegate.button.back")
+        </button>
+        <button id="procedure-signed-btn-add" class="btn btn-primary">
+            <i class="icon-plus"></i> $text.getText("onegate.admin.procedure.add_procedure")
+        </button>
+        #if($ctx.pattern)
+        <button id="procedure-signed-btn-edit" class="btn btn-primary hide" disabled="disabled">
+            <i class="icon-pencil"></i>  $text.getText("onegate.admin.procedure.update_actor")
+        </button>
+        #end
+        <button id="procedure-signed-btn-delete" class="btn btn-danger hide" disabled="disabled">
+            <i class="icon-trash"></i> $text.getText("onegate.button.delete")
+        </button>
+    </div>
+    <div class="wg-content">
+        <div class="alert alert-info" style="padding: 5px;margin-bottom: 2px;width: 100%;">
+            <i class="icon-book"></i> $text.getText("onegate.admin.procedure.listing_info"): <strong><span id="procedure-signed-lbl-unit-name"></span></strong>
+        </div>
+        <div id="procedure-signed-basic-search">
+            <div class="row-fluid">
+                <div class="col-xs-12 col-sm-12 no-padding-left">
+                    <div class="col-xs-8 col-sm-8 no-padding-left">
+                        <select id="procedure-signed-basic-search-select-industry" style="width: 100%">
+                            <option value="" data-pattern="">$text.getText("onegate.admin.industry.select_all")</option>
+                            #foreach($group in $tree.children)
+                             <optgroup label="$group.industry">
+                                 #foreach($procedure in $group.children)
+                                   <option value="$procedure.industry" data-pattern="$procedure.pattern">$procedure.industry</option>
+                                 #end
+                             </optgroup>
+                            #end
+                         </select>
+                    </div>
+                    <div class="col-xs-4 col-sm-4 no-padding-left">
+                        <span class="ace-icon input-icon input-icon-right">
+                             <input id="procedure-signed-basic-search-txt-keyword" type="text"  placeholder='$text.getText("onegate.common.keyword")'/>
+                             <i class="ace-icon icon-search" data-action-search="search" title='$text.getText("onegate.button.search")'></i>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="procedure-signed-grid-id"></div>
+        <!-- Modal Add Procedure-->
+        <div id="procedure-signed-add-modal" class="modal container fade" tabindex="-1" style="display: none" data-height="400">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4><i class="icon-book"></i> $text.getText("onegate.admin.procedure.add_procedure")</h4>
+            </div>
+            <div class="modal-body" style="padding: 0px;margin:0px">
+                <div id="procedure-signed-modal-basic-search">
+                    <div class="row-fluid">
+                        <div class="col-xs-12 col-sm-12">
+                            <div class="col-xs-8 col-sm-8">
+                            <select id="procedure-signed-modal-basic-search-select-industry" style="width: 100%" disabled="disabled">
+                                <option value="" data-pattern="">$text.getText("onegate.admin.industry.select_all")</option>
+                                #foreach($group in $tree.children)
+                                <optgroup label="$group.industry">
+                                    #foreach($procedure in $group.children)
+                                    <option value="$procedure.industry" data-pattern="$procedure.pattern">$procedure.industry</option>
+                                    #end
+                                </optgroup>
+                                #end
+                            </select>
+                             </div>
+                             <div class="col-xs-4 col-sm-4">
+                            <span class="ace-icon input-icon input-icon-right">
+                                 <input id="procedure-signed-modal-basic-search-txt-keyword" type="text" placeholder='$text.getText("onegate.common.keyword")'/>
+                                 <i class="ace-icon icon-search" data-action-search="search" title='$text.getText("onegate.button.search")'></i>
+                            </span>
+                             </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="procedure-signed-modal-grid-id"></div>
+            </div>
+            <div class="modal-footer no-margin-top">
+                <button id="procedure-signed-add-btn-ok" type="button" class="btn btn-primary btn-sm"><i class="icon-plus"></i> $text.getText("onegate.admin.procedure.add_procedure")</button>
+                <button id="procedure-signed-add-btn-cancel" type="button" data-dismiss="modal" class="btn btn-sm"><i class="icon-remove"></i> $text.getText("app.button.close")</button>
+            </div>
+        </div><!--/ End Modal -->
+        <!-- Modal Update Procedure-->
+        <div id="procedure-signed-update-modal" class="modal container fade" style="display: none" data-max-height="450" data-width="750">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4><i class="icon-pencil"></i> $text.getText("onegate.admin.procedure.update_actor")</h4>
+            </div>
+            <div class="modal-body" style="background-color: #F7F7F7">
+                <form id="form-procedure-signed" class="form-horizontal">
+                    <div class="row" style="margin: 0px;">
+                        <div>
+                            <div class="alert alert-info col-xs-12 col-sm-12" style="padding: 5px;margin-bottom: 2px;">
+                                <strong><label id="procedure-signed-update-modal-lbl-name" class="lbl-bold"></label></strong>
+                            </div>
+                            <!--div class="form-group">
+                                <label class="col-sm-3 lbl-bold no-padding-right">$text.getText("onegate.admin.procedure.name") :</label>
+                                <div class="col-sm-9">
+                                    <label id="procedure-signed-update-modal-lbl-name" class="lbl-bold"></label>
+                                </div>
+                            </div-->
+
+                            <div class="form-group">
+                                <label class="col-sm-3 lbl-bold no-padding-right" for="procedure-signed-update-modal-txt-hour">$text.getText("onegate.admin.procedure.time") (<span class="required"/>):</label>
+
+                                <div class="col-sm-3">
+                                    <span class="ace-icon input-icon input-icon-right col-xs-12 col-sm-12" style="padding: 0px">
+                                      <input type="number" id="procedure-signed-update-modal-txt-hour" maxlength="5" max="99999" min="0" value="" class="col-xs-12 col-sm-12">
+                                      <i class="ace-icon icon-" style="right: 20px">$text.getText("onegate.admin.procedure.hour")</i>
+                                    </span>
+                                </div>
+                                <label class="col-sm-3 lbl-bold no-padding-right" for="procedure-signed-update-modal-txt-hour">$text.getText("onegate.admin.procedure.service_level"):</label>
+
+                                <div class="col-sm-3">
+                                    <label>
+                                        <input id="procedure-signed-update-chk-servicel4" type="checkbox" class="ace">
+                                        <span class="lbl"> $text.getText("onegate.admin.procedure.servicel4")</span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <!--div class="form-group">
+                                <label class="col-sm-3 lbl-bold no-padding-right" for="procedure-signed-update-modal-txt-subview">$text.getText("onegate.admin.procedure.subview") :</label>
+
+                                <div class="col-sm-9">
+                                    <input type="text" id="procedure-signed-update-modal-txt-subview" value="" class="col-xs-12 col-sm-12">
+                                </div>
+                            </div-->
+
+                            <div class="form-group">
+                                <label class="col-sm-3 lbl-bold no-padding-right" for="procedure-signed-update-modal-select-actor">$text.getText("onegate.admin.procedure.actor") :</label>
+                                <div class="col-sm-9">
+                                    <input type="text" style="width:100%" id="procedure-signed-update-modal-select-actor" value="" placeholder='$text.getText("onegate.admin.procedure.actor_placeholder")'/>
+                                </div>
+                            </div>
+                            <div class="alert alert-info col-xs-12 col-sm-12" style="padding: 5px;margin-bottom: 2px;">
+                                <strong><label class="lbl-bold">$text.getText("onegate.admin.procedure.costs")</label></strong>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 lbl-bold" for="procedure-signed-update-txt-expenseL2">$text.getText("onegate.admin.procedure.expenseL2") :</label>
+                                <div class="col-sm-9">
+                                    <input id="procedure-signed-update-txt-expenseL2" type="text" class="col-xs-12 col-sm-12">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 lbl-bold no-padding-right" for="procedure-signed-update-txt-expenseL3">$text.getText("onegate.admin.procedure.expenseL3") :</label>
+                                <div class="col-sm-9">
+                                    <input id="procedure-signed-update-txt-expenseL3" type="text" class="col-xs-12 col-sm-12">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 lbl-bold no-padding-right" for="procedure-signed-update-txt-expenseLX">$text.getText("onegate.admin.procedure.expenseLX") :</label>
+                                <div class="col-sm-9">
+                                    <input id="procedure-signed-update-txt-expenseLX" type="text" class="col-xs-12 col-sm-12">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                 </form>
+            </div>
+            <div class="modal-footer no-margin-top">
+                <button id="procedure-signed-update-modal-btn-ok" type="button" class="btn btn-primary btn-sm"><i class="icon-save"></i> $text.getText("onegate.button.save")</button>
+                <button id="procedure-signed-update-modal-btn-cancel" type="button" data-dismiss="modal" class="btn btn-sm"><i class="icon-remove"></i> $text.getText("app.button.close")</button>
+            </div>
+        </div><!--/ End Modal -->
+        
+        <!-- Modal Firm Procedure Update-->
+        <div id="procedure-firm-update-modal" class="modal container fade" style="display: none" data-max-height="450" data-width="750">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4><i class="icon-pencil"></i> $text.getText("onegate.admin.procedure.update_actor")</h4>
+            </div>
+            <div class="modal-body" style="background-color: #F7F7F7">
+                <form id="form-procedure-firm" class="form-horizontal">
+                    <div class="row no-margin">
+                        <div class="alert alert-info col-xs-12 col-sm-12" style="padding:5px">
+                            <strong><label id="procedure-firm-update-modal-lbl-name" class="lbl-bold no-margin"></label></strong>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 lbl-bold no-padding-right">$text.getText("onegate.admin.procedure.service_level"):</label>
+                            <div class="col-sm-3">
+                                <label>
+                                    <input id="procedure-firm-update-chk-servicel3" type="checkbox" class="ace">
+                                    <span class="lbl"> $text.getText("onegate.admin.procedure.servicel3")</span>
+                                </label>
+                            </div>
+                            <div class="col-sm-3">
+                                <label>
+                                    <input id="procedure-firm-update-chk-servicel4" type="checkbox" class="ace">
+                                    <span class="lbl"> $text.getText("onegate.admin.procedure.servicel4")</span>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-3"></div>
+                            <div class="col-sm-3" style="height:30px">
+                                <label>
+                                    <input id="procedure-firm-update-chk-ex-service-link" type="checkbox" class="ace">
+                                    <span class="lbl"> $text.getText("onegate.admin.procedure.ex_service_link")</span>
+                                </label>
+                            </div>
+                            <div class="col-sm-6">
+                                <input id="procedure-firm-update-txt-ex-service-link" type="text" class="col-xs-12 col-sm-12">
+                            </div>
+                        </div>
+
+                        <div class="alert alert-info col-xs-12 col-sm-12" style="padding:5px">
+                            <strong><label class="lbl-bold no-margin">$text.getText("Thông tin liên thông dịch vụ")</label></strong>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 lbl-bold" for="procedure-firm-update-txt-industry">$text.getText("Mã lĩnh vực"):</label>
+                            <div class="col-sm-3">
+                                <input id="procedure-firm-update-txt-industry" type="text" class="col-xs-12 col-sm-12" />
+                            </div>
+                            <label class="col-sm-3 lbl-bold no-padding-right" for="procedure-firm-update-txt-procedure">$text.getText("Mã thủ tục"):</label>
+                            <div class="col-sm-3">
+                                <input id="procedure-firm-update-txt-procedure" type="text" class="col-xs-12 col-sm-12">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 lbl-bold" for="procedure-firm-update-cbb-gateway">$text.getText("Gateway"):</label>
+                            <div class="col-sm-3">
+                                <select id="procedure-firm-update-cbb-gateway" class="col-xs-12 col-sm-12 no-padding">
+                                    <option value="">---</option>
+                                    #foreach($item in $onegategetwayendpoints.items)
+                                    <option value="$item.uuid">$item.name</option>
+                                    #end
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                 </form>
+            </div>
+            <div class="modal-footer no-margin-top">
+                <button id="procedure-firm-update-modal-btn-ok" type="button" class="btn btn-primary btn-sm"><i class="icon-save"></i> $text.getText("onegate.button.save")</button>
+                <button id="procedure-firm-update-modal-btn-cancel" type="button" data-dismiss="modal" class="btn btn-sm"><i class="icon-remove"></i> $text.getText("app.button.close")</button>
+            </div>
+        </div><!--/ End Modal -->
+    </div>
+</div>

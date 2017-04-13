@@ -1,0 +1,16 @@
+#script("/js/common/inet/lib/grid-2.0.min.js")
+#script("/js/onegate/jquery/plugins/jquery.form.min.js")
+#script("/js/onegate/inet/lib/superadmin-plugin.min.js")
+<div id="plugin-widget">
+    <div class="wg-toolbar navbar-fixed-top">
+        <button id="plugin-btn-create" class="btn btn-primary">
+            <i class="icon-upload-alt"></i> $text.getText("onegate.button.upload")
+        </button>
+    </div>
+    <div class="wg-content">
+        <form id="plugin-form" action='$ctx.action("onegate/pluginapp/registered")' enctype="multipart/form-data" method="post">
+            <input type="file" name="fileUpload" id="fileUpload" style=" height: 0px;width: 0px;line-height: 0px;">
+        </form>
+        <div id="plugin-grid-id"></div>
+    </div>
+</div>

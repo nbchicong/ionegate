@@ -1,0 +1,39 @@
+#theme("/common/css/grid.min")
+#theme("/onegate/css/jquery/bootstrap-datepicker")
+#script("/js/onegate/bootstrap/plugins/bootstrap-datepicker.min.js")
+#script("/js/common/inet/lib/grid-2.0.min.js")
+#script("/js/onegate/inet/lib/onegate-superadmin-report-search-widget-abstract.min.js")
+#script("/js/onegate/inet/lib/onegate-superadmin-report-usage-search-widget.min.js")
+<div id="search-report-widget">
+    <div class="wg-toolbar navbar-fixed-top">
+        <button id="search-report-btn-create" name="report-search-report-btn-create" class="btn btn-primary btn-sm">
+            <i class="ace-icon icon-plus"></i> $text.getText("app.button.create")
+        </button>
+    </div>
+    <div class="wg-content">
+        <div id="report-basicsearch">
+            <div class="usage-quicksearch">
+                <div class="col-xs-6 col-sm-6 no-padding no-padding-left">
+                    <div class="input-group">
+                        <input type="text" class="input-sm form-control" name="fromDate" id="time-report-from" data-date-format="dd/mm/yyyy" placeholder="$text.getText('Từ ngày')">
+                    <span class="input-group-addon">
+                        <i class="ace-icon icon-long-arrow-right"></i>
+                    </span>
+                        <input type="text" class="input-sm form-control" name="toDate" id="time-report-to" data-date-format="dd/mm/yyyy" placeholder="$text.getText('Đến ngày')">
+                    </div>
+                </div>
+                <div class="col-xs-4 col-md-4 no-padding-right">
+                    <span class="input-group search" style="margin-left:0px;">
+                        <span class="input-group-btn">
+                            <input type="text" class="grid-search-input form-control" placeholder="Từ khóa">
+                            <button data-action-search="search" type="button" class="btn btn-default grid-search-btn">
+                                <i class="icon-search"></i>
+                            </button>
+                        </span>
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div id="search-report-grid"></div>
+    </div>
+</div>

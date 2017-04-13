@@ -1,0 +1,32 @@
+#dataservice("onegate_reportprocedure_review")
+#set($data = $onegate_reportprocedure_review.data.items)
+<table id="sample-table-1" class="table table-striped table-bordered table-hover">
+    <colgroup>
+        <col style="width: 5%;" />
+        <col style="width: auto;" />
+        <col style="width: 20%;" />
+        <col style="width: 10%;" />
+    </colgroup>
+    <thead>
+    <tr>
+        <th class="text-center">STT</th>
+        <th class="text-left">Tên thủ tục hành chính</th>
+        <th class="text-center">Lĩnh vực</th>
+    </tr>
+    </thead>
+    <tbody>
+    #if($data.size()>0)
+        #foreach($item in $data)
+    <tr>
+        <td class="text-center">$foreach.count</td>
+        <td class="text-left">$item.subject</td>
+        <td class="text-center">$item.industry</td>
+    </tr>
+        #end
+    #else
+    <tr colspan="5">
+        <td colspan="5"><i>Không có dữ liệu để hiển thị</i></td>
+    </tr>
+    #end
+    </tbody>
+</table>

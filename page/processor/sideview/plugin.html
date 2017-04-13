@@ -1,0 +1,153 @@
+#html({"lang":"vi","dir":"ltr", "xmlns":"http://www.w3.org/1999/xhtml","secure":"$firm_processor","pattern":"/*/"})
+#keywords({"title":'iOnegate - Processor'})
+#meta({ "title":"iCloud Platform","viewport": "width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"})
+    #widget("/onegate/widget/processor/sideview/common")
+    #theme("/onegate/css/format")
+    #theme("/onegate/css/jquery/bootstrap-datepicker")
+    #script("/js/onegate/bootstrap/plugins/bootstrap-datepicker.min.js")
+    #script("/js/onegate/jquery/plugins/jquery.form.min.js")
+    #script("/js/onegate/jquery/plugins/jquery.jquery-validate.min.js")
+    #script("/js/onegate/jquery/plugins/jquery.maskedinput.min.js")
+    #script("/js/onegate/jquery/plugins/jquery.tmpl.min.js")
+    #script("/js/onegate/inet/lib/xform.min.js")
+    #script("/js/common/inet/lib/pagingtb.min.js")
+    #script("/js/common/inet/lib/checkboxmng.min.js")
+
+    #dataservice("onegateplugindatasearch")
+    #set($search = $onegateplugindatasearch)
+
+    #dataservice("onegateplugindatasearchlist")
+    #set($list = $onegateplugindatasearchlist)
+
+    #dataservice("onegateplugindataview")
+    #set($view = $onegateplugindataview)
+
+    #if ($search.tileID == '###')
+        <p>$text.getText("onegate.common.empty_msg")</p>
+    #else
+    #script("/js/onegate/inet/lib/onegate-plugin.min.js")
+<div>
+    <div class="row" style="margin: 0px">
+        <div class="widget-header">
+            <h5 class="widget-title" style="text-transform:uppercase"><i class="icon-puzzle-piece"></i> $view.brief</h5>
+        </div>
+    </div>
+    <div id="plugin-list" class="messageList $lside" style="float: left;padding: 0px;">
+        <div class="side-toolbar">
+            <button id="plugin-list-btn-create" class="btn btn-info">
+                <i class="icon-plus"></i> $text.getText("onegate.button.new_record")
+            </button>
+            <button id="plugin-list-btn-delete" class="btn btn-danger hide" disabled="disabled">
+                <i class="icon-trash"></i> $text.getText("onegate.button.delete")
+            </button>
+        </div>
+        <div class="b-message-list-wrapper">
+            <div id="plugin-list-top-toolbar" style="height: 48px; display: inline-flex; padding-top: 6px; width: 100%;" class="second-toolbar thm-message-list-top-toolbar">
+                <div style="float: left;display: inline-block">
+                    <label style="margin-left: 1px;margin-top: 6px;">
+                        <input type="checkbox" id="plugin-list-check-all" class="ace">
+                        <span class="lbl"></span>
+                    </label>
+                </div>
+                <div style="width: 100%;padding-left: 5px;">
+                    #widget("$search.tileID","plugin")
+                </div>
+            </div>
+            <div class="mainDelimiter toolbarDelimiter"></div>
+            <div id="plugin-list-dp" class="b-content nano has-scrollbar">
+                <div id="plugin-list-no-data" style="text-align: center;font-size: 14px;line-height: 30px;padding: 10px;color: #999;">
+                    <div>$text.getText("onegate.common.empty_msg")</div>
+                </div>
+                <div id="plugin-list-dp-content" class="overthrow nano-content content g-scrollbox" tabindex="0" style="right: -13px;">
+                    <div id="plugin-grid" class="content-wrapper">
+                    </div>
+                    <script id='plugin-template' type='text/x-jquery-tmpl'>
+                        #widget("$list.tileID","plugin")
+                    </script>
+                </div>
+            </div>
+
+            <div class="mainDelimiter footerDelimiter"></div>
+
+            <div class="b-footer thm-message-list-bottom-toolbar">
+                <div class="pull-right">
+                    <span class="paging" id="paging"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="plugin-view" class="messageView $rside" data-normal="$rside" data-full="$fside" style="float: left;height: 100%;padding:0px">
+        <div class="side-toolbar">
+            <span id="plugin-view-toobar">
+                <button id="plugin-view-btn-create" class="btn btn-primary hide" disabled="disabled">
+                    <i class="icon-file-alt"></i> $text.getText("onegate.button.new_record")
+                </button>
+                <button id="plugin-view-btn-save" class="btn btn-primary hide" disabled="disabled">
+                    <i class="icon-save"></i> $text.getText("onegate.button.save")
+                </button>
+                <button id="plugin-view-btn-upload" class="btn btn-primary hide" disabled="disabled">
+                    <i class="icon-upload-alt"></i> $text.getText("onegate.button.attach")
+                </button>
+                <button id="plugin-view-btn-delete" class="btn btn-danger hide" disabled="disabled">
+                    <i class="icon-trash"></i> $text.getText("app.button.delete")
+                </button>
+            </span>
+            <div class="widget-toolbar" style="line-height: normal">
+                <button id="plugin-list-btn-close" class="btn btn-danger" title='$text.getText("onegate.button.close")'>
+                    <i class="ace-icon icon-signout"></i>
+                </button>
+            </div>
+            <div class="widget-toolbar" style="line-height: normal">
+                <div class="btn-group">
+                    <button id="plugin-list-btn-previous" class="btn" disabled="disabled">
+                        <i class="ace-icon icon-arrow-left"></i>
+                    </button>
+                    <button id="plugin-list-btn-next" class="btn" disabled="disabled">
+                        <i class="ace-icon icon-arrow-right"></i>
+                    </button>
+                </div>
+                <button id="plugin-view-full" class="btn" data-status="normal">
+                    <i class="ace-icon icon-fullscreen"></i>
+                </button>
+            </div>
+        </div>
+        <div class="b-content thm-message-view-background-color">
+            <div>
+                <div id="plugin-view-no-selected" class="b-message-view-desc">
+                    <div><i class="icon-briefcase" style="font-size: 100px;"></i></div>
+                    <div>$text.getText("onegate.receiver.no_selected")</div>
+                </div>
+
+                <div id="plugin-view-dp" class="dp-container messageItem nano has-scrollbar selected" style="float:left;display: none;width: 100%">
+                    <div id="plugin-view-dp-content" class="dp-content overthrow nano-content content g-scrollbox" tabindex="1" style="right: -13px;">
+                        <div class="content-wrapper">
+                            <div>
+                                <div id="plugin-view-loading-text" class="loading g-ui-min-height-300" style="display: none;">
+                                    <span class="i18n text">$text.getText("onegate.common.loading")</span>
+                                    <span class="textLoadingAnimationD1">.</span>
+                                    <span class="textLoadingAnimationD2">.</span>
+                                    <span class="textLoadingAnimationD3">.</span>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="bodyText ">
+                                    <div class="rl-cache-class b-text-part html">
+                                        <form id="plugin-form-body" method="POST" style="display: none;" action="$ctx.xaction('onegate/plugindata/update')">
+                                            #widget("$view.tileID","plugin")
+                                        </form>
+                                        <form id="plugin-form-upload" action='$ctx.xaction("onegate/plugindata/upload")' enctype="multipart/form-data"  method="post">
+                                            <input type="file" name="fileUpload" id="fileUpload" multiple style=" height: 0px;width: 0px;line-height: 0px;">
+                                        </form>
+                                    </div>
+                                </div>
+                                <div id="plugin-view-attachment-footer" class="attachmentsPlace" style="padding-left: 10px;display: none;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+#end
+#end

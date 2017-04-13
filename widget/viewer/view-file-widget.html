@@ -1,0 +1,19 @@
+#script("/js/onegate/inet/lib/view-file-widget.min.js")
+<div id="viewer-file-widget" style="display:none;">
+  <div class="wg-toolbar navbar-fixed-top">
+    <button id="viewer-file-btn-back" type="button" class="btn btn-primary btn-sm">
+      <i class="icon-arrow-left"></i> $text.getText("app.button.back")
+    </button>
+    <button id="viewer-file-btn-download" type="button" class="btn btn-primary btn-sm">
+      <i class="icon-download-alt"></i> $text.getText("app.button.download")
+    </button>
+    <span id="viewer-file-container-files" style="float: right;display:none;">
+       $text.getText("viewer.choose_file"): <select id="viewer-file-select-file" style="width:auto;max-width:400px;margin-bottom: 0px !important;"></select>
+     </span>
+  </div>
+  <div class="wg-content">
+    <div class="row" style="margin: 0px">
+      <iframe id="viewer-iframe-file-content" style="width:100%; border: 0px;"></iframe>
+    </div>
+  </div>
+</div>

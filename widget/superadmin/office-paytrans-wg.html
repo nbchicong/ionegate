@@ -1,0 +1,39 @@
+#theme("/onegate/css/jquery/bootstrap-datepicker")
+#script("/js/onegate/bootstrap/plugins/bootstrap-datepicker.min.js")
+#script("/js/onegate/inet/lib/superadmin-office-list-paytrans-095020150521.min.js")
+<div id="list-payment-trans" style="display: none;">
+    <div class="wg-toolbar navbar-fixed-top">
+        <button id="btn-paytrans-back" class="btn btn-primary btn-sm" type="button">
+            <i class="icon-arrow-left"></i> $text.getText("app.button.back")
+        </button>
+        <button id="btn-paytrans-print" class="btn btn-primary btn-sm" type="button">
+            <i class="icon-print"></i> $text.getText("In danh sách")
+        </button>
+    </div>
+    <div class="wg-content">
+        <div id="paytrans-basicsearch">
+            <div class="paytrans-quick-search">
+                <div class="col-xs-6 col-sm-6 no-padding">
+                    <div class="input-group">
+                        <input type="text" class="input-sm form-control" name="fromDate" id="txt-from-date" data-date-format="dd/mm/yyyy" placeholder="$text.getText('Từ ngày')">
+                        <span class="input-group-addon">
+                            <i class="ace-icon icon-long-arrow-right"></i>
+                        </span>
+                        <input type="text" class="input-sm form-control" name="toDate" id="txt-to-date" data-date-format="dd/mm/yyyy" placeholder="$text.getText('Đến ngày')">
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-4 col-xs-4 no-padding-right">
+                    <span class="input-group search" style="margin-left:0px;">
+                        <span class="input-group-btn">
+                            <input type="text" class="grid-search-input form-control" placeholder="Từ khóa">
+                            <button data-action-search="search" type="button" class="btn btn-default grid-search-btn">
+                                <i class="icon-search"></i>
+                            </button>
+                        </span>
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div id="list-pay-trans"></div>
+    </div>
+</div>

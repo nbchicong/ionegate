@@ -1,0 +1,58 @@
+#script("/js/onegate/inet/lib/wf-task-actor.min.js")
+#dataservice("cloudwflaliaslist")
+#dataservice("pagezonelist")
+#variable("service","WORKFLOW")
+#set($begin = "<script type='text/javascript'>")
+#set($end = "</script>")
+$begin
+  var dataActor = [{value: "", text: "Select Actor"}];
+  #foreach($item in $cloudwflaliaslist.items)
+      dataActor.push({value: "$item.code", text: "$item.code"});
+  #end
+  var dataZone = [{value: "", text: "Select Zone"}];
+  #foreach($item in $pagezonelist.elements)
+      dataZone.push({value: "$item.uri", text: "$item.uri"});
+  #end
+$end
+<div id="wg-toolbar" class="navbar-fixed-top">
+  <button id="wf-btn-back-process" class="btn btn-primary btn-sm hide">
+    <i class="icon-arrow-left"> </i> $text.getText("app.button.back")
+  </button>
+  <button id="wf-btn-param-back-process" class="btn btn-primary btn-sm hide">
+    <i class="icon-arrow-left"> </i> $text.getText("app.button.back")
+  </button>
+  <button id="wf-btn-back-actor" class="btn btn-primary btn-sm hide">
+    <i class="icon-arrow-left"> </i> $text.getText("app.button.back")
+  </button>
+  <button id="wf-btn-create" class="btn btn-primary btn-sm">
+    <i class="icon-plus"> </i> $text.getText("app.button.create")
+  </button>
+  <button id="wf-btn-create-params" class="btn btn-primary btn-sm hide">
+    <i class="icon-plus"> </i> $text.getText("firmadmin.toolbar.button.create_params")
+  </button>
+  <button id="wf-btn-save" class="btn btn-primary btn-sm hide">
+    <i class="icon-save"> </i> $text.getText("app.button.save")
+  </button>
+</div>
+<div id="wg-content">
+  <div id="wg-process-list">
+    <div class="row-fluid">
+      <div id="process-grid-id"> </div>
+    </div>
+  </div>
+  <div id="wg-actor-list">
+    <div class="row-fluid">
+      <div id="actor-grid-id"> </div>
+    </div>
+  </div>
+  <div id="wg-params-list">
+    <div class="row-fluid">
+      <div id="params-grid-id"> </div>
+    </div>
+  </div>
+  <div id="wg-arc-list">
+    <div class="row-fluid">
+      <div id="arc-grid-id"> </div>
+    </div>
+  </div>
+</div>

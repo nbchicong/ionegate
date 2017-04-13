@@ -1,0 +1,36 @@
+#theme("/common/css/grid.min")
+#script("/js/onegate/bootstrap/plugins/bootstrap-datepicker.min.js")
+#script("/js/common/inet/lib/grid-2.0.min.js")
+#script("/js/onegate/inet/lib/template-notify-list.min.js")
+<div id="tpl-notify-list-wg">
+    <div class="wg-toolbar navbar-fixed-top">
+        <button id="btn-tpl-create" class="btn btn-primary btn-sm">
+            <i class="fa fa-plus"></i> $text.getText("app.button.create")
+        </button>
+    </div>
+    <div class="wg-content">
+        <div class="hide">
+            <div id="tpl-list-basic-search">
+                <div class="tpl-quick-search">
+                    <div class="no-padding" style="float:left">
+                        <div class="btn-group" role="group">
+                            <button type="button" class="btn btn-default active" data-action="search" data-name="SMS">SMS</button>
+                            <button type="button" class="btn btn-default" data-action="search" data-name="EMAIL">EMAIL</button>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-5 col-xs-6 no-padding-right">
+                        <span class="input-group search" style="margin-left:0">
+                            <span class="input-group-btn">
+                                <input type="text" class="grid-search-input form-control" placeholder="Từ khóa">
+                                <button data-action-search="search" type="button" class="btn btn-default grid-search-btn">
+                                    <i class="icon-search"></i>
+                                </button>
+                            </span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="tpl-notify-list"></div>
+    </div>
+</div>

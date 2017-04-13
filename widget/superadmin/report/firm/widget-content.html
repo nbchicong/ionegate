@@ -1,0 +1,99 @@
+#theme("/onegate/css/report")
+#script("/js/onegate/jquery/plugins/jquery.form.min.js")
+#script("/js/onegate/inet/lib/report-panel.min.js")
+#script("/js/onegate/inet/lib/download-report-panel.min.js")
+#script("/js/onegate/inet/lib/onegate-superadmin-report-content-widget-abstract.min.js")
+#script("/js/onegate/inet/lib/onegate-superadmin-report-unit-content-widget.min.js")
+#dataservice("hcmfirmlist")
+#set($firms = $hcmfirmlist)
+<div id="report-widget-content" style="display:none;">
+    <div class="main-container">
+        <!-- PAGE CONTENT BEGINS -->
+        <div id="wg-toolbar" class="navbar-fixed-top">
+            <button id="report-new-07SB-btn-back" name="report-create-btn-back" class="btn btn-primary btn-sm">
+                <i class="ace-icon icon-arrow-left"></i>
+                $text.getText("app.button.back")
+            </button>
+            <!--
+            <button id="report-new-07SB-btn-create" class="btn btn-primary btn-sm">
+              <i class="icon-plus-sign"></i>  $text.getText("app.button.create")
+            </button>-->
+            <button id="report-create-btn-create" name="report-create-btn-create" class="btn btn-primary btn-sm">
+                <i class="ace-icon icon-save"></i>
+                $text.getText("app.button.create")
+            </button>
+            <button id="report-widget-content-btn-download" name="report-create-btn-download" class="btn btn-info btn-sm">
+                <i class="ace-icon icon-download-alt"></i>
+                $text.getText("app.button.download")
+            </button>
+        </div>
+        <div class="wg-content">
+            <div class="col-sm-12 col-md-12">
+                <form id="report-widget-content-form" class="form-horizontal" style="margin-top: 5px;" method="post">
+                    <div class="space-12"></div>
+                    <div class="form-group">
+                        <label class="col-sm-2 col-xs-2 control-label no-padding-right lbl-bold" for="report-widget-content-unit">
+                            Chọn đơn vị (<span class="required"/>):
+                        </label>
+                        <div class="col-sm-4 col-md-4">
+                            <select id="report-widget-content-unit" name="firmCode" class="width-100">
+                                #foreach($item in $firms.elements)
+                                    #if($item.code!="")
+                                 <option value="$item.code">$item.name</option>
+                                    #end
+                                #end
+                            </select>
+                        </div>
+                        <label class="col-sm-2 col-xs-2 control-label no-padding-right lbl-bold" for="report-widget-content-industry">
+                            Lĩnh vực:
+                        </label>
+                        <div class="col-sm-4 col-xs-4">
+                            <select id="report-widget-content-industry" name="industryCode" type="text" class="width-100">
+                                <option value="">Chọn lĩnh vực báo cáo</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 col-xs-2 control-label no-padding-right lbl-bold" for="report-widget-content-fromdate">
+                            Từ ngày <span class="required"/>:
+                        </label>
+                        <div class="col-sm-4 col-md-4">
+                            <span class="ace-icon input-icon input-icon-right">
+                                <i class="ace-icon icon-calendar"></i>
+                                <input id="report-widget-content-fromdate" name="startDate" type="text" data-type="date" data-date-format="dd/mm/yyyy" class="col-xs-12 col-sm-12" value="">
+                            </span>
+                        </div>
+
+                        <label class="col-sm-2 col-xs-2 control-label no-padding-right lbl-bold" for="report-widget-content-todate">
+                            Đến ngày <span class="required"/>:
+                        </label>
+                        <div class="col-sm-4 col-md-4">
+                            <span class="ace-icon input-icon input-icon-right">
+                                <i class="ace-icon icon-calendar"></i>
+                                <input id="report-widget-content-todate" name="endDate" type="text" data-type="date" data-date-format="dd/mm/yyyy" class="col-xs-12 col-sm-12" value="">
+                            </span>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12 text-center">
+                <button id="report-create-btn-view-result" name="report-create-btn-view-result" type="button" class="btn btn-button btn-info center"> <i class="icon-ok"></i> Xem kết quả</button>
+                <button id="report-create-btn-save" name="report-create-btn-save" type="button" class="btn btn-button btn-primary center"> <i class="icon-save"></i>Lưu báo cáo</button>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <h4 class="header smaller bolder green marg-t-5 marg-b-10"><i class="ace-icon icon-reorder"></i>$text.getText("onegate.report.create-report.result")</h4>
+                <div name="report-create-result">
+                    <div name="report-loading-msg" style="display: none">
+                        <div class="progress progress-small progress-striped active" data-percent='$text.getText("ongate.loading_title")'>
+                            <div class="progress-bar progress-bar-success" style="width: 100%;">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="report-result-content" name="report-result-wg"></div>
+                    <iframe name="report-iframe-content" class="iframe-content" src='' style="width:100%; border:none; display: none;">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

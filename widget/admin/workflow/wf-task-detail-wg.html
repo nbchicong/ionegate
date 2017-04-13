@@ -1,0 +1,93 @@
+#dataservice("cloudwfltaskinstance")
+#set($task = $cloudwfltaskinstance)
+#set($startscript = "<script type='text/javascript'>")
+#set($endscript = "</script>")
+#if (!!$task)
+$startscript
+  $(function() {
+    var submitForm = function(){
+      var __data = $('#frm-detail').serialize();
+      var url = '$ctx.action("cloud/workflow/mytask/execution")';
+      $.postJSON(url, __data, function(data){
+        if(!!data.uuid){
+          window.location = '$ctx.page("firmadmin/page/workflow/mine")';
+        }
+      }, {
+        mask: $('#wg-content'),
+        msg: 'Đang thực hiện tác vụ...'
+      });
+    };
+    #foreach($item in $task.items)
+      #if ($item.arcName != "")
+    $("#wf-btn-design-$item.arcTo").click(function() {
+      $("#direction").val("$item.arcName");
+      submitForm();
+    });
+      #end
+    #end
+
+    #if ($task.allEnabled)
+    $("#wf-btn-send-all").click(function() {
+      $("#direction").val("ALL");
+      submitForm();
+    });
+    #end
+
+    #if ($task.defaultEnabled)
+    $("#wf-btn-send-default").click(function() {
+      $("#direction").val("DEFAULT");
+      submitForm();
+    });
+    #end
+
+    #if ($task.systemEnabled)
+    $("#wf-btn-send-system").click(function() {
+      $("#direction").val("SYSTEM");
+      submitForm();
+    });
+    #end
+
+    #if ($task.zoneUri != "")
+    $.ajax({
+      url: "$task.zoneUri",
+    }).done(function(data) {
+      $("#wg-content").html(data);
+    });
+    #end
+  });
+$endscript
+<div id="wg-toolbar" class="navbar-fixed-top">
+  <button id="wf-btn-save" class="btn btn-success btn-sm">
+    <i class="icon-save"> </i> $text.getText("app.button.save")
+  </button>
+  #if ($task.allEnabled)
+  <button id="wf-btn-send-all" class="btn btn-primary btn-sm">
+    <i class="icon-th-list"> </i> $text.getText("app.button.all")
+  </button>
+  #end
+  #if ($task.defaultEnabled)
+  <button id="wf-btn-send-default" class="btn btn-primary btn-sm">
+    <i class="icon-random"> </i> $text.getText("app.button.default")
+  </button>
+  #end
+  #if ($task.systemEnabled)
+  <button id="wf-btn-send-system" class="btn btn-primary btn-sm">
+    <i class="icon-road"> </i> $text.getText("app.button.filter")
+  </button>
+  #end
+  #foreach($item in $task.items)
+    #if ($item.arcName != "")
+  <button id="wf-btn-design-$item.arcTo" class="btn btn-primary btn-sm">
+    <i class="icon-retweet"> </i> $item.arcName
+  </button>
+    #end
+  #end
+</div>
+#end
+<form id="frm-detail" method="POST" action="$ctx.action('cloud/workflow/mytask/execution')">
+  <div id="wg-content" style="padding-top: 0px;">
+  </div>
+  <input id="task" name="task" type="hidden" value ='$ctx.value("task")'>
+  <input id="direction" name="direction" type="hidden">
+  <input name="ajax" value="callback" type="hidden">
+</form>

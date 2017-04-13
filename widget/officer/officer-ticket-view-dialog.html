@@ -1,0 +1,66 @@
+#script("/js/onegate/inet/lib/officer-ticket-view-dialog.min.js")
+<div id="officer-ticket-view-modal" class="modal container fade" tabindex="-1" style="display: none" data-width="650" data-height="250">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4><i class="icon-info-sign"></i> $text.getText("onegate.ticket.view_info")</h4>
+    </div>
+    <div class="modal-body" style="padding: 0px;margin:0px">
+        <div class="profile-user-info">
+            <div class="profile-info-row">
+                <div class="profile-info-name onegate-info-name">$text.getText("onegate.ticket.sender"): </div>
+                <div class="profile-info-value onegate-info-value">
+                    <span id="ticket-view-sender"></span>
+                </div>
+            </div>
+
+            <div class="profile-info-row">
+                <div class="profile-info-name onegate-info-name"> $text.getText("onegate.ticket.received_date"): </div>
+
+                <div class="profile-info-value onegate-info-value">
+                    <span id="ticket-view-received"></span>
+                </div>
+            </div>
+
+            <div class="profile-info-row">
+                <div class="profile-info-name onegate-info-name"> $text.getText("onegate.ticket.procedure_name"): </div>
+
+                <div class="profile-info-value onegate-info-value">
+                    <span id="ticket-view-subject"></span>
+                </div>
+            </div>
+            <div class="profile-info-row">
+                <div class="profile-info-name onegate-info-name"> $text.getText("onegate.ticket.creator"): </div>
+
+                <div class="profile-info-value onegate-info-value">
+                    <span id="ticket-view-creatorName"></span>
+                </div>
+            </div>
+            <div class="profile-info-row">
+                <div class="profile-info-name onegate-info-name"> $text.getText("onegate.ticket.owner"): </div>
+
+                <div class="profile-info-value onegate-info-value">
+                    <i class="icon-map-marker"></i>&nbsp;
+                    <span id="ticket-view-ownName"></span>
+                </div>
+            </div>
+            <div class="profile-info-row">
+                <div class="profile-info-name onegate-info-name"> $text.getText("onegate.ticket.status"): </div>
+
+                <div class="profile-info-value onegate-info-value">
+                    <span id="ticket-view-status"></span>
+                </div>
+            </div>
+
+            <div class="profile-info-row">
+                <div class="profile-info-name onegate-info-name"> $text.getText("onegate.ticket.lastupdated"): </div>
+
+                <div class="profile-info-value onegate-info-value">
+                    <span id="ticket-view-lastupdated"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button id="officer-ticket-view-modal-btn-cancel" type="button" data-dismiss="modal" class="btn btn-sm"><i class="icon-remove"></i> $text.getText("app.button.close")</button>
+    </div>
+</div><!--/ End Modal -->

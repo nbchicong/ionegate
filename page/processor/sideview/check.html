@@ -1,0 +1,34 @@
+#html({"secure":"$firm_processor","pattern":"/*/"})
+  #keywords({"title":"Plugin Check"})
+  #meta({"viewport": "width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"})
+  
+  #dataservice("onegateplugindatasearch")
+  #set($search = $onegateplugindatasearch)
+
+  #dataservice("onegateplugindatasearchlist")
+  #set($list = $onegateplugindatasearchlist)
+
+  #dataservice("onegateplugindataview")
+  #set($view = $onegateplugindataview)
+
+  #if ($search.tileID == '###')
+		<p>Nothing</p>
+  #else
+  <div class="ilayout">
+       <div id="content1">
+         <p> Search tool: </p>
+         #widget("$search.tileID","db")
+       </div>
+       
+       <div id="content2">
+         <p> List tool: </p>
+         #widget("$list.tileID","db")
+       </div>
+       
+       <div id="content3">
+         <p> View tool: </p>
+         #widget("$view.tileID","db")
+       </div>
+  </div>
+  #end
+#end

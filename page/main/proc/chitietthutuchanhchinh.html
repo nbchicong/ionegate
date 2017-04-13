@@ -1,0 +1,24 @@
+#html()
+	#keywords({"title":"Trang dịch vụ công trực tuyến tỉnh Đắk Nông "})
+	
+	#theme("/onegate/css/main/base")
+	#theme("/onegate/css/main/menu")
+	#theme("/onegate/css/main/home")
+	#theme("/onegate/css/main/style")
+	#theme("/onegate/css/main/proc")
+	
+  #script("/js/onegate/jquery/main/menu.min.js")
+
+	#variable("menu","thutuchanhchinh_menu")
+	<div id="main">
+		#widget("/onegate/widget/main/header")
+		#widget("/onegate/widget/main/menu")
+		<div id="content">
+			#widget("/onegate/widget/main/proc/chitietthutuchanhchinh")
+			<div id="category">
+				#widget("/onegate/widget/main/record/lienket")
+			</div>
+		</div>
+		#widget("/onegate/widget/main/footer")	
+	</div>
+#end

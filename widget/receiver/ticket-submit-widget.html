@@ -1,0 +1,78 @@
+#theme("/onegate/css/jquery/jquery.select2")
+#script("/js/onegate/inet/lib/select.min.js")
+#script("/js/onegate/inet/lib/receiver-ticket-submit.min.js")
+#dataservice("onegatedeptprodbyactor")
+#set($procedures = $onegatedeptprodbyactor)
+
+<div id="ticket-submit-widget" style="display: none;">
+    <div class="wg-toolbar navbar-fixed-top onegate-toolbar">
+        <button id="ticket-submit-btn-back" class="btn btn-primary">
+            <i class="icon-arrow-left"></i> $text.getText("onegate.button.back")
+        </button>
+        <button id="ticket-submit-btn-ok" class="btn btn-success">
+            <i class="icon-share-alt"></i> $text.getText("onegate.button.transfer")
+        </button>
+    </div>
+    <div class="wg-content">
+        <div class="col-xs-12 col-sm-12">
+            <form class="form-horizontal" style="margin-top: 5px;">
+                <div class="row">
+                    <div class="alert alert-info col-xs-12 col-sm-12" style="padding: 5px;margin-bottom: 2px;">
+                        <strong><i class="icon-info-sign"></i> $text.getText("Thông tin hồ sơ")</strong>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label class="col-sm-4 no-padding-right" for="ticket-submit-record-txt-no"> $text.getText("Phiếu biên nhận") (<span class="required"/>):</label>
+                            <div class="col-sm-8">
+                                <input type="text" id="ticket-submit-record-txt-no" class="col-xs-12 col-sm-12">
+                            </div>
+                       </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label class="col-sm-4 no-padding-right" for="ticket-submit-record-txt-process-date"> $text.getText("Ngày xử lý hồ sơ") (<span class="required"/>):</label>
+
+                            <div class="col-sm-8">
+                                <div class="ace-icon input-icon input-icon-right date">
+                                    <input type="text" id="ticket-submit-record-txt-process-date" class="col-xs-12 col-sm-12 date-picker">
+                                    <i class="ace-icon icon-calendar"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label class="col-sm-4  no-padding-right" for="ticket-submit-record-txt-appointment"> $text.getText("Ngày hẹn trả hồ sơ") (<span class="required"/>):</label>
+
+                            <div class="col-sm-8">
+                                <div class="ace-icon input-icon input-icon-right date">
+                                    <input type="text" id="ticket-submit-record-txt-appointment" class="col-xs-12 col-sm-12 date-picker">
+                                    <i class="ace-icon icon-calendar"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label class="col-sm-4 no-padding-right" for="ticket-submit-record-select-procedure"> $text.getText("Quy trình xử lý") (<span class="required"/>):</label>
+
+                            <div class="col-sm-8">
+                                <select id="ticket-submit-record-select-procedure" style="width: 100%">
+                                    #foreach($procedure in $procedures.items)
+                                    <option value="$procedure.procedureID">$procedure.graphName</option>
+                                    #end
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

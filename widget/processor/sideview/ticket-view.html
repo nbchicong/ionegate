@@ -1,0 +1,63 @@
+#theme("/onegate/css/format")
+#theme("/onegate/css/jquery/bootstrap-datepicker")
+#script("/js/onegate/bootstrap/plugins/bootstrap-datepicker.min.js")
+#script("/js/onegate/jquery/plugins/jquery.form.min.js")
+#script("/js/onegate/jquery/plugins/jquery.jquery-validate.min.js")
+#script("/js/onegate/jquery/plugins/jquery.maskedinput.min.js")
+#script("/js/onegate/inet/lib/xform.min.js")
+#script("/js/onegate/inet/lib/processor-ticket-view.min.js")
+<div id="ticket-view" class="messageView $rside" data-normal="$rside" data-full="$fside" style="float: left;height: 100%;padding:0px">
+    <div class="side-toolbar">
+        <span id="ticket-action-toolbar"></span>
+        <div class="widget-toolbar" style="line-height: normal">
+            <div class="btn-group">
+                <button id="record-view-btn-previous" class="btn" disabled="disabled">
+                    <i class="ace-icon icon-arrow-left"></i>
+                </button>
+                <button id="record-view-btn-next" class="btn" disabled="disabled">
+                    <i class="ace-icon icon-arrow-right"></i>
+                </button>
+            </div>
+            <button id="message-view-full" class="btn" data-status="normal">
+                <i class="ace-icon icon-fullscreen"></i>
+            </button>
+        </div>
+    </div>
+    <div class="b-content thm-message-view-background-color">
+        <div>
+            <div id="message-view-no-selected" class="b-message-view-desc">
+                <div><i class="icon-briefcase" style="font-size: 100px;"></i></div>
+                <div>$text.getText("onegate.receiver.no_selected")</div>
+            </div>
+
+            <div id="div-message-view-dp" class="dp-container messageItem nano has-scrollbar selected" style="float:left;display: none;width: 100%">
+                <div id="div-message-view-dp-content" class="dp-content overthrow nano-content content g-scrollbox" tabindex="1" style="right: -13px;">
+                    <div class="content-wrapper">
+                        <div>
+                            <div id="message-view-loading-text" class="loading g-ui-min-height-300" style="display: none;">
+                                <span class="i18n text">$text.getText("onegate.common.loading")</span>
+                                <span class="textLoadingAnimationD1">.</span>
+                                <span class="textLoadingAnimationD2">.</span>
+                                <span class="textLoadingAnimationD3">.</span>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="bodyText ">
+                                <div class="rl-cache-class b-text-part html">
+                                    <div id="record-xform-body" data-x-div-type="html" style="display: none;">
+                                        <div id="record-procedure-lbl-container" class="alert alert-info col-xs-12 col-sm-12" style="padding: 5px;margin-bottom: 2px;">
+                                            <strong><i class="icon-book"></i> <span id="record-procedure-lbl-name"></span></strong>
+                                        </div>
+                                        <form id="record-xform-id" method="POST" class="form-horizontal col-xs-12 col-sm-12">
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="message-view-attachment-footer" class="attachmentsPlace" style="padding-left: 10px;display: none;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

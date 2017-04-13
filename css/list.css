@@ -1,0 +1,440 @@
+.side-toolbar {
+    width: 100%;
+    float: left;
+    background-color: rgb(245, 245, 245);
+    border-bottom: 1px solid rgb(229, 229, 229);
+    padding: 5px;
+    min-height: 40px;
+}
+.messageList .second-toolbar {
+    height: 29px;
+    padding: 10px 8px 10px 11px;
+    background-color: #eee;
+}
+
+.messageList .second-toolbar .checkboxCkeckAll {
+    margin: 5px 0;
+}
+
+.thm-message-list-top-toolbar .thm-message-list-bottom-toolbar {
+    background-color: #EEEEEE !important;
+}
+
+.messageList .b-message-list-wrapper {
+    border: 1px solid #DDD;
+    border-top: 0px;
+    /*border-radius: 5px;*/
+    bottom: 5px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    left: 0;
+    float:left;
+    width: 100%;
+}
+
+.messageList .second-toolbar .checkboxCkeckAll {
+    margin: 5px 0;
+}
+
+.input-append {
+    display: inline-block;
+    margin-bottom: 0;
+    vertical-align: middle;
+}
+
+.messageList .btn.buttonMoreSearch {
+    padding-left: 8px;
+    padding-right: 8px;
+}
+
+.input-append .add-on:last-child,.input-append .btn:last-child {
+    border-radius: 0 3px 3px 0;
+}
+
+.input-append .add-on,.input-prepend .add-on,.input-append .btn,.input-prepend .btn
+{
+    border-radius: 0;
+    margin-left: -1px;
+    vertical-align: top;
+}
+
+.messageList .b-content .messageListItem.unread {
+    background-color: #FFFFD9;
+}
+
+.messageList .b-content .messageListItem.unread .sidebarParent {
+    background-color: #FFA500;
+}
+.messageList .b-content .messageListItem.checked .sidebarParent {
+    background-color: #69A8F5 !important;
+}
+
+.messageList .b-content .messageListItem.selected {
+    background-color: #DFEFFF;
+}
+
+.messageList .b-content .messageListItem .sidebarParent {
+    background-color: #EEEEEE;
+    display: inline-block;
+    float: left;
+    height: 100%;
+    width: 6px;
+}
+
+.messageList .b-content .messageListItem.selected .sidebarParent {
+    background-color: #398CF2 !important;
+}
+
+.messageList .b-content .messageListItem .delimiter {
+    background-color: #999999;
+    display: block;
+    height: 1px;
+    opacity: 0.2;
+    position: relative;
+}
+
+.messageList .messageListItem {
+    transition: max-height 400ms ease 0s;
+}
+
+.messageList .b-content .messageListItem {
+    background-color: #F9F9F9;
+    border: 0 solid rgba(0, 0, 0, 0);
+    cursor: pointer;
+    font-size: 12px;
+    height: 52px;
+    line-height: 21px;
+    margin: 0;
+    max-height: 60px;
+    overflow: hidden;
+    position: relative;
+    z-index: 100;
+}
+
+.messageList .mainDelimiter {
+    background-color: #BBBBBB;
+    height: 1px;
+}
+
+.messageList .b-content .messageListItem .wrapper {
+    padding: 5px 0;
+}
+
+.messageList .b-content .messageListItem .flagParent {
+    display: inline-block;
+    float: right;
+    padding: 0 18px 0 5px;
+    font-size: 15px;
+}
+
+.messageList .b-content .messageListItem .senderParent,.messageList .b-content .messageListItem .subjectParent,.messageList .b-content .messageListItem .dateParent
+{
+    white-space: nowrap;
+}
+
+.messageList .b-content .messageListItem .senderParent {
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.messageList .b-content .messageListItem .dateParent {
+    color: #999999;
+    display: inline-block;
+    float: right;
+    font-size: 11px;
+    margin: 0 5px;
+    position: relative;
+}
+
+.messageList .b-content .messageListItem .checkedParent {
+    display: inline-block;
+    float: left;
+    font-size: 14px;
+    margin-top: 11px;
+    padding: 0 8px 0 6px;
+}
+
+.messageList .b-content .messageListItem .sender,.messageList .b-content .messageListItem .subject
+{
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.messageList .b-content .messageListItem .subjectParent {
+    color: #000000;
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.messageList .b-content .messageListItem .subjectParent {
+    color: #000000;
+}
+
+.messageList .b-content .messageListItem .attachmentParent {
+    display: inline-block;
+    float: right;
+    margin: 2px 18px 0 5px;
+    position: relative;
+}
+
+.messageList .b-content .messageListItem.withAttachments .attachment {
+    color: #666666;
+    display: inline-block;
+    text-shadow: 0 1px 0 #EEEEEE;
+}
+
+.messageList .b-content .messageListItem .subjectParent {
+    color: #000000;
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+
+.messageList .b-content .messageListItem .replyFlag, .messageList .b-content .messageListItem .forwardFlag {
+    display: none;
+}
+
+.messageList .b-content .messageListItem.reply .replyFlag {
+    display: inline-block;
+}
+
+.messageList .b-content .messageListItem.forward .forwardFlag {
+    display: inline-block;
+}
+.messageList .b-content .messageListItem.withAttachments .attachment {
+    color: #666666;
+    display: inline-block;
+    text-shadow: 0 1px 0 #EEEEEE;
+}
+/*=======FOOTER======================================*/
+.messageList .b-footer {
+    background-color: #EEEEEE;
+    /*
+	border-bottom-left-radius: 5px;
+	border-bottom-right-radius: 5px;
+	*/
+    height: 40px;
+    padding: 5px;
+}
+
+.thm-message-list-top-toolbar,.thm-message-list-bottom-toolbar {
+    background-color: #EEEEEE !important;
+}
+
+/*=================================VIEW PANEL========================================================*/
+.messageView {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    /*box-shadow: 5px 0px 20px;*/
+}
+.messageView .b-content {
+    background-color: #FFFFFF;
+    /*border-bottom-right-radius: 3px;*/
+    border-image: none;
+    /*border-style: solid solid solid none;
+    border-top-right-radius: 3px;
+    border-width: 0px 1px 0px 0px;
+    bottom: 13px;*/
+    margin: 0;
+    /*overflow: hidden;*/
+}
+
+.thm-message-view-background-color {
+    background-color: #FFFFFF !important;
+}
+
+.messageView .b-content .messageItem {
+    /*border-radius: 3px;*/
+    /*overflow: auto;*/
+}
+
+.messageView .b-content .messageItem .messageItemHeader {
+    background-color: #F8F8F8;
+    border-bottom: 1px solid #DDDDDD;
+    border-top: 0 none;
+    padding: 10px;
+}
+
+.messageView .b-content .messageItem .buttonUp,.messageView .b-content .messageItem .buttonUnFull,.messageView .b-content .messageItem .buttonFull
+{
+    background-color: #FFFFFF;
+    border: 1px solid #333333;
+    border-radius: 5px;
+    color: #333333;
+    cursor: pointer;
+    display: inline-block;
+    height: 30px;
+    line-height: 30px;
+    opacity: 0.3;
+    position: fixed;
+    right: 20px;
+    text-align: center;
+    top: 10px;
+    vertical-align: middle;
+    width: 30px;
+    z-index: 2;
+}
+
+.messageView .b-content .messageItem .buttonUp,.messageView .b-content .messageItem .buttonUnFull,.messageView .b-content .messageItem .buttonFull:HOVER
+{
+    background-color: #888888;
+    border-color: #000000;
+    color: #FFFFFF;
+    opacity: 0.8;
+}
+
+.messageView .b-content .messageItem .messageItemHeader .subjectParent {
+    font-size: 16px;
+    font-weight: 700;
+    margin-left: 3px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.messageView .b-content .messageItem .messageItemHeader .subjectParent {
+    font-size: 16px;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.messageView .b-content .messageItem .messageItemHeader .senderParent {
+    margin-top: 10px;
+}
+
+.messageView .b-content .messageItem .messageItemHeader .informationShort {
+    margin-left: 15px;
+}
+
+.g-ui-user-select-none {
+    -moz-user-select: none;
+}
+
+.messageItem .messageItemHeader .informationShort a {
+    color: #336699;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.messageView .b-content .messageItem .messageItemHeader .informationShort a {
+    color: #336699;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.messageView .b-content .messageItem .messageItemHeader .informationFull {
+    background-color: #FFFFFF;
+    border: 1px solid #DDDDDD;
+    border-radius: 5px;
+    margin-top: 10px;
+    padding: 10px 15px;
+    font-size: 110%;
+}
+
+
+/* animation: 2s linear 0s normal none infinite animate-stripes; */
+.e-strip-animation {
+    animation-duration: 2s;
+    animation-timing-function: linear;
+    animation-delay: 0s;
+    animation-direction: normal;
+    animation-fill-mode: none;
+    animation-iteration-count:infinite;
+    animation-name: animate-stripes;
+    animation-timing-function: cubic-bezier(0,​ 0,​ 1,​ 1);
+    background-image: linear-gradient(135deg, rgba(0, 0, 0, 0.1) 25%, rgba(0, 0, 0, 0) 25%, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0.1) 50%, rgba(0, 0, 0, 0.1) 75%, rgba(0, 0, 0, 0) 75%, rgba(0, 0, 0, 0));
+    background-size: 60px 60px;
+}
+
+.line-loading {
+    height: 5px !important;
+}
+.messageView .b-content .messageItem .loading {
+    color: #808080;
+    font-size: 24px;
+    padding-top: 50px;
+    text-align: center;
+}
+
+.textLoadingAnimationD1, .textLoadingAnimationD2, .textLoadingAnimationD3 {
+    animation: 1s linear 0s normal none infinite textLoadingAnimationKeyFrame;
+}
+
+.textLoadingAnimationD2 {
+    animation-delay: 0.3s;
+}
+
+.textLoadingAnimationD3 {
+    animation-delay: 0.6s;
+}
+
+.g-ui-min-height-300 {
+    min-height: 300px;
+}
+/*============Attachment===================*/
+.messageView .b-content .messageItem .attachmentsPlace {
+    padding: 0 10px 0 0;
+}
+.messageView .b-content .messageItem .attachmentsPlace .attachmentList {
+    margin: 0;
+}
+.messageView .b-content .messageItem .attachmentsPlace .attachmentList .attachmentItem {
+    /* background-color: #FFFFFF;
+    border: 2px solid #808080;
+    border-radius: 6px;
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1); */
+    cursor: pointer;
+    display: inline-block;
+    line-height: 24px;
+    list-style: none outside none;
+    margin: 5px;
+    /* max-width: 170px;
+    min-width: 60px; */
+    width: 250px;
+    /* overflow: hidden; */
+    padding: 5px;
+}
+.messageView .b-content .messageItem .attachmentsPlace .attachmentList .attachmentItem .attachmentIcon {
+    font-size: 23px;
+    height: 23px;
+    width: 23px;
+}
+
+.messageView .b-content .messageItem .attachmentsPlace .attachmentList .attachmentItem .attachmentTitle {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 200px;
+}
+
+.messageView .b-content .messageItem .attachmentsPlace a {
+    color: #336699;
+    text-decoration: none;
+}
+
+.messageView .b-content .messageItem .attachmentsPlace a:HOVER {
+    color: #336699;
+    text-decoration: none;
+}
+/*============Text body====================*/
+.messageView .b-content .messageItem .bodyText {
+    color: #000000;
+    font-family: Arial,Verdana,Geneva,sans-serif;
+}
+
+.messageView .b-content .messageItem .bodyText .b-text-part div[data-x-div-type="html"] {
+    height: 100%;
+}
+
+.messageView .b-content .messageItem .bodyText .b-text-part.html div[data-x-div-type="body"] {
+    margin: 15px;
+}
+
+.messageView .b-content .b-message-view-desc {
+    text-align: center;
+    font-size: 24px;
+    line-height: 30px;
+    padding-top: 125px;
+    color: #999;
+}

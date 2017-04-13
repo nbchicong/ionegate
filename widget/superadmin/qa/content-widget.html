@@ -1,0 +1,190 @@
+#theme("/onegate/css/redactor")
+#script("/js/onegate/jquery/plugins/jquery.redactor-vi.min.js")
+#script("/js/onegate/jquery/plugins/jquery.redactor.min.js")
+#script("/js/onegate/inet/lib/onegate-superadmin-support-qa-content-widget.min.js")
+<div id="qa-content-widget" style="display: none">
+    <div class="wg-toolbar navbar-fixed-top">
+        <button id="qa-content-widget-btn-back" type="button" class="btn btn-primary">
+            <i class="icon-arrow-left"></i> $text.getText("onegate.button.back")
+        </button>
+        <button id="qa-content-widget-btn-accept" class="btn btn-primary">
+            <i class="icon-ok"></i> $text.getText("Tiếp nhận")
+        </button>
+        <button id="qa-content-widget-btn-transfer" class="btn btn-primary">
+            <i class="ace-icon icon-share"></i> $text.getText("Chuyển xử lý")
+        </button>
+        <button id="qa-content-widget-btn-reply" class="btn btn-primary">
+            <i class="icon-reply"></i> $text.getText("Trả lời")
+        </button>
+        <button id="qa-content-widget-btn-update" class="btn btn-primary">
+            <i class="icon-save"></i> $text.getText("Cập nhật")
+        </button>
+    </div>
+   <div class="wg-content">
+       <div class="col-xs-12 col-sm-12 no-padding" id="qa-content-widget-title">
+           <div class="alert alert-success col-xs-12 col-sm-12 " style=" padding: 5px;margin-bottom: 2px;">
+               <strong><i class="ace-icon  icon-ok"></i> Đã trả lời</strong>
+           </div>
+       </div>
+       <div class="col-xs-12 col-sm-12 no-padding">
+           <div class="form-horizontal" style="background-color: #FFF; border: 1px solid #DDD; border-radius: 5px; padding: 10px 15px; margin: 5px;">
+                <fieldset>
+                    <div class="form-group">
+                        <label class="control-label col-sm-2 col-xs-2 lbl-bold">
+                            $text.getText("Họ và tên") (<span class="required"/>):
+                        </label>
+                        <div class="col-sm-10 col-xs-10">
+                            <input type="text" id="qa-content-widget-txt-fullname" name="fullname" class="col-xs-12 col-sm-12"/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-sm-2 col-xs-2 lbl-bold">
+                            $text.getText("Phone") (<span class="required"/>):
+                        </label>
+                        <div class="col-sm-4 col-xs-4" for="qa-content-widget-txt-phone">
+                            <input id="qa-content-widget-txt-phone" type="text" name="address" class="col-xs-12 col-sm-12"/>
+                        </div>
+                        <label class="control-label col-sm-2 col-xs-2 lbl-bold" for="qa-content-widget-txt-email">
+                            $text.getText("Email"):
+                        </label>
+                        <div class="col-sm-4 col-xs-4">
+                            <input id="qa-content-widget-txt-email" type="text" name="address" class="col-xs-12 col-sm-12"/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-sm-2 col-xs-2 lbl-bold">
+                            $text.getText("Địa chỉ") (<span class="required"/>):
+                        </label>
+                        <div class="col-sm-4 col-xs-4">
+                            <input id="qa-content-widget-txt-address" type="text" name="author" class="col-xs-12 col-sm-12"/>
+                        </div>
+                    </div>
+                    <h4 class="header blue bolder smaller"></h4>
+                    <div class="form-group">
+                        <label class="control-label col-sm-2 col-xs-2 lbl-bold">
+                            $text.getText("Ngày gởi"):
+                        </label>
+                        <div class="col-sm-4 col-xs-4">
+                            <span id="qa-content-widget-lb-created" name="author" class="form-control col-xs-12 col-sm-12 bold"/>
+                        </div>
+                        <label class="control-label col-sm-2 col-xs-2 lbl-bold">
+                            $text.getText("Ngày tiếp nhận"):
+                        </label>
+                        <div class="col-sm-4 col-xs-4">
+                            <span id="qa-content-widget-lb-received" name="author" class="form-control col-xs-12 col-sm-12 bold"/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-sm-2 col-xs-2 lbl-bold">
+                            $text.getText("Đơn vị xử lý"):
+                        </label>
+                        <div class="col-sm-4 col-xs-4">
+                            <span class="input-icon width-100">
+                                <i class="ace-icon fa fa-pencil blue" data-action="update-firm" style="cursor: pointer"></i>
+                                <span id="qa-content-widget-lb-firm" name="firm" class="form-control col-xs-12 col-sm-12 bold" style="padding-left: 22px"/>
+                            </span>
+                        </div>
+                        <label class="control-label col-sm-2 col-xs-2 lbl-bold">
+                            $text.getText("Ngày trả lời"):
+                        </label>
+                        <div class="col-sm-4 col-xs-4">
+                            <span id="qa-content-widget-lb-published" name="author" class="form-control col-xs-12 col-sm-12 bold"/>
+                        </div>
+
+                    </div>
+                </fieldset>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-12">
+            <form id="qa-content-widget-detail" class="form-horizontal" style="margin-top: 5px;" method="post">
+
+                <div class="form-group">
+                    <div class="alert alert-info col-xs-12 col-sm-12" style="padding: 5px;margin-bottom: 2px;">
+                        <strong><i class="fa fa-question-circle"></i> $text.getText("Câu hỏi")</strong>
+                    </div>
+                </div>
+                <div id="qa-content-widget-question">
+                    <div class="form-group">
+                        <label class="control-label col-sm-2 lbl-bold" for="qa-content-widget-txt-subject">
+                            $text.getText("Chủ đề") (<span class="required"/>):
+                        </label>
+                        <div class="col-sm-10">
+                            <input id="qa-content-widget-txt-subject" type="text" name="subject" class="col-xs-12 col-sm-12"/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-sm-2 lbl-bold" for="qa-content-widget-txt-question">
+                            $text.getText("Nội dung") (<span class="required"/>):</label>
+                        <div class="col-sm-10">
+                            <textarea id="qa-content-widget-txt-question" rows="10" name="question" class="col-xs-12 col-sm-12"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div id="qa-content-widget-answer">
+                    <div class="row">
+                        <div class="alert alert-info col-xs-12 col-sm-12" style="padding: 5px;margin-bottom: 2px;">
+                            <strong><i class="fa fa-bullhorn"></i> $text.getText("Hồi đáp")</strong>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                       <label class="control-label col-sm-2 lbl-bold" for="qa-content-widget-lb-answer">
+                            $text.getText("Nội dung"):
+                           <i class="ace-icon fa fa-pencil blue" data-action="update-answer" style="cursor: pointer;position: relative;position: absolute; line-height: 0;   border: 0.6em solid rgba(0, 0, 0, 0);font-size: 120%;"></i>
+                       </label>
+                        <div class="col-sm-10">
+                            <span class="input-icon width-100">
+                                <span id="qa-content-widget-lb-answer" name="answer" class="col-xs-12 col-sm-12" style="background-color: #FFF; border: 1px solid #DDD; border-radius: 5px; padding: 10px 15px; margin: 5px;"></span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div id="qa-content-widget-firm-modal" class="modal container fade" tabindex="-1" style="display: none" data-width="750">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h4><i class="icon-group"></i> $text.getText("Đơn vị xử lý")</h4>
+        </div>
+        <div class="modal-body" style="padding: 0px;margin:0px">
+            <div class="space-12"></div>
+            <div class="form-horizontal">
+                <div class="form-group">
+                    <label class="control-label col-sm-2 col-xs-2 lbl-bold" for="qa-content-widget-firm-modal-firm">Tên đơn vị (<span class="required"/>):</label>
+                    <div class="col-xs-10 col-sm-10">
+                        <input id="qa-content-widget-firm-modal-firm" type="text" name="firm" class="col-xs-12 col-sm-12"/>
+                     </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button  id="qa-content-widget-firm-modal-bnt-ok" type="button" class="btn btn-primary btn-sm"><i class="icon-ok"></i> $text.getText("app.button.ok")</button>
+            <button  type="button" data-dismiss="modal" class="btn btn-sm"><i class="icon-remove"></i> $text.getText("app.button.close")</button>
+        </div>
+    </div>
+    <div id="qa-content-widget-answer-modal" class="modal container fade" tabindex="-1" style="display: none" data-width="850px">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h4><i class="icon-book"></i> $text.getText("Trả lời")</h4>
+        </div>
+        <div class="modal-body" style="padding: 0px;margin:0px;">
+            <div class="form-horizontal">
+                <div class="space-12"></div>
+               <div class="form-group">
+                    <label class="control-label col-sm-2 lbl-bold" for="qa-content-widget-answer-modal-firm">Đơn vị xử lý:</label>
+                    <div class="col-xs-8 col-sm-8">
+                        <input id="qa-content-widget-answer-modal-firm" type="text" name="address" class="col-xs-12 col-sm-12"/>
+                     </div>
+                </div>
+                <div class=""  style="padding-left: 10px;padding-right: 10px">
+                    <textarea id="qa-content-widget-answer-modal-answer" class="width-100" rows="10"></textarea>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button id="qa-content-widget-answer-modal-btn-ok" type="button" class="btn btn-primary btn-sm"><i class="icon-ok"></i> $text.getText("app.button.ok")</button>
+            <button type="button" data-dismiss="modal" class="btn btn-sm"><i class="icon-remove"></i> $text.getText("app.button.close")</button>
+        </div>
+    </div>
+</div>

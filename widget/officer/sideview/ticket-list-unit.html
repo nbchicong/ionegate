@@ -1,0 +1,101 @@
+#theme("/onegate/css/jquery/bootstrap-datepicker")
+#script("/js/onegate/bootstrap/plugins/bootstrap-datepicker.min.js")
+#script("/js/common/inet/lib/pagingtb.min.js")
+#script("/js/common/inet/lib/checkboxmng.min.js")
+#script("/js/onegate/inet/lib/officer-ticket-list-unit.min.js")
+
+#dataservice("onegatedeptticketstatuslist")
+#set($statuslist = $onegatedeptticketstatuslist)
+
+<div id="ticket-list" class="messageList $lside" style="float: left;padding: 0px;">
+    <div class="side-toolbar">
+        <!-- <button id="ticket-list-btn-create" class="btn btn-info hide" disabled="disabled">
+            <i class="icon-plus"></i> $text.getText("onegate.button.new_record")
+        </button> -->
+        <button id="ticket-list-btn-print" class="btn btn-primary hide" disabled="disabled">
+            <i class="icon-print"></i> $text.getText("app.button.print")
+        </button>
+        <button id="ticket-list-btn-delete" class="btn btn-danger hide" disabled="disabled">
+            <i class="icon-trash"></i> $text.getText("onegate.button.delete")
+        </button>
+    </div>
+    <div class="b-message-list-wrapper">
+        <div id="message-list-top-toolbar" style="height: 48px; display: inline-flex; padding-top: 6px; width: 100%;" class="second-toolbar thm-message-list-top-toolbar">
+            <div style="float: left;display: inline-block">
+                <label style="margin-left: 1px;margin-top: 6px;">
+                    <input id="check-all" type="checkbox" class="ace">
+                    <span class="lbl"></span>
+                </label>
+            </div>
+            <div style="width: 100%;padding-left: 5px;">
+                 <span class="ace-icon input-icon input-icon-right" style="width: 100%">
+                     <input id="ticket-basic-search-txt-keyword" type="text" placeholder='$text.getText("onegate.common.keyword")' style="width: 100%;">
+                     <i id="ticket-basic-search-btn-expand" class="ace-icon icon-caret-down" style="right: 25px;cursor: pointer"></i>
+                     <i class="ace-icon icon-search" data-action-search="search" title='$text.getText("onegate.button.search")'></i>
+                 </span>
+            </div>
+            <div id="ticket-advance-search" class="advance-search dropdown-menu dropdown-caret" style="top: 75px; left: 35px; display: none;">
+                <div class="col-xs-12 col-sm-12" style="padding: 0px">
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-12">
+                            <div class="form-group">
+                                <label class="control-label col-sm-5 lbl-bold" for="ticket-advance-search-select-status">
+                                    Trạng thái:
+                                </label>
+                                <div class="col-sm-7">
+                                    <select id="ticket-advance-search-select-status" style="width: 100%">
+                                        <option value="">$text.getText("onegate.receiver.status.all")</option>
+                                        #foreach($status in $statuslist.elements)
+                                        <option value="$status">$text.getText("onegate.receiver.status.$status.toLowerCase()")</option>
+                                        #end
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-sm-5 lbl-bold" for="ticket-advance-search-start-date">
+                                    Từ ngày:
+                                </label>
+                                <div class="col-sm-7">
+                                    <span class="ace-icon input-icon input-icon-right">
+                                        <input id="ticket-advance-search-start-date" name="startDate" type="text" data-type="date" data-date-format="dd/mm/yyyy" class="col-xs-12 col-sm-12" value="">
+                                        <i class="ace-icon icon-calendar"></i>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-sm-5 lbl-bold" for="ticket-advance-search-end-date">
+                                    Đến ngày:
+                                </label>
+                                <div class="col-sm-7">
+                                    <span class="ace-icon input-icon input-icon-right">
+                                        <input id="ticket-advance-search-end-date" name="startDate" type="text" data-type="date" data-date-format="dd/mm/yyyy" class="col-xs-12 col-sm-12" value="">
+                                        <i class="ace-icon icon-calendar"></i>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="mainDelimiter toolbarDelimiter"></div>
+        <div id="div-message-list-dp" class="b-content nano has-scrollbar">
+            <div id="message-list-no-data" style="text-align: center;font-size: 14px;line-height: 30px;padding: 10px;color: #999;">
+                <div>$text.getText("onegate.common.empty_msg")</div>
+            </div>
+            <div id="div-message-list-dp-content" class="overthrow nano-content content g-scrollbox" tabindex="0" style="right: -13px;">
+                <div id="ticket-grid" class="content-wrapper">
+                </div>
+            </div>
+
+        </div>
+
+        <div class="mainDelimiter footerDelimiter"></div>
+
+        <div class="b-footer thm-message-list-bottom-toolbar">
+            <div class="pull-right">
+                <span class="paging" id="paging"></span>
+            </div>
+        </div>
+    </div>
+</div>

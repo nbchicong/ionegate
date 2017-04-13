@@ -1,0 +1,95 @@
+#theme("/common/css/inet-core-3.0.min")
+#theme("/onegate/css/onegate")
+#dataservice("onegateofficeticketreceiver")
+#set($data = $onegateofficeticketreceiver)
+#variable("pageSize", "200000")
+#variable("pageNumber", "0")
+#set($fromDate = "")
+#set($toDate = "")
+#if(!!$ctx.value("startDate"))
+    #set($fromDate = $ctx.value("startDate"))
+#end
+#if(!!$ctx.value("endDate"))
+    #set($endDate = $ctx.value("endDate"))
+#end
+<style type="text/css">
+    @media print {
+        .wg-toolbar {
+            display: none;
+        }
+    }
+</style>
+<div class="wg-content" style="padding-top: 0px;">
+    <div class="text-center" style="text-align: center;">
+        <h3>Danh sách hồ sơ bàn giao</h3>
+        #if($fromDate!="" && $endDate!="")
+        <div>
+            <span>Từ ngày: </span>
+            <strong>$fromDate</strong>
+            -
+            <span>Đến ngày: </span>
+            <strong>$endDate</strong>
+        </div>
+        #end
+    </div>
+    <table class="table table-bordered">
+        <colgroup>
+            <col style="width: 5%;" />
+            <col style="width: 40%;" />
+            <col style="width: 25%;" />
+            <col style="width: 15%;" />
+            <col style="width: 15%;" />
+        </colgroup>
+        <thead>
+        <tr>
+            <th>Mã giao dịch</th>
+            <th>Tên hồ sơ</th>
+            <th>Người nộp hồ sơ</th>
+            <th>Ngày tiếp nhận</th>
+            <!-- <th>Trạng thái</th> -->
+        </tr>
+        </thead>
+        <tbody>
+        #if($data.items.size() > 0)
+            #foreach($item in $data.items)
+                #if($item.status == "VERIFIED")
+                    #set($status = "Đã tiếp nhận")
+                #elseif($item.status == "SUBMITED")
+                    #set($status = "Đang xử lý")
+                #elseif($item.status == "REJECTED")
+                    #set($status = "Từ chối")
+                #elseif($item.status == "PUBLISHED")
+                    #set($status = "Đã trả cho công dân")
+                #elseif($item.status == "COMPLETED")
+                    #set($status = "Đã có kết quả")
+                #elseif($item.status == "PAYMENT")
+                    #set($status = "Đang chờ thành toán")
+                #elseif($item.status == "APPROVED")
+                    #set($status = "Chấp nhận")
+                #elseif($item.status == "ERROR")
+                    #set($status = "Hồ sơ bị lỗi")
+                ##else
+                    #set($status = "Đang chờ tiếp nhận")
+                #end
+        <tr>
+            <td>$item.serialNo</td>
+            <td>$item.subject</td>
+            <td>$item.sender</td>
+            <td>$ctx.date($item.received, "dd/MM/yyyy")</td>
+            <!--  <td>$status</td>-->
+        </tr>
+            #end
+        #else
+        <tr><td colspan="5">Không có dữ liệu hiển thị</td></tr>
+        #end
+        </tbody>
+    </table>
+</div>
+<script>
+    $(function () {
+        $('link').each(function (i, el) {
+            var __el = $(el);
+            $('<link id="' + Math.random()*10000 + '" rel="stylesheet" href="' + __el.attr('href') + '" media="print" type="text/css">').appendTo($('head'));
+        });
+    });
+</script>

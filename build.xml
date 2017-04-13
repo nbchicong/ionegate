@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="module-onegate" basedir=".">
+	<property name="project-name" value="onegate" />
+	<property name="deploy.dir" value="/home/programs/onegate-server/jboss-7.1.1/standalone/module/icloudgate"/>
+
+	<property name="js.dir" value="${basedir}/js" />
+	<property name="css.dir" value="${basedir}"/>
+	<property name="font.dir" value="${basedir}"/>
+	<property name="images.dir" value="${basedir}"/>
+	<property name="page.dir" value="${basedir}"/>
+	<property name="widget.dir" value="${basedir}"/>
+	<property name="message.dir" value="${basedir}"/>
+	<property name="viewer.dir" value="${basedir}"/>
+	
+	<property name="build.dir" value="${basedir}/target/build" />
+	<property name="target.dir" value="${basedir}/target" />
+
+    <property name="jsbuilder" location="/home/nbccong/Tools/build/jsbuilder.jar" />
+	<taskdef name="jsbuilder" classname="org.antz29.jsbuilder.ant.BuilderTask" classpath="${jsbuilder}" />
+	
+	<target name="clean">
+		<delete dir="${build.dir}" deleteonexit="true"/>
+		<delete dir="${target.dir}" deleteonexit="true"/>
+	</target>
+	
+	<target name="init" description="Create the build dir">
+		<!--<delete dir="${build.dir}" deleteonexit="true"/>-->
+		<delete dir="${target.dir}" deleteonexit="true"/>
+	  <mkdir dir="${build.dir}" />
+		<mkdir dir="${target.dir}"/>
+	</target>
+
+    <target name="inet-ionegate.compile" description="iNet core" depends="init">
+        <delete dir="${build.dir}/js/inet/lib" failonerror="false" />
+        <jsbuilder dir="${build.dir}/js/inet/lib" pattern="{PACKAGE}.min.js">
+            <source path="${js.dir}/inet"/>
+        </jsbuilder>
+    </target>
+    <target name="jquery-plugins.compile" description="jQuery Plugins" depends="init">
+        <delete dir="${build.dir}/js/jquery/plugins" failonerror="false" />
+        <jsbuilder dir="${build.dir}/js/jquery/plugins" pattern="{MODULE}.min.js">
+            <source path="${js.dir}/jquery/plugins"/>
+        </jsbuilder>
+    </target>
+
+    <target name="bootstrap-plugins.compile" description="Bootstrap Plugins" depends="init">
+        <delete dir="${build.dir}/js/bootstrap/plugins" failonerror="false"/>
+        <jsbuilder dir="${build.dir}/js/bootstrap/plugins" pattern="{MODULE}.min.js">
+            <source path="${js.dir}/bootstrap/plugins"/>
+        </jsbuilder>
+    </target>
+	
+	<target name="codemirror-core.compile" description="Code Mirror Core" depends="init">
+	    <delete dir="${build.dir}/js/codemirror/plugins" failonerror="false" />
+	    <jsbuilder dir="${build.dir}/js/codemirror/plugins" pattern="{PACKAGE}.min.js">
+	      <source path="${js.dir}/codemirror"/>
+	    </jsbuilder>
+	  </target>
+	
+	<target name="codemirror-addon.compile" description="Code Mirror Addon" depends="init">
+	    <jsbuilder dir="${build.dir}/js/codemirror/plugins" pattern="{PACKAGE}.min.js">
+	      <source path="${js.dir}/codemirror/addon"/>
+	      <module package='codemirror-addons' name='iNet' file='${basedir}/js/codemirror/addon/show-hint.js' />
+	      <module package='codemirror-addons' name='iNet' file='${basedir}/js/codemirror/addon/html-hint.js' />
+	      <module package='codemirror-addons' name='iNet' file='${basedir}/js/codemirror/addon/javascript-hint.js' />
+	      <module package='codemirror-addons' name='iNet' file='${basedir}/js/codemirror/addon/xml-hint.js' />
+	    </jsbuilder>
+	  </target>
+	  
+	  <target name="codemirror-plugins.compile" description="Code Mirror Plugins" depends="init">
+	    <jsbuilder dir="${build.dir}/js/codemirror/plugins" pattern="{PACKAGE}.min.js">
+	       <source path="${js.dir}/codemirror/plugins"/>
+	    </jsbuilder>
+	  </target>
+
+	
+	<target name="zip" depends="inet-ionegate.compile,jquery-plugins.compile,bootstrap-plugins.compile,codemirror-core.compile,codemirror-plugins.compile,codemirror-addon.compile">
+		<zip destfile="${target.dir}/${project-name}.zip">
+			<fileset dir="${build.dir}" includes="**/*.min.js"/>
+			<fileset dir="${basedir}" includes="js/inet/lib/*.min.js,js/bootstrap/**/*.min.js,js/codemirror/**/*.min.js,js/jquery/**/*.min.js,*.profile,**/*-lang-*.js,js/storage/*.min.js"/>
+			<fileset dir="${css.dir}" includes="**/*.css"/>
+			<fileset dir="${font.dir}" includes="font/*.*"/>
+			<fileset dir="${images.dir}" includes="images/**/*.*"/>
+			<fileset dir="${widget.dir}" includes="widget/**/*.*"/>
+			<fileset dir="${page.dir}" includes="page/**/*.*"/>
+			<fileset dir="${message.dir}" includes="message/*.*"/>
+			<fileset dir="${viewer.dir}" includes="js/inet/pdfview/**/*.*"/>
+		</zip>
+	</target>
+	
+	<target name="deploy" depends="zip">
+		<copy todir="${deploy.dir}" file="${target.dir}/${project-name}.zip" overwrite="true"/>
+	</target>
+
+</project>

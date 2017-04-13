@@ -1,0 +1,26 @@
+#theme("/common/css/grid.min")
+#script("/js/common/inet/lib/grid-2.0.min.js")
+#script("/js/onegate/inet/lib/onegate-superadmin-report-search-widget-abstract.min.js")
+#script("/js/onegate/inet/lib/onegate-superadmin-report-procedures-search-widget.min.js")
+<div id="search-report-widget">
+    <div class="wg-toolbar navbar-fixed-top">
+        <button id="search-report-btn-create" name="report-search-report-btn-create" class="btn btn-primary btn-sm">
+            <i class="ace-icon icon-plus"></i> $text.getText("app.button.create")
+        </button>
+    </div>
+    <div class="wg-content">
+        <div id="report-basicsearch">
+            <div class="col-xs-6 col-md-6 span6 nopadding" style="max-height: 30px;">
+                <span class="input-group search" style="margin-left:0px; width: 250px">
+                    <span class="input-group-btn">
+                        <input type="text" class="grid-search-input form-control" placeholder="Từ khóa">
+                        <button type="button" class="btn btn-default grid-search-btn">
+                            <i class="icon-search"></i>
+                        </button>
+                    </span>
+                </span>
+            </div>
+        </div>
+        <div id="search-report-grid"></div>
+    </div>
+</div>

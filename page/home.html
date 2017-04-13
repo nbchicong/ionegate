@@ -1,0 +1,37 @@
+#html({"lang":"vi","dir":"ltr", "secure":"$user", "xmlns":"http://www.w3.org/1999/xhtml"})
+#keywords({"title":'Onegate- Homepage'})
+#meta({ "title":"iCloud Platform","viewport": "width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"})
+#set($superadmin = false)
+#set($admin = false)
+#set($receiver = false)
+#set($officer = false)
+#set($processor = false)
+#hasRole("$firmadmin")
+    #set($superadmin = true)
+#end
+#hasRole("$firm_bpo")
+    #set($admin = true)
+#end
+#hasRole("$firm_receiver")
+    #set($receiver = true)
+#end
+#hasRole("$firm_officer")
+    #set($officer = true)
+#end
+#hasRole("$firm_processor")
+    #set($processor = true)
+#end
+#xscript()
+    #if($superadmin)
+        window.location.href="$ctx.page('/onegate/page/superadmin/index')";
+    #elseif($admin)
+        window.location.href="$ctx.page('s4t/onegate/page/admin/index')";
+    #elseif($receiver)
+        window.location.href="$ctx.page('s4t/onegate/page/receiver/index')";
+    #elseif($officer)
+        window.location.href="$ctx.page('vnpt/onegate/page/officer/index')";
+    #elseif($processor)
+        window.location.href="$ctx.page('s4t/onegate/page/processor/index')";
+    #end
+#end
+#end

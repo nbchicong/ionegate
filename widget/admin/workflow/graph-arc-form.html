@@ -1,0 +1,22 @@
+#dataservice("cloudwflarcdetect")
+#set($arc = $cloudwflarcdetect)
+#if ($arc && $arc.start > 0)
+<div>
+  #if($arc.start == 1)
+  <label>From node:</label>
+  #else
+  <label>To node:</label>
+  #end
+  <div>
+    #if($arc.start == 1)
+    <select id="fromext" name="fromext">
+    #else
+    <select id="endext" name="endext">
+    #end
+    #foreach($node in $arc.nodes)
+      <option value="$node.nodeName">$node.nodeName</option>
+    #end
+    </select>
+  </div>
+</div>
+#end

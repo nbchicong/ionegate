@@ -1,0 +1,192 @@
+#script("/js/onegate/inet/lib/superadmin-notify-config.min.js")
+<div id="notify-config-widget">
+    <div class="wg-toolbar navbar-fixed-top">
+        <button id="notify-config-btn-save" class="btn btn-success">
+            <i class="icon-save"></i> $text.getText("onegate.button.save")
+        </button>
+    </div>
+    <div class="wg-content">
+        <div class="col-xs-12 col-sm-12">
+            <form class="form-horizontal" style="margin-top: 5px;" method="post">
+                <div class="row">
+                    <div class="alert alert-info col-xs-12 col-sm-12" style="padding: 5px;margin-bottom: 2px;">
+                        <strong><i class="icon-mobile-phone"></i> $text.getText("onegate.admin.notify.sms")</strong>
+                    </div>
+                </div>
+                <div id="sms-config-container">
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-12">
+                            <div>
+                                <label class="col-sm-2 lbl-bold" for="notify-config-sms-txt-url">
+                                    $text.getText("onegate.admin.notify.sms_url") (<span class="required"/>):
+                                </label>
+                                <div  class="col-sm-10">
+                                    <input id="notify-config-sms-txt-url" type="text" style="width: 100%">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-12">
+                            <label class="col-sm-2 lbl-bold" for="notify-config-sms-txt-account">
+                                $text.getText("onegate.admin.notify.account") (<span class="required"/>):
+                            </label>
+                            <div class="col-sm-4">
+                                <input id="notify-config-sms-txt-account" type="text" style="width: 100%">
+                            </div>
+                            <label class="col-sm-2 lbl-bold" for="notify-config-sms-txt-pass">
+                                $text.getText("onegate.admin.notify.pass") (<span class="required"/>):
+                            </label>
+                            <div class="col-sm-4">
+                                <input id="notify-config-sms-txt-pass" type="text" style="width: 100%">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-12">
+                            <div>
+                                <label class="col-sm-2 lbl-bold">
+                                    $text.getText("onegate.admin.notify.auto_send_sms_when"):
+                                </label>
+                                <div class="col-sm-4">
+                                    <div>
+                                        <label class="middle">
+                                            <input name="notify-config-sms-select-status" type="checkbox" class="ace" value="CREATED" checked="checked">
+                                            <span class="lbl"> $text.getText("onegate.admin.notify.send_when_created")</span>
+                                        </label>
+                                    </div>
+                                    <div>
+                                        <label class="middle">
+                                            <input name="notify-config-sms-select-status" type="checkbox" class="ace" value="VERIFIED" checked="checked">
+                                            <span class="lbl"> $text.getText("onegate.admin.notify.send_when_verified")</span>
+                                        </label>
+                                    </div>
+                                    <div>
+                                        <label class="middle">
+                                            <input name="notify-config-sms-select-status" type="checkbox" class="ace" value="SUBMITED" checked="checked">
+                                            <span class="lbl"> $text.getText("onegate.admin.notify.send_when_submitted")</span>
+                                        </label>
+                                    </div>
+                                    <div>
+                                        <label class="middle">
+                                            <input name="notify-config-sms-select-status" type="checkbox" class="ace" value="NEED_INPUT_DATA" checked="checked">
+                                            <span class="lbl"> $text.getText("onegate.admin.notify.send_when_need_input_data")</span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div>
+                                        <label class="middle">
+                                            <input name="notify-config-sms-select-status" type="checkbox" class="ace" value="COMPLETED">
+                                            <span class="lbl"> $text.getText("onegate.admin.notify.send_when_completed")</span>
+                                        </label>
+                                    </div>
+                                    <div>
+                                        <label class="middle">
+                                            <input name="notify-config-sms-select-status" type="checkbox" class="ace" value="PUBLISHED">
+                                            <span class="lbl"> $text.getText("onegate.admin.notify.send_when_published")</span>
+                                        </label>
+                                    </div>
+                                    <div>
+                                        <label class="middle">
+                                            <input name="notify-config-sms-select-status" type="checkbox" class="ace" value="REJECTED">
+                                            <span class="lbl"> $text.getText("onegate.admin.notify.send_when_reject")</span>
+                                        </label>
+                                    </div>
+                                    <div>
+                                        <label class="middle">
+                                            <input name="notify-config-sms-select-status" type="checkbox" class="ace" value="CANCEL">
+                                            <span class="lbl"> $text.getText("onegate.admin.notify.send_when_cancel")</span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="alert alert-info col-xs-12 col-sm-12" style="padding: 5px;margin-bottom: 2px;">
+                            <strong><i class="icon-envelope"></i> $text.getText("onegate.admin.notify.email")</strong>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-12">
+                            <label class="col-sm-2 lbl-bold" for="notify-config-email-txt-account">
+                                $text.getText("onegate.admin.notify.account") (<span class="required"/>):
+                            </label>
+                            <div class="col-sm-4">
+                                <input id="notify-config-email-txt-account" type="text" style="width: 100%">
+                            </div>
+                            <label class="col-sm-2 lbl-bold" for="notify-config-email-txt-pass">
+                                $text.getText("onegate.admin.notify.pass") (<span class="required"/>):
+                            </label>
+                            <div class="col-sm-4">
+                                <input id="notify-config-email-txt-pass" type="text" style="width: 100%">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-12">
+                            <div>
+                                <label class="col-sm-2 lbl-bold">
+                                    $text.getText("onegate.admin.notify.auto_send_email_when"):
+                                </label>
+                                <div class="col-sm-4">
+                                    <div>
+                                        <label class="middle">
+                                            <input name="notify-config-email-select-status" type="checkbox" class="ace" value="CREATED" checked="checked">
+                                            <span class="lbl"> $text.getText("onegate.admin.notify.send_when_created")</span>
+                                        </label>
+                                    </div>
+                                    <div>
+                                        <label class="middle">
+                                            <input name="notify-config-email-select-status" type="checkbox" class="ace" value="VERIFIED" checked="checked">
+                                            <span class="lbl"> $text.getText("onegate.admin.notify.send_when_verified")</span>
+                                        </label>
+                                    </div>
+                                    <div>
+                                        <label class="middle">
+                                            <input name="notify-config-email-select-status" type="checkbox" class="ace" value="SUBMITED" checked="checked">
+                                            <span class="lbl"> $text.getText("onegate.admin.notify.send_when_submitted")</span>
+                                        </label>
+                                    </div>
+                                    <div>
+                                        <label class="middle">
+                                            <input name="notify-config-email-select-status" type="checkbox" class="ace" value="NEED_INPUT_DATA" checked="checked">
+                                            <span class="lbl"> $text.getText("onegate.admin.notify.send_when_need_input_data")</span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div>
+                                        <label class="middle">
+                                            <input name="notify-config-email-select-status" type="checkbox" class="ace" value="COMPLETED">
+                                            <span class="lbl"> $text.getText("onegate.admin.notify.send_when_completed")</span>
+                                        </label>
+                                    </div>
+                                    <div>
+                                        <label class="middle">
+                                            <input name="notify-config-email-select-status" type="checkbox" class="ace" value="PUBLISHED">
+                                            <span class="lbl"> $text.getText("onegate.admin.notify.send_when_published")</span>
+                                        </label>
+                                    </div>
+                                    <div>
+                                        <label class="middle">
+                                            <input name="notify-config-email-select-status" type="checkbox" class="ace" value="REJECTED">
+                                            <span class="lbl"> $text.getText("onegate.admin.notify.send_when_reject")</span>
+                                        </label>
+                                    </div>
+                                    <div>
+                                        <label class="middle">
+                                            <input name="notify-config-email-select-status" type="checkbox" class="ace" value="CANCEL">
+                                            <span class="lbl"> $text.getText("onegate.admin.notify.send_when_cancel")</span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

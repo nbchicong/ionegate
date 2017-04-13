@@ -1,0 +1,78 @@
+#dataservice("glbgateindustrystructtree")
+#set($treeIndustry = $glbgateindustrystructtree)
+#theme("/onegate/css/jquery/jquery.select2")
+#theme("/onegate/css/report")
+#script("/js/onegate/jquery/plugins/jquery.form.min.js")
+#script("/js/onegate/inet/lib/select.min.js")
+#script("/js/onegate/inet/lib/report-panel.min.js")
+#script("/js/onegate/inet/lib/download-report-panel.min.js")
+#script("/js/onegate/inet/lib/onegate-superadmin-report-content-widget-abstract.min.js")
+#script("/js/onegate/inet/lib/onegate-superadmin-report-procedures-content-widget.min.js")
+<div id="procedures-report-content" style="display:none;">
+    <div class="wg-toolbar navbar-fixed-top">
+        <button id="procedures-report-btn-back" name="report-create-btn-back" class="btn btn-primary btn-sm">
+            <i class="ace-icon icon-arrow-left"></i>
+            $text.getText("app.button.back")
+        </button>
+        <button id="procedures-report-btn-create" name="report-create-btn-create" class="btn btn-primary btn-sm">
+            <i class="ace-icon icon-plus"></i>
+            $text.getText("app.button.create")
+        </button>
+        <button id="procedures-report-btn-download" name="report-create-btn-download" class="btn btn-info btn-sm">
+            <i class="ace-icon icon-download-alt"></i>
+            $text.getText("app.button.download")
+        </button>
+    </div>
+    <div class="wg-content">
+        <div class="col-sm-12 col-md-12">
+            <form id="report-widget-content-form" class="form-horizontal" style="margin-top: 5px;" method="post">
+                <div class="space-12"></div>
+                <div class="form-group">
+                    <label class="col-sm-2 col-xs-2 control-label no-padding-right lbl-bold" for="procedures-report-service">
+                        Loại dịch vụ (<span class="required">):</span>
+                    </label>
+                    <div class="col-sm-4 col-md-4">
+                        <select name="service" id="procedures-report-service" class="col-md-12 col-sm-12">
+                            <option value="">Dịch vụ công cấp độ 1 và 2</option>
+                            <option value="L3">Dịch vụ công cấp độ 3</option>
+                            <option value="L4">Dịch vụ công cấp độ 4</option>
+                            <option value="LX">Dịch vụ công tại nhà</option>
+                        </select>
+                    </div>
+                    <label class="col-sm-2 col-xs-2 control-label no-padding-right lbl-bold" for="procedures-report-industry">
+                        Lĩnh vực:
+                    </label>
+                    <div class="col-sm-4 col-xs-4">
+                        <select id="procedures-report-industry" name="industryCode" type="text" class="col-md-12 col-sm-12">
+                            <option value="" data-pattern="00.00">Tất cả</option>
+                            #foreach($group in $treeIndustry.children)
+                            <optgroup label="$group.industry">
+                                #foreach($procedure in $group.children)
+                                <option value="$procedure.industry" data-pattern="$procedure.pattern">$procedure.industry</option>
+                                #end
+                            </optgroup>
+                            #end
+                        </select>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="col-md-12 col-sm-12 col-xs-12 text-center">
+            <button id="report-create-btn-view-result" name="report-create-btn-view-result" type="button" class="btn btn-info btn-sm center"> <i class="icon-ok"></i> Xem kết quả</button>
+            <button id="report-create-btn-save" name="report-create-btn-save" type="button" class="btn btn-primary btn-sm center"> <i class="icon-save"></i>Lưu báo cáo</button>
+        </div>
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <h4 class="header smaller bolder green marg-t-5 marg-b-10"><i class="ace-icon icon-reorder"></i>$text.getText("onegate.report.create-report.result")</h4>
+            <div name="report-create-result">
+                <div name="report-loading-msg" style="display: none;">
+                    <div class="progress progress-small progress-striped active" data-percent='$text.getText("ongate.loading_title")'>
+                        <div class="progress-bar progress-bar-success" style="width: 100%;">
+                        </div>
+                    </div>
+                </div>
+                <div class="report-result-content" name="report-result-wg"></div>
+                <iframe name="report-iframe-content" class="iframe-content" src='' style="width:100%; border:none; display: none;"></iframe>
+            </div>
+        </div>
+    </div>
+</div>

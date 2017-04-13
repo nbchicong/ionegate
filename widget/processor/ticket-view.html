@@ -1,0 +1,25 @@
+#theme("/onegate/css/format")
+#theme("/onegate/css/jquery/bootstrap-datepicker")
+#script("/js/onegate/bootstrap/plugins/bootstrap-datepicker.min.js")
+#script("/js/onegate/jquery/plugins/jquery.form.min.js")
+#script("/js/onegate/jquery/plugins/jquery.jquery-validate.min.js")
+#script("/js/onegate/jquery/plugins/jquery.maskedinput.min.js")
+#script("/js/onegate/inet/lib/xform.min.js")
+#script("/js/onegate/inet/lib/processor-ticket-view.min.js")
+<div id="create-record-widget" style="display: none;">
+    <div id="ticket-action-toolbar" class="wg-toolbar navbar-fixed-top onegate-toolbar">
+        <button id="ticket-btn-back" data-action="back" class="btn btn-primary">
+            <i class="icon-arrow-left"></i> $text.getText("onegate.button.back")
+        </button>
+
+    </div>
+    <div class="wg-content">
+        <div>
+            <div id="record-procedure-lbl-container" class="alert alert-info col-xs-12 col-sm-12" style="padding: 5px;margin-bottom: 2px;">
+                <strong><i class="icon-book"></i> <span id="record-procedure-lbl-name"></span></strong>
+            </div>
+            <form id="record-xform-id" method="POST" class="form-horizontal col-xs-12 col-sm-12">
+            </form>
+        </div>
+    </div>
+</div>

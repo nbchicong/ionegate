@@ -1,0 +1,207 @@
+#onegate-widget {
+	margin-top: 25px;
+	margin-bottom: 25px;
+	font-family: Arial, Verdana, Geneva, Lucida, 'lucida grande', helvetica, sans-serif;
+	color: #333333 !important;
+	font-size: 120% !important;
+	text-align:justify !important;
+}
+#onegate-widget h1, h2, h3, h4, h5, h6 {
+	font-weight: normal !important;
+	color: #333333 !important;
+}
+#onegate-widget h1 {
+	font-size: 32px !important;
+}
+#onegate-widget h2 {
+	font-size: 25px !important;
+}
+#onegate-widget h3 {
+	font-size: 22px !important;
+	margin: 0px !important;
+}
+#onegate-widget h4 {
+	font-size: 18px !important;
+	margin: 0px !important;
+}
+#onegate-widget h5 {
+	font-size: 15px !important;
+}
+#onegate-widget h6 {
+	font-size: 13px
+}
+#onegate-widget .head3 {
+	font-size: 22px !important;
+	margin: 0px !important;
+}
+#onegate-widget .head4 {
+	font-size: 18px !important;
+	margin: 0px !important;
+}
+#onegate-widget .line120>ul, li {
+	line-height: 120%;
+}
+#onegate-widget .line130 ul, li {
+	line-height: 130%;
+}
+#onegate-widget .line140 ul, li {
+	line-height: 140%;
+}
+#onegate-widget .line150 ul,li {
+	line-height: 150%;
+}
+#onegate-widget .line160 ul,li {
+	line-height: 160%;
+}
+#onegate-widget .line170 ul,li {
+	line-height: 170%;
+}
+#onegate-widget .line180 ul,li {
+	line-height: 180%;
+}
+#onegate-widget .line190 ul,li {
+	line-height: 170%;
+}
+#onegate-widget .line200 ul,li {
+	line-height: 200%;
+}
+#onegate-widget .list-none {
+	list-style: none !important;
+}
+#onegate-widget .list-disc {
+	list-style: disc  !important;
+}
+#onegate-widget .list-number {
+	list-style:decimal !important;
+}
+#onegate-widget .list-number-zero {
+	list-style:decimal-leading-zero !important;
+}
+#onegate-widget .list-circle {
+	list-style:circle !important;
+}
+#onegate-widget .list-alpha {
+	list-style: lower-alpha !important;
+}
+#onegate-widget .list-square {
+	list-style: square !important;
+}
+#onegate-widget .list-roman {
+	list-style: upper-roman  !important;
+}
+#onegate-widget .list-ualpha{
+	list-style: upper-alpha !important;
+}
+#onegate-widget .list-tick {
+	list-style-image:url(../../images/onegate/proc/tick.png) !important;
+}
+#onegate-widget .list-circle-tick {
+	list-style-image:url(../../images/onegate/proc/circle-tick.png) !important;
+}
+#onegate-widget .list-blue-tick {
+	list-style-image:url(../../images/onegate/proc/blue-tick.png) !important;
+}
+#onegate-widget .list-star {
+	list-style-image:url(../../images/onegate/proc/bullet-star.png) !important;
+}
+#onegate-widget .list-red {
+	list-style-image:url(../../images/onegate/proc/bullet-red.png) !important;
+}
+#onegate-widget .list-go {
+	list-style-image:url(../../images/onegate/proc/bullet-go.png) !important;
+}
+#onegate-widget .center {
+	text-align: center !important;
+}
+#onegate-widget .left {
+	text-align: left !important;
+}
+#onegate-widget .right {
+	text-align: right !important;
+}
+#onegate-widget .bold {
+	font-weight: bold !important;
+}
+#onegate-widget .over {
+	text-decoration: overline !important;
+}
+#onegate-widget .through {
+	text-decoration: line-through !important;
+}
+#onegate-widget .under {
+	text-decoration: underline !important;
+}
+#onegate-widget .upper {
+	text-transform: uppercase !important;
+}
+#onegate-widget .lower {
+	text-transform: lowercase !important;
+}
+#onegate-widget .capitalize {
+	text-transform: capitalize !important;
+}
+#onegate-widget .normal {
+	text-decoration: none !important;
+}
+#onegate-widget .indent5 {
+	text-indent: 5px;
+}
+#onegate-widget .indent10 {
+	text-indent: 10px;
+}
+#onegate-widget .indent15 {
+	text-indent: 15px;
+}
+#onegate-widget .indent20 {
+	text-indent: 20px;
+}
+#onegate-widget .indent25 {
+	text-indent: 25px;
+}
+#onegate-widget .indent30 {
+	text-indent: 30px;
+}
+#onegate-widget .dark {
+	color: #333 !important;
+}
+#onegate-widget .white {
+	color: #FFF !important;
+}
+#onegate-widget .red {
+	color: red !important
+}
+#onegate-widget .light-red {
+	color: #dd5a43 !important;
+}
+#onegate-widget .blue {
+	color: blue !important;
+}
+#onegate-widget .light-blue {
+	color: #0055a0 !important
+}
+#onegate-widget .green {
+	color: green !important;
+}
+#onegate-widget .light-green {
+	color: #69aa46 !important;
+}
+#onegate-widget .padding5 {
+	padding: 5px !important;
+}
+#onegate-widget .padding10 {
+	padding: 10px !important;
+}
+#onegate-widget .padding15 {
+	padding: 15px !important;
+}
+#onegate-widget .padding15 {
+	padding: 20px !important;
+}
+ol.blue li{
+	color: blue !important;
+	font-weight: bold !important;
+}
+ol.blue li * {
+	color: #333333 !important;
+	font-weight: normal !important;
+}

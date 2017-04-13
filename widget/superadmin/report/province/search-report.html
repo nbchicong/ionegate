@@ -1,0 +1,49 @@
+#theme("/common/css/grid.min")
+#script("/js/common/inet/lib/grid-2.0.min.js")
+#theme("/onegate/css/jquery/bootstrap-datepicker")
+#theme("/onegate/css/jquery/jquery.select2")
+#theme("/onegate/css/jquery/jquery.select2-bootstrap")
+#script("/js/common/inet/lib/select.min.js")
+#script("/js/onegate/bootstrap/plugins/bootstrap-datepicker.min.js")
+#script("/js/onegate/inet/lib/onegate-superadmin-report-search-widget-abstract.min.js")
+#script("/js/onegate/inet/lib/onegate-superadmin-report-province-search-widget.min.js")
+<div id="report-search-report-widget">
+  <div id="wg-toolbar" class="navbar-fixed-top">
+    <button id="report-search-report-btn-create" name="report-search-report-btn-create" class="btn btn-primary btn-sm">
+      <i class="ace-icon icon-plus-sign"></i>  $text.getText("app.button.create")
+    </button>
+  </div>
+
+  <div class="main-container">
+    <div class="">
+      <!-- PAGE CONTENT BEGINS -->
+        <div id="report-basic-search">
+        <div>
+          <div class="col-xs-6 col-md-6 no-padding">
+             <!-- <div class="col-xs-6 col-sm-6 no-padding-left">
+                    <select type="text" id="report-unit" name="report-unit" value="" class="width-100">
+                        <option value="">Chọn đơn vị</option>
+                        #foreach($item in $firms.elements)
+                         <option value="$item.code">$item.name</option>
+                        #end
+                    </select>
+              </div>-->
+             <div class="col-xs-12 col-sm-12 no-padding no-padding-left">
+                <div class="input-group">
+                    <input type="text" class="input-sm form-control" name="fromDate" id="time-report-from" data-date-format="dd/mm/yyyy" placeholder="$text.getText('Từ ngày')">
+                    <span class="input-group-addon">
+                        <i class="ace-icon icon-long-arrow-right"></i>
+                    </span>
+                    <input type="text" class="input-sm form-control" name="toDate" id="time-report-to" data-date-format="dd/mm/yyyy" placeholder="$text.getText('Đến ngày')">
+                </div>
+             </div>
+           </div>
+          <div class="col-xs-2 col-md-2 no-padding-right">
+               <button type="button" class="btn btn-success"  data-action-search="search"><i class="ace-icon icon-search"> $text.getText("app.button.search")</i></button>
+          </div>
+        </div>
+      </div>
+      <div id="report-search-grid"></div>
+    </div>
+  </div>
+</div>

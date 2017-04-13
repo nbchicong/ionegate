@@ -1,0 +1,125 @@
+#theme("/onegate/css/format")
+#theme("/onegate/css/jquery/bootstrap-datepicker")
+#script("/js/onegate/bootstrap/plugins/bootstrap-datepicker.min.js")
+#script("/js/onegate/jquery/plugins/jquery.form.min.js")
+#script("/js/onegate/jquery/plugins/jquery.jquery-validate.min.js")
+#script("/js/onegate/jquery/plugins/jquery.maskedinput.min.js")
+#script("/js/onegate/inet/lib/xform.min.js")
+#script("/js/onegate/inet/lib/receiver-report-receive-situation.min.js")
+
+<div id="receiver-report-situation-view" class="messageView $rside" data-normal="$rside" data-full="$fside" style="float: left;height: 100%;padding:0px">
+    <div class="side-toolbar">
+        <span id="receiver-report-situation-action-toolbar">
+            <div class="btn-group">
+                <button id="receiver-report-situation-create-btn" class="btn btn-primary hide" disabled="disabled">
+                    <i class="icon-file-alt" title='$text.getText("onegate.button.new_record")'></i>
+                </button>
+                <button id="receiver-report-situation-delete-btn" class="btn btn-danger hide" disabled="disabled">
+                    <i class="icon-trash" title='$text.getText("app.button.delete")'></i>
+                </button>
+                <button id="receiver-report-situation-download-btn" class="btn btn-primary hide" disabled="disabled">
+                    <i class="icon-download" title='$text.getText("onegate.button.download")'></i>
+                </button>
+            </div>
+        </span>
+        <div class="widget-toolbar" style="line-height: normal">
+            <div class="btn-group">
+                <button id="receiver-report-situation-btn-previous" class="btn" disabled="disabled">
+                    <i class="ace-icon icon-arrow-left"></i>
+                </button>
+                <button id="receiver-report-situation-btn-next" class="btn" disabled="disabled">
+                    <i class="ace-icon icon-arrow-right"></i>
+                </button>
+            </div>
+            <button id="message-view-full" class="btn" data-status="normal">
+                <i class="ace-icon icon-fullscreen"></i>
+            </button>
+        </div>
+    </div>
+    <div class="b-content thm-message-view-background-color">
+        <div>
+            <div id="message-view-no-selected" class="b-message-view-desc">
+                <div><i class="icon-file-text-alt" style="font-size: 100px;"></i></div>
+                <div>$text.getText("onegate.receiver.no_selected_report")</div>
+            </div>
+
+            <div id="div-message-view-dp" class="dp-container messageItem nano has-scrollbar selected" style="float:left;display: none;width: 100%">
+                <div id="div-message-view-dp-content" class="dp-content overthrow nano-content content g-scrollbox" tabindex="1" style="right: -13px;">
+                    <div class="content-wrapper">
+                        <div class="col-sm-12 col-md-12">
+                            <div id="message-view-loading-text" class="loading g-ui-min-height-300" style="display: none;">
+                                <span class="i18n text">$text.getText("onegate.common.loading")</span>
+                                <span class="textLoadingAnimationD1">.</span>
+                                <span class="textLoadingAnimationD2">.</span>
+                                <span class="textLoadingAnimationD3">.</span>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-md-12">
+                            <form id="receiver-report-situation-content-form" class="form-horizontal search-form" style="margin-top: 5px;" method="post">
+                                <div class="space-12"></div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 col-xs-2 control-label no-padding-right lbl-bold" for="receiver-report-situation-from-dtp">
+                                        $text.getText("onegate.receiver.report.from") <span class="required">:</span></label>
+                                    <div class="col-sm-4 col-md-4">
+                                        <span class="ace-icon input-icon input-icon-right">
+                                            <i class="ace-icon icon-calendar"></i>
+                                            <input id="receiver-report-situation-from-dtp" name="startDate" type="text" data-type="date" data-date-format="dd/mm/yyyy" class="col-xs-12 col-sm-12" value="">
+                                        </span>
+                                    </div>
+                                    <label class="col-sm-2 col-xs-2 control-label no-padding-right lbl-bold" for="receiver-report-situation-to-dtp">
+                                        $text.getText("onegate.receiver.report.to") <span class="required">:</span></label>
+                                    <div class="col-sm-4 col-md-4">
+                                        <span class="ace-icon input-icon input-icon-right">
+                                            <i class="ace-icon icon-calendar"></i>
+                                            <input id="receiver-report-situation-to-dtp" name="endDate" type="text" data-type="date" data-date-format="dd/mm/yyyy" class="col-xs-12 col-sm-12" value="">
+                                        </span>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="col-md-12 col-sm-12 col-xs-12 text-center">
+                            <button id="receiver-report-situation-view-btn" type="button" class="btn btn-info" style="display: none;"> <i class="icon-ok"></i> $text.getText("onegate.button.view_report")</button>
+                            <button id="receiver-report-situation-save-btn" type="button" class="btn btn-primary" style="display: none;"> <i class="icon-save"></i> $text.getText("onegate.button.save_report")</button>
+                        </div>
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                            <h4 class="header smaller bolder green marg-t-5 marg-b-10"><i class="ace-icon icon-reorder"></i>$text.getText("onegate.report.create-report.result")</h4>
+                            <div name="report-create-result">
+                                <div name="report-loading-msg" style="display: none">
+                                    <div class="progress progress-small progress-striped active" data-percent='$text.getText("ongate.loading_title")'>
+                                        <div class="progress-bar progress-bar-success" style="width: 100%;">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="report-result-content" id="report-result-wg" name="report-result-wg"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="widget-report-modal" class="modal fade in" data-width="650" data-focus-on="input:first" style="display: none;">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h4><i class="ace-icon icon-location-arrow"></i> $text.getText("onegate.report.create-report.input_name")</h4>
+        </div>
+        <div class="modal-body">
+            <div class="row">
+                <div class="form-horizontal" method="post">
+                    <div class="space-6"></div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label no-padding-right" for="widget-report-modal-txt-name">$text.getText("onegate.report.create-report.name")<span class="required"></span>: </label>
+                        <div class="col-sm-9">
+                            <input type="text" id="widget-report-modal-txt-name" class="col-xs-10 col-sm-10"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button id="widget-report-modal-ok" type="button" class="btn btn-primary"><i class="ace-icon icon-save"></i> $text.getText("app.button.ok")</button>
+            <button name="widget-report-modal-cancel" type="button" class="btn btn-default" data-dismiss="modal"><i class="ace-icon icon-remove"></i> $text.getText("app.button.cancel")</button>
+        </div>
+    </div>
+</div>

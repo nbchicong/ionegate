@@ -1,0 +1,301 @@
+#dataservice("xgateuserticketreceipt")
+#set($receipt = $xgateuserticketreceipt.data)
+#set($profile = $xgateuserticketreceipt.profile)
+<style type="text/css">
+    @media screen, print {
+        body {
+            line-height: 120%;
+        }
+
+        .receipt-header-left {
+            text-align: center;
+            vertical-align: top;
+            white-space: nowrap;
+            min-height: 20px;
+        }
+
+        .receipt-header-left-parent {
+            text-align: center;
+            vertical-align: top;
+            font-size: 15px;
+            font-weight: bold;
+            white-space: nowrap;
+            text-transform: uppercase;
+        }
+
+        .receipt-header-left-child {
+            text-align: center;
+            vertical-align: top;
+            font-size: 14px;
+            font-weight: bold;
+            white-space: nowrap;
+            text-transform: uppercase;
+        }
+
+        .receipt-header-left-number {
+            text-align: center;
+            vertical-align: top;
+            font-size: 15px;
+            white-space: nowrap;
+        }
+
+        .receipt-header-right {
+            text-align: center;
+            vertical-align: top;
+            white-space: nowrap;
+        }
+
+        .receipt-header-right-top {
+            text-align: center;
+            vertical-align: top;
+            font-size: 16px;
+            font-weight: bold;
+            white-space: nowrap;
+        }
+
+        .receipt-header-right-center {
+            text-align: center;
+            vertical-align: top;
+            font-size: 15px;
+            font-weight: bold;
+            white-space: nowrap;
+        }
+
+        .receipt-header-right-date {
+            text-align: center;
+            vertical-align: top;
+            font-size: 15px;
+            white-space: nowrap;
+        }
+
+        .receipt-title {
+            text-align: center;
+            vertical-align: top;
+        }
+
+        .receipt-title-subject {
+            text-align: center;
+            vertical-align: top;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .receipt-title-code {
+            text-align: center;
+            vertical-align: top;
+            font-size: 15px;
+            font-weight: bold;
+        }
+
+        .receipt-title-note {
+            text-align: center;
+            vertical-align: top;
+            font-size: 13px;
+        }
+
+        .receipt-field-label {
+            font-weight: bold;
+        }
+
+        .receipt-footer-left {
+            text-align: center;
+            vertical-align: top;
+        }
+
+        .receipt-footer-left-text {
+            text-align: center;
+            vertical-align: top;
+            font-size: 11pt;
+            font-weight: bold;
+        }
+
+        .receipt-footer-right {
+            text-align: center;
+            vertical-align: top;
+        }
+
+        .receipt-footer-right-text {
+            text-align: center;
+            vertical-align: top;
+            font-size: 11pt;
+            font-weight: bold;
+        }
+
+        .receipt-separate {
+            border-left-style: dotted;
+            border-left-width: 1px;
+        }
+
+        .reciept-line {
+            line-height: 165%
+        }
+    }
+</style>
+<table width="1500px" border="0" cellspacing="0" cellpadding="0" class="receipt-border-style">
+    <tbody>
+    <tr>
+        <td width="50%" valign="top">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                <tbody>
+                <tr>
+                    <td class="receipt-header-left">
+                        <div class="receipt-header-left-parent">$receipt.orgName</div>
+                        <div class="receipt-header-left-child">Bộ phận tiếp nhận và trả kết quả</div>
+                        <div>
+                            <hr style="width:120px;color: #000">
+                        </div>
+                        <div class="receipt-header-left-number">Số: $receipt.recordNo</div>
+                    </td>
+                    <td class="receipt-header-right">
+                        <div class="receipt-header-right-top">CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM</div>
+                        <div class="receipt-header-right-center">Độc lập - Tự do - Hạnh phúc</div>
+                        <div>
+                            <hr style="width:200px;color: #000">
+                        </div>
+                        <div class="receipt-header-right-date">TP HCM, ngày $ctx.date($ctx.todayX(), "dd") tháng $ctx.date($ctx.todayX(), "MM") năm $ctx.date($ctx.todayX(), "yyyy")</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" class="receipt-title"><br>
+
+                        <div class="receipt-title-subject">PHIẾU BIÊN NHẬN HỒ SƠ</div>
+                        <div class="receipt-title-code">Mã hồ sơ: $receipt.serialNo</div>
+                        <div class="receipt-title-note">(Liên 1: Lưu trữ)</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <table border="0" cellspacing="0" cellpadding="0" style="width: 100%">
+                            <tbody>
+                            <tr>
+                                <td width="100%" valign="top" align="left"><br>
+
+                                    <div class="reciept-line"><span class="receipt-field-label">Họ và tên: </span><span>$profile.fullname</span></div>
+                                    <div class="reciept-line"><span class="receipt-field-label">Địa chỉ: </span><span>$profile.address1</span></div>
+                                    <div class="reciept-line"><span class="receipt-field-label">Loại hồ sơ:  </span><span>$receipt.subject</span></div>
+                                    <!--div class="receipt-field-label">Hồ sơ có 1 bộ</div-->
+                                    <div class="reciept-line"></div>
+                                    <div class="reciept-line"><span class="receipt-field-label">Hẹn trả thuế: </span><span>&nbsp;</span></div>
+                                    <div class="reciept-line"><span class="receipt-field-label">Tiếp nhận: </span>
+                                    <span>
+                                        lúc $ctx.date($receipt.received, "HH") giờ $ctx.date($receipt.received, "mm") phút, ngày $ctx.date($receipt.received, "dd") tháng $ctx.date($receipt.received, "MM") năm $ctx.date($receipt.received, "yyyy")
+                                    </span>
+                                    </div>
+                                    <div class="reciept-line"><span class="receipt-field-label">Hẹn trả kết quả: </span><span></span></div>
+                                    <div class="reciept-line"><span class="receipt-field-label">Gia hạn trả đến: </span><span>&nbsp;</span></div>
+                                    <div class="reciept-line"><span class="receipt-field-label">Ghi chú hồ sơ: </span><span></span></div>
+                                </td>
+                                <td width="105px" valign="bottom" align="right"><img align="right" border="0" src="$ctx.action('onegate/barcode/image')?ticket=$receipt.uuid&orientation=90"></td>
+                            </tr>
+                            </tbody>
+                        </table>
+                        <br></td>
+                </tr>
+                <tr>
+                    <td colspan="2" height="55px" align="left">
+                        <div align="left"></div>
+                        <br></td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <table border="0" cellspacing="0">
+                            <tbody>
+                            <tr>
+                                <td class="receipt-footer-right">
+                                    <div class="receipt-footer-right-text">TỔ CHỨC CÔNG DÂN<br>(Ký, ghi rõ họ tên) <br></div>
+                                </td>
+                                <td class="receipt-footer-left">
+                                    <div style="padding-left:50px;padding-right:50px" class="receipt-footer-left-text">P.CHUYÊN MÔN TNHS<br>Nguời tiếp nhận <br>(Ký, ghi rõ họ tên)</div>
+                                </td>
+                                <td class="receipt-footer-right">
+                                    <div class="receipt-footer-right-text">TỔ TIẾP NHẬN &amp; HTHS<br>Người chuyển hồ sơ<br>(Ký, ghi rõ họ tên)</div>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </td>
+        <td valign="top">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+        <td valign="top" class="receipt-separate">&nbsp;</td>
+        <td valign="top">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+        <td width="50%" valign="top">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                <tbody>
+                <tr>
+                    <td class="receipt-header-left">
+                        <div class="receipt-header-left-parent">$receipt.orgName</div>
+                        <div class="receipt-header-left-child">Bộ phận tiếp nhận và trả kết quả</div>
+                        <div>
+                            <hr style="width:120px;color: #000">
+                        </div>
+                        <div class="receipt-header-left-number">Số: $receipt.recordNo</div>
+                    </td>
+                    <td class="receipt-header-right">
+                        <div class="receipt-header-right-top">CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM</div>
+                        <div class="receipt-header-right-center">Độc lập - Tự do - Hạnh phúc</div>
+                        <div>
+                            <hr style="width:200px;color: #000">
+                        </div>
+                        <div class="receipt-header-right-date">TP HCM, ngày $ctx.date($ctx.todayX(), "dd") tháng $ctx.date($ctx.todayX(), "MM") năm $ctx.date($ctx.todayX(), "yyyy")</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" class="receipt-title"><br>
+
+                        <div class="receipt-title-subject">PHIẾU BIÊN NHẬN HỒ SƠ</div>
+                        <div class="receipt-title-code">Mã hồ sơ: $receipt.serialNo</div>
+                        <div class="receipt-title-note">(Liên 2: Giao công dân tổ chức)</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <table border="0" cellspacing="0" cellpadding="0" style="width: 100%">
+                            <tbody>
+                            <tr>
+                                <td width="100%" valign="top" align="left"><br>
+
+                                    <div class="reciept-line"><span class="receipt-field-label">Họ và tên: </span><span>$profile.fullname</span></div>
+                                    <div class="reciept-line"><span class="receipt-field-label">Địa chỉ: </span><span>$profile.address1</span></div>
+                                    <div class="reciept-line"><span class="receipt-field-label">Loại hồ sơ:  </span><span>$receipt.subject</span></div>
+                                    <!--div class="receipt-field-label">Hồ sơ có 1 bộ</div-->
+                                    <div class="reciept-line"></div>
+                                    <div class="reciept-line"><span class="receipt-field-label">Hẹn trả thuế: </span><span>&nbsp;</span></div>
+                                    <div class="reciept-line"><span class="receipt-field-label">Tiếp nhận: </span>
+                                    <span>
+                                        lúc $ctx.date($receipt.received, "HH") giờ $ctx.date($receipt.received, "mm") phút, ngày $ctx.date($receipt.received, "dd") tháng $ctx.date($receipt.received, "MM") năm $ctx.date($receipt.received, "yyyy")
+                                    </span>
+                                    </div>
+                                    <div class="reciept-line"><span class="receipt-field-label">Hẹn trả kết quả: </span>
+                                        <span></span></div>
+                                    <div class="reciept-line"><span class="receipt-field-label">Gia hạn trả đến: </span><span>&nbsp;</span>
+                                    </div>
+                                    <div class="reciept-line"><span class="receipt-field-label">Ghi chú hồ sơ: </span><span></span></div>
+                                </td>
+                                <td width="105px" valign="bottom" align="right"><img align="right" border="0" src="$ctx.action('onegate/barcode/image')?ticket=$receipt.uuid&orientation=90"></td>
+                            </tr>
+                            </tbody>
+                        </table>
+                        <br></td>
+                </tr>
+                <tr>
+                    <td colspan="2" align="left" height="40px">
+                        <div align="left">Đề nghị khi đến nhận hồ sơ đã giải quyết phải mang theo phiếu tiếp nhận này và giấy chứng minh nhân dân.</div>
+                        <br></td>
+                </tr>
+                <tr>
+                    <td class="receipt-footer-left">
+                        <div class="receipt-footer-left-text">TỔ CHỨC CÔNG DÂN<br>(Ký, ghi rõ họ tên) <br></div>
+                    </td>
+                    <td class="receipt-footer-right">
+                        <div class="receipt-footer-right-text">TỔ TIẾP NHẬN &amp; HTHS<br>Người chuyển hồ sơ<br>(Ký, ghi rõ họ tên)</div>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </td>
+    </tr>
+    </tbody>
+</table>

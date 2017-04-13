@@ -1,0 +1,35 @@
+#script("/js/onegate/inet/lib/view-file-widget.min.js")
+<div id="viewer-file-widget" class="messageView $rside" style="display:none;float: left;height: 100%;padding:0px">
+    <div class="side-toolbar">
+        <button id="viewer-file-btn-back" type="button" class="btn btn-primary btn-sm">
+            <i class="icon-arrow-left"></i> $text.getText("app.button.back")
+        </button>
+        <button id="viewer-file-btn-download" type="button" class="btn btn-primary btn-sm">
+            <i class="icon-download-alt"></i> $text.getText("app.button.download")
+        </button>
+    <span id="viewer-file-container-files" style="float: right;display:none;">
+       $text.getText("viewer.choose_file"): <select id="viewer-file-select-file" style="width:auto;max-width:400px;margin-bottom: 0px !important;"></select>
+     </span>
+    </div>
+    <div class="b-content thm-message-view-background-color">
+        <div>
+            <div class="dp-container messageItem nano has-scrollbar selected" style="float:left;width: 100%">
+                <div class="dp-content overthrow nano-content content g-scrollbox" tabindex="1" style="right: -13px;">
+                    <div class="content-wrapper">
+                        <div>
+                            <div class="bodyText">
+                                <div class="rl-cache-class b-text-part html">
+                                    <div data-x-div-type="html">
+                                        <div class="row" style="margin: 0px">
+                                            <iframe id="viewer-iframe-file-content" style="width:100%; border: 0px;"></iframe>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

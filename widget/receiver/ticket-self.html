@@ -1,0 +1,45 @@
+#theme("/onegate/css/jquery/jquery.select2")
+#script("/js/onegate/inet/lib/select.min.js")
+#script("/js/common/inet/lib/grid-2.0.min.js")
+#script("/js/onegate/inet/lib/receiver-ticket-search.min.js")
+#script("/js/onegate/inet/lib/receiver-ticket-self.min.js")
+
+#dataservice("onegatedeptticketstatuslist")
+#set($statuslist = $onegatedeptticketstatuslist)
+
+<div id="record-search-widget">
+    <div class="wg-toolbar onegate-toolbar navbar-fixed-top">
+        <button id="record-search-btn-create" class="btn btn-primary">
+            <i class="icon-plus"></i> $text.getText("onegate.button.new_record")
+        </button>
+        <button id="record-search-btn-delete" class="btn btn-danger hide" disabled="disabled">
+            <i class="icon-trash"></i> $text.getText("onegate.button.delete")
+        </button>
+        <button id="record-search-btn-print-receipt" class="btn btn-primary hide" disabled="disabled">
+            <i class="icon-print"></i> $text.getText("onegate.button.print_receipt")
+        </button>
+    </div>
+    <div class="wg-content">
+        <div id="record-basic-search">
+            <div class="row-fluid">
+                <div class="col-xs-12 col-sm-12">
+                    <div class="col-xs-4 col-sm-4">
+                        <select id="record-basic-search-select-status" style="width: 100%">
+                            <option value="">$text.getText("onegate.receiver.status.all")</option>
+                            #foreach($status in $statuslist.elements)
+                            <option value="$status">$text.getText("onegate.receiver.status.$status.toLowerCase()")</option>
+                            #end
+                        </select>
+                    </div>
+                    <div class="col-xs-4 col-sm-4">
+                        <span class="ace-icon input-icon input-icon-right">
+                             <input id="record-basic-search-txt-keyword" type="text" placeholder='$text.getText("onegate.common.keyword")'/>
+                             <i class="ace-icon icon-search" data-action-search="search" title='$text.getText("onegate.button.search")'></i>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="record-grid-id"></div>
+    </div>
+</div>

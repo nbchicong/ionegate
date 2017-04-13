@@ -1,0 +1,102 @@
+#theme("/onegate/css/format")
+#theme("/onegate/css/jquery/bootstrap-datepicker")
+#script("/js/onegate/bootstrap/plugins/bootstrap-datepicker.min.js")
+#script("/js/onegate/jquery/plugins/jquery.form.min.js")
+#script("/js/onegate/jquery/plugins/jquery.jquery-validate.min.js")
+#script("/js/onegate/jquery/plugins/jquery.maskedinput.min.js")
+#script("/js/onegate/inet/lib/xform.min.js")
+#script("/js/onegate/inet/lib/receiver-ticket.min.js")
+
+<div id="create-record-widget" style="display: none;">
+    <div class="wg-toolbar navbar-fixed-top onegate-toolbar">
+        <button id="record-btn-back" class="btn btn-primary">
+            <i class="icon-arrow-left"></i> $text.getText("onegate.button.back")
+        </button>
+        <button id="record-btn-create" class="btn btn-primary hide" disabled="disabled">
+            <i class="icon-plus"></i> $text.getText("onegate.button.new_record")
+        </button>
+        <button id="record-btn-procedure" class="btn btn-primary hide" disabled="disabled">
+            <i class="icon-book"></i> $text.getText("onegate.button.select_procedure")
+        </button>
+        <button id="record-btn-save" class="btn btn-success hide" disabled="disabled">
+            <i class="icon-save"></i> $text.getText("onegate.button.save")
+        </button>
+        <button id="record-btn-delete" class="btn btn-danger hide" disabled="disabled">
+            <i class="icon-trash"></i> $text.getText("app.button.delete")
+        </button>
+        <button id="record-btn-print-receipt" class="btn btn-primary hide" disabled="disabled">
+            <i class="icon-print"></i> $text.getText("onegate.button.print_receipt")
+        </button>
+        <button id="record-btn-verify" class="btn btn-primary hide" disabled="disabled">
+            <i class="icon-arrow-down"></i> $text.getText("onegate.button.reception")
+        </button>
+        <button id="record-btn-paid" class="btn btn-primary hide" disabled="disabled">
+            <i class="icon-credit-card"></i> $text.getText("onegate.button.paid")
+        </button>
+        <button id="record-btn-return" class="btn btn-primary hide" disabled="disabled">
+            <i class="icon-reply"></i> $text.getText("onegate.button.return")
+        </button>
+        <button id="record-btn-submit" class="btn btn-primary hide" disabled="disabled">
+            <i class="icon-share-alt"></i> $text.getText("onegate.button.transfer")
+        </button>
+    </div>
+    <div class="wg-content">
+        <div class="row" style="margin: 0px;padding: 0px">
+            <div class="alert alert-info col-xs-12 col-sm-12" style="padding: 5px;margin-bottom: 2px;">
+                <strong><i class="icon-user"></i> <span>$text.getText("Thông tin người nộp hồ sơ")</span></strong>
+            </div>
+            <div id="record-xform-profile-id" class="form-horizontal col-xs-12 col-sm-12">
+                <div class="row" style="margin: 0px">
+                    <div class="col-xs-12 col-sm-12" style="padding-left: 0px; padding-right: 0px; padding-top: 10px;">
+                        <div class="form-group">
+                            <label class="col-sm-2 no-padding-right" for="record-profile-txt-identity">$text.getText("Số CMND") (<span class="required"/>):</label>
+                            <div class="col-sm-4">
+                                <input type="text" id="record-profile-txt-identity" value="" class="col-xs-12 col-sm-12">
+                            </div>
+
+                            <label class="col-sm-2 no-padding-right" for="record-profile-txt-fullname">$text.getText("Họ và tên") (<span class="required"/>):</label>
+
+                            <div class="col-sm-4">
+                                <input type="text" id="record-profile-txt-fullname" value="" class="col-xs-12 col-sm-12">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 no-padding-right" for="record-profile-txt-birthday">$text.getText("Ngày sinh") (<span class="required"/>):</label>
+
+                            <div class="col-sm-4">
+                                <div class="ace-icon input-icon input-icon-right date"><input id="record-profile-txt-birthday" type="text" class="col-xs-12 col-sm-12 date-picker"><i class="ace-icon icon-calendar"></i></div>
+                            </div>
+                            <label class="col-sm-2 no-padding-right " for="record-profile-txt-fullname">$text.getText("Địa chỉ") (<span class="required"/>):</label>
+
+                            <div class="col-sm-4">
+                                <input type="text" id="record-profile-txt-address" value="" class="col-xs-12 col-sm-12">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 no-padding-right" for="record-profile-txt-fullname">$text.getText("Điện thoại") :</label>
+
+                            <div class="col-sm-4">
+                                <input type="text" id="record-profile-txt-mobile" value="" class="col-xs-12 col-sm-12">
+                            </div>
+                            <label class="col-sm-2 no-padding-right" for="record-profile-txt-mobile">$text.getText("Thư điện tử"):</label>
+                            <div class="col-sm-4">
+                                <input type="text" id="record-profile-txt-email" value="" class="col-xs-12 col-sm-12">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="record-procedure-lbl-container" class="alert alert-info col-xs-12 col-sm-12" style="padding: 5px;margin-bottom: 2px;">
+                <strong><i class="icon-book"></i> <span id="record-procedure-lbl-name"></span></strong>
+            </div>
+            <form id="record-xform-id" method="POST" class="form-horizontal col-xs-12 col-sm-12">
+            </form>
+            <div id="ticket-result-container" style="display: none;">
+                <div class="alert alert-info col-xs-12 col-sm-12" style="padding: 5px;">
+                  <strong><i class="icon-info-sign"></i> $text.getText("Kết quả")</strong>
+                </div>
+                <div id="ticket-result-content"></div>
+            </div>
+        </div>
+    </div>
+</div>

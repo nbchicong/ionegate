@@ -1,0 +1,31 @@
+#dataservice("onegate_servicesearch_review")
+#set($data = $onegate_servicesearch_review.data.items)
+<table id="sample-table-1" class="table table-striped table-bordered table-hover">
+    <colgroup>
+        <col style="width: 5%;" />
+        <col style="width: auto;" />
+        <col style="width: 20%;" />
+    </colgroup>
+    <thead>
+    <tr>
+        <th class="text-center">STT</th>
+        <th class="text-left">Tên lĩnh vực</th>
+        <th class="text-center">#</th>
+    </tr>
+    </thead>
+    <tbody>
+    #if($data.size()>0)
+        #foreach($item in $data)
+    <tr>
+        <td class="text-center">$foreach.count</td>
+        <td class="text-left">$item.industry</td>
+        <td class="text-center">$item.used</td>
+    </tr>
+        #end
+    #else
+    <tr colspan="5">
+        <td colspan="5"><i>Không có dữ liệu để hiển thị</i></td>
+    </tr>
+    #end
+    </tbody>
+</table>

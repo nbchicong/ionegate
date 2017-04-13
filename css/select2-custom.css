@@ -1,0 +1,15 @@
+.select2-container .select2-choice {
+    height: 30px;
+    line-height: 30px;
+    background: #FFFFFF;
+    border-color: #d5d5d5;
+}
+.select2-container-active .select2-choice,
+.select2-container-active .select2-choices {
+    border: 1px solid #5897fb;
+}
+.select2-container .select2-choice .select2-arrow {
+    background: #FFFFFF;
+    width: 20px;
+    border-left: 0;
+}

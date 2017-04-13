@@ -1,0 +1,164 @@
+#theme("/onegate/css/workflow")
+#theme("/onegate/css/jquery/jquery.select2")
+#script("/js/onegate/jquery/jquery-ui-1.9.2.min.js")
+#script("/js/onegate/jquery/plugins/jquery.jsPlumb.1.5.5.min.js")
+#script("/js/onegate/jquery/plugins/jquery.filter-input.min.js")
+#script("/js/onegate/inet/lib/select.min.js")
+#script("/js/onegate/inet/lib/admin-wf-search.min.js")
+#script("/js/onegate/inet/lib/admin-wf-virtual.min.js")
+#script("/js/onegate/inet/lib/admin-wf-design-virtual.min.js")
+#script("/js/onegate/inet/lib/admin-wf-design.min.js")
+<div id="div-wf-search" style="display: none" class="main-container">
+  <div class="wg-toolbar navbar-fixed-top">
+    <button id="btn-wf-create" class="btn btn-primary btn-sm">
+      <i class="icon-plus"></i> $text.getText("app.button.create")
+    </button>
+  </div>
+  <div class="wg-content">
+    <div class="row-fluid">
+		<div id="wf-grid-id"></div>
+    </div>
+  </div>
+</div>
+
+<div id="div-wf-detail" style="display: none" class="main-container">
+	<div class="wg-toolbar navbar-fixed-top">
+		<button id="btn-wf-detail-back" class="btn btn-primary btn-sm">
+			<i class="icon-arrow-left"></i> $text.getText("app.button.back")
+		</button>
+		<button id="btn-wf-detail-add" class="btn btn-primary btn-sm">
+			<i class="icon-plus"></i> $text.getText("Thêm node xử lý")
+		</button>
+	</div>
+	<div class="wg-content">
+		<div class="alert alert-success label-top">
+      <div class="row">
+        <div class="col-md-12 text-left">
+          <span class="bolder" id="wf-detail-brief"></span>
+        </div>
+      </div>
+    </div>
+		<div style="display: block;">
+			<div class="demo statemachine-design col-sm-8" id="statemachine-design"
+				style="width: 75%; float: left; border-right: 1px solid rgb(229, 229, 229); min-height: 500px; overflow:auto;">
+      </div>
+      <div class="col-sm-4" id="wf-node-detail" style="width: 25%; float: left; display:none;">
+      	<form id="frm-node-detail">
+	     		<div class="form-group">
+						<label for="txt-node-name">$text.getText("Tên công việc"): </label>
+						<input id="txt-node-name" class="form-control" type="text">
+					</div>
+					<div class="form-group">
+						<label for="txt-node-task-actor">
+							$text.getText("Cán bộ thụ lý"): </label>
+						<input id="txt-node-task-actor" type="text" style="width:100%;">
+					</div>
+					<div class="form-group">
+						<label for="cbb-node-workstation">
+							$text.getText("Đơn vị xử lý"): </label>
+						<select id="cbb-node-workstation" class="form-control"></select>
+					</div>
+					<div class="form-group">
+						<label for="cbb-node-type">$text.getText("Loại"): </label>
+						<select id="cbb-node-type" class="form-control">
+							<option value="start">$text.getText("Bắt đầu")</option>
+							<option value="work">$text.getText("Công việc")</option>
+							<option value="end">$text.getText("Kết thúc")</option>
+						</select>
+					</div>
+					<div class="form-group">
+						<label class="control-label">$text.getText("Thời gian xử lý"): </label>
+						
+						<div style="border: medium none; padding-left: 0px; padding-right: 0px;" class="form-control">
+							<div class="col-sm-6 input-group" style="padding-left: 0px; padding-right: 0px;">
+								<input type="text" id="txt-node-time-date" class="col-sm-6 number form-control number">
+								<span class="input-group-addon">Ngày</span>
+    					</div>
+							<div class="col-sm-6 input-group" style="padding-left: 5px; padding-right: 0px; height: 34px;padding-top: 0px;">
+								<select class="col-sm-6 form-control" id="cbb-node-time-hour" style="height: 34px;">
+									<option value="0">0</option>
+									<option value="1">1</option>
+									<option value="2">2</option>
+									<option value="3">3</option>
+									<option value="4">4</option>
+									<option value="5">5</option>
+									<option value="6">6</option>
+									<option value="7">7</option>
+								</select>
+								<span class="input-group-addon">Giờ</span>
+							</div>
+						</div>
+					</div>
+					<div class="form-group">
+						<label>$text.getText("Kế thừa hạn xử lý"): </label>
+						<div class="">
+							<label class="radio-inline">
+							  <input type="radio" value="Y" id="rdo-node-inherited-yes" name="rdo-inherited"> Có
+							</label>
+							<label class="radio-inline">
+							  <input type="radio" value="N" id="rdo-node-inherited-no" name="rdo-inherited"> Không
+							</label>
+						</div>
+					</div>
+					<div class="form-group">
+						<label>$text.getText("Hồ sơ thuộc dạng"): </label>
+						<div class="">
+							<label class="radio-inline">
+							  <input type="radio" value="Y" id="rdo-node-record-type-yes" name="rdo-record-type"> Hợp lệ
+							</label>
+							<label class="radio-inline">
+							  <input type="radio" value="N" id="rdo-node-record-type-no" name="rdo-record-type"> Không hợp lệ
+							</label>
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="txt-node-record-result">$text.getText("Kết quả hồ sơ"): </label>
+						<input id="txt-node-record-result" class="form-control" type="text">
+					</div>
+					<div class="form-group">
+						<label for="cbb-node-infolder">$text.getText("In folder"): </label>
+						<select id="cbb-node-infolder" class="form-control"></select>
+					</div>
+					<div class="form-group">
+						<label for="cbb-node-inxform">$text.getText("In xform"): </label>
+						<select id="cbb-node-inxform" class="form-control"></select>
+					</div>
+					<div class="form-group">
+						<label for="cbb-node-inquery">$text.getText("In query"): </label>
+						<select id="cbb-node-inquery" class="form-control"></select>
+					</div>
+					<div class="form-group">
+						<label for="cbb-node-outfolder">$text.getText("Out folder"): </label>
+						<select id="cbb-node-outfolder" class="form-control"></select>
+					</div>
+					<div>
+						<button id="btn-wf-node-save" class="btn btn-success btn-sm" type="button">
+							<i class="icon-ok"></i> $text.getText("app.button.save")
+						</button>
+						<button id="btn-wf-node-del" class="btn btn-danger btn-sm" type="button">
+							<i class="icon-trash"></i> $text.getText("app.button.delete")
+						</button>
+					</div>
+				</form>
+      </div>
+      
+      
+      <div class="col-sm-4" id="wf-connect-detail" style="width: calc(25% - 17px); float: left; display:none;">
+      	<form id="frm-connection-detail">
+	     		<div class="form-group">
+						<label for="txt-connect-name">$text.getText("Tên liên kết"): </label>
+						<input id="txt-connect-name" class="form-control" type="text">
+					</div>
+					<div>
+						<button id="btn-wf-connection-save" class="btn btn-success btn-sm" type="button">
+							<i class="icon-ok"></i> $text.getText("app.button.save")
+						</button>
+						<button id="btn-wf-connection-del" class="btn btn-danger btn-sm" type="button">
+							<i class="icon-trash"></i> $text.getText("app.button.delete")
+						</button>
+					</div>
+				</form>
+      </div>
+		</div>
+	</div>
+</div>

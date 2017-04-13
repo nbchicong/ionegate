@@ -1,0 +1,107 @@
+#theme("/onegate/css/jquery/jquery.select2")
+#script("/js/onegate/inet/lib/select.min.js")
+#script("/js/onegate/inet/lib/admin-wf-actor-search.min.js")
+#script("/js/onegate/inet/lib/admin-wf-actor-map.min.js")
+#script("/js/onegate/inet/lib/admin-wf-actor.min.js")
+<div id="div-wf-search" style="display: none" class="main-container">
+  <div class="wg-toolbar navbar-fixed-top">
+    <button id="btn-wf-actor-create" class="btn btn-primary btn-sm">
+      <i class="icon-plus"></i> $text.getText("app.button.create")
+    </button>
+  </div>
+  <div class="wg-content">
+    <div class="row-fluid">
+			<div id="wf-grid-id"></div>
+    </div>
+  </div>
+</div>
+
+<div id="div-wf-detail" style="display: none" class="main-container">
+  <div id="wg-toolbar" class="navbar-fixed-top">
+    <button id="btn-wf-actor-back" class="btn btn-primary btn-sm">
+			<i class="icon-arrow-left"></i> $text.getText("app.button.back")
+		</button>
+    <button id="btn-wf-actor-add" class="btn btn-primary btn-sm">
+			<i class="icon-plus"></i> $text.getText("app.button.create")
+		</button>
+		<button id="btn-wf-actor-save" class="btn btn-success btn-sm">
+			<i class="icon-ok"></i> $text.getText("app.button.save")
+		</button>
+  </div>
+  <div id="wg-content">
+    <div class="row">
+			<div class="col-sm-12">
+				<form id="frm-wf-actor-detail" class="form-horizontal" style="margin-top: 5px;">
+					<div class="row">
+						<div class="col-sm-6">
+							<div class="form-group">
+								<label class="control-label col-sm-4" for="txt-code">
+									$text.getText("Mã đại diện") <span class="required" />:
+								</label>
+								<div class="col-sm-8">
+									<input id="txt-code" class="form-control" type="text">
+								</div>
+							</div>
+						</div>
+						<div class="col-sm-6">
+							<div class="form-group">
+								<label class="control-label col-sm-4" for="txt-defactor">
+									$text.getText("Defactor") <span class="required" />:
+								</label>
+								<div class="col-sm-8">
+									<input id="txt-defactor" class="form-control" type="text">
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-sm-6">
+							<div class="form-group">
+								<label class="control-label col-sm-4" for="txt-name">
+									$text.getText("Tên đại diện"):
+								</label>
+								<div class="col-sm-8">
+									<input id="txt-name" class="form-control" type="text">
+								</div>
+							</div>
+						</div>
+						<div class="col-sm-6">
+							<div class="form-group">
+								<label class="control-label col-sm-4" for="txt-position">
+									$text.getText("Chức vụ"):
+								</label>
+								<div class="col-sm-8">
+									<input id="txt-position" class="form-control" type="text">
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-sm-12">
+							<div class="form-group">
+								<label class="control-label col-sm-2" for="txt-brief">
+									$text.getText("Mô tả"):
+								</label>
+								<div class="col-sm-10">
+									<textarea id="txt-brief" class="form-control" rows="2"></textarea>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-sm-12">
+							<div class="form-group">
+								<label class="control-label col-sm-2" for="txt-member">
+									$text.getText("Thành viên"):
+								</label>
+								<div class="col-sm-10">
+									<input id="txt-member" type="text" style="width:100%;">
+								</div>
+							</div>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+  </div>
+</div>

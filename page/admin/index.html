@@ -1,0 +1,24 @@
+#html({"lang":"vi","dir":"ltr", "xmlns":"http://www.w3.org/1999/xhtml","secure":"$firm_bpo","pattern":"/*/"})
+  #keywords({"title":'$text.getText("onegate.admin.title")'})
+  #meta({ "title":"iCloud Platform","viewport": "width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"})
+  #widget("/common/widget/header")
+  #widget("/onegate/widget/common/header")
+<div id="main-container" class="container-fluid">
+    #widget("/onegate/widget/admin/menu")
+    <div id="main-content" class="clearfix">
+        <div id="breadcrumbs">
+            <ul class="breadcrumb">
+                <li><i class="icon-home"></i><a href="javascript:;">$text.getText("onegate.admin.title")</a>
+                    <span class="divider"><i class="icon-angle-right"></i></span></li>
+                <li class="active"></li>
+            </ul>
+        </div>
+        <div id="page-content" class="clearfix">
+            <div id="loading-msg">$text.getText("onegate.common.loading_msg")</div>
+            <iframe id="iframe-content"></iframe>
+        </div>
+    </div>
+
+</div>
+
+#end

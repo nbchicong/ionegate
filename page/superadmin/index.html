@@ -1,0 +1,24 @@
+#html({"lang":"vi","dir":"ltr", "xmlns":"http://www.w3.org/1999/xhtml","secure":"$firmadmin"})
+  #keywords({"title":'$text.getText("onegate.superadmin.title")'})
+  #meta({ "title":"iCloud Platform","viewport": "width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"})
+  #widget("/common/widget/header")
+  #widget("/onegate/widget/common/header")
+<div id="main-container" class="container-fluid">
+    #widget("/onegate/widget/superadmin/menu")
+    <div id="main-content" class="clearfix">
+        <div id="breadcrumbs">
+            <ul class="breadcrumb">
+                <li><i class="icon-home"></i><a href="javascript:;">$text.getText("onegate.superadmin.title")</a>
+                    <span class="divider"><i class="icon-angle-right"></i></span></li>
+                <li class="active"></li>
+            </ul>
+        </div>
+        <div id="page-content" class="clearfix">
+            <div id="loading-msg"><i class="icon-refresh icon-spin"></i> $text.getText("onegate.common.loading_msg")</div>
+            <iframe id="iframe-content"></iframe>
+        </div>
+    </div>
+
+</div>
+
+#end

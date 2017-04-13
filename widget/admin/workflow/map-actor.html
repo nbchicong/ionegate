@@ -1,0 +1,25 @@
+#script("/js/onegate/inet/lib/wf-mapactor.min.js")
+#dataservice("cloudwflaliaslist")
+#dataservice("accountrolelist")
+#set($begin = "<script type='text/javascript'>")
+#set($end = "</script>")
+$begin
+  var dataActor = [{value: "", text: "Select Actor"}];
+  #foreach($item in $cloudwflaliaslist.items)
+    dataActor.push({value: "$item.uuid", text: "$item.code"});
+  #end
+  var dataAccount = [{value: "", text: "Select Account"}];
+  #foreach($item in $accountrolelist.items)
+    dataAccount.push({value: "$item.username", text: "$item.fullname"});
+  #end
+$end
+<div id="wg-toolbar" class="navbar-fixed-top">
+  <button id="wf-btn-create" class="btn btn-primary btn-sm">
+    <i class="icon-plus"> </i> $text.getText("app.button.create")
+  </button>
+</div>
+<div id="wg-content">
+  <div class="row-fluid">
+    <div id="map-actor-grid-id"> </div>
+  </div>
+</div>

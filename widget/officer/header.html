@@ -1,0 +1,19 @@
+#dataservice("onegateofficeprofile")
+#set($dept = $onegateofficeprofile)
+
+#xscript()
+  iNet.prefix="$ctx.site.prefix";
+  iNet.extension = "$ctx.extension()";
+  iNet.path = "$ctx.path()";
+$(function () {
+    new iNet.app.Application({
+        title: 'iOnegate',
+        hideFooter: true,
+        header: new iNet.ui.common.Header({
+            title: #if(!$dept.name) 'Chưa xác định' #{else} '$dept.name '#end,
+            iconCls: 'icon-building',
+            autoDetect: true
+        })
+    });
+});
+#end

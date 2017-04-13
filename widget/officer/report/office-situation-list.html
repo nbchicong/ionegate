@@ -1,0 +1,49 @@
+#script("/js/common/inet/lib/pagingtb.min.js")
+#script("/js/common/inet/lib/checkboxmng.min.js")
+#script("/js/onegate/inet/lib/officer-report-office-situation-list.min.js")
+
+<div id="officer-report-situation-list" class="messageList $lside" style="float: left;padding: 0px;">
+    <div class="side-toolbar">
+        <button id="officer-report-situation-list-btn-create" class="btn btn-info hide" disabled="disabled">
+            <i class="icon-plus"></i> $text.getText("onegate.button.new_report")
+        </button>
+        <button id="officer-report-situation-list-btn-delete" class="btn btn-danger hide" disabled="disabled">
+            <i class="icon-trash"></i> $text.getText("onegate.button.delete")
+        </button>
+    </div>
+    <div class="b-message-list-wrapper">
+        <div id="message-list-top-toolbar" style="height: 48px; display: inline-flex; padding-top: 6px; width: 100%;" class="second-toolbar thm-message-list-top-toolbar">
+            <div style="float: left;display: inline-block">
+                <label style="margin-left: 1px;margin-top: 6px;">
+                    <input id="check-all" type="checkbox" class="ace">
+                    <span class="lbl"></span>
+                </label>
+            </div>
+            <div style="width: 100%;padding-left: 5px;">
+                 <span class="ace-icon input-icon input-icon-right" style="width: 100%">
+                     <input id="officer-report-situation-basic-search-txt-keyword" type="text" class="col-sm-12" placeholder='$text.getText("onegate.common.keyword")'>
+                     <i class="ace-icon icon-search" data-action-search="search" title='$text.getText("onegate.button.search")'></i>
+                 </span>
+            </div>
+        </div>
+        <div class="mainDelimiter toolbarDelimiter"></div>
+        <div id="div-message-list-dp" class="b-content nano has-scrollbar">
+            <div id="message-list-no-data" style="text-align: center;font-size: 14px;line-height: 30px;padding: 10px;color: #999;">
+                <div>$text.getText("onegate.common.empty_msg")</div>
+            </div>
+            <div id="div-message-list-dp-content" class="overthrow nano-content content g-scrollbox" tabindex="0" style="right: -13px;">
+                <div id="officer-report-situation-grid" class="content-wrapper">
+                </div>
+            </div>
+
+        </div>
+
+        <div class="mainDelimiter footerDelimiter"></div>
+
+        <div class="b-footer thm-message-list-bottom-toolbar">
+            <div class="pull-right">
+                <span class="paging" id="paging"></span>
+            </div>
+        </div>
+    </div>
+</div>

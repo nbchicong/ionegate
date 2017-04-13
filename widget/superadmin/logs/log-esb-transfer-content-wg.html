@@ -1,0 +1,52 @@
+#script("/js/onegate/inet/lib/log-esb-transfer-content.min.js")
+<div id="log-esb-transfer-content-wg" style="display: none;">
+    <div class="wg-toolbar navbar-fixed-top">
+        <button id="tb-btn-back" class="btn btn-primary btn-sm">
+            <i class="fa fa-arrow-left"></i> $text.getText("app.button.back")
+        </button>
+        <button id="tb-btn-trash" class="btn btn-warning btn-sm">
+            <i class="fa fa-trash"></i> $text.getText("Bỏ thùng rác")
+        </button>
+        <button id="tb-btn-remove" class="btn btn-danger btn-sm">
+            <i class="fa fa-times"></i> $text.getText("Xóa vĩnh viễn")
+        </button>
+    </div>
+    <div class="wg-content">
+        <div class="container-fluid">
+            <div class="form-horizontal">
+                <div class="form-group">
+                    <label class="ilabel col-md-2 col-sm-2">Log title</label>
+                    <div class="col-md-3 col-dm-3">
+                        <label id="lbl-log-title"></label>
+                    </div>
+                    <label class="ilabel col-md-2 col-sm-2">Service Name</label>
+                    <div class="col-md-5 col-dm-5">
+                        <label id="lbl-log-service"></label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="ilabel col-md-2 col-sm-2">Log Time</label>
+                    <div class="col-md-3 col-dm-3">
+                        <label id="lbl-log-time"></label>
+                    </div>
+                    <label class="ilabel col-md-2 col-sm-2">Log Status</label>
+                    <div class="col-md-3 col-dm-3">
+                        <label id="lbl-log-status"></label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="ilabel col-md-2 col-sm-2">Data JSON</label>
+                </div>
+                <div class="form-group">
+                    <pre><code id="lbl-log-json"></code></pre>
+                </div>
+                <div class="form-group">
+                    <label class="ilabel col-md-2 col-sm-2">Log Message</label>
+                </div>
+                <div class="form-group">
+                    <pre><code id="lbl-log-message"></code></pre>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

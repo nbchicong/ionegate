@@ -1,0 +1,112 @@
+#zone()
+
+#scriptBundle("onegate-admin-script")
+    iNet.ns('iNet.resources.onegate',
+    'iNet.resources.onegate.admin',
+    'iNet.resources.onegate.admin.dict',
+    'iNet.resources.onegate.admin.firm',
+    'iNet.resources.onegate.admin.procedure',
+    'iNet.resources.onegate.admin.template_receipt',
+    'iNet.resources.onegate.admin.template_tracking',
+    'iNet.resources.onegate.admin.holiday',
+    'iNet.resources.onegate.admin.ImportTemplate',
+    'iNet.resources.onegate.superadmin.report.SearchWidget',
+    'iNet.resources.onegate.superadmin.office');
+
+    if (iNet.resources.onegate.admin.dict) {
+        iNet.apply(iNet.resources.onegate.admin.dict, {
+        name_field : 'Name',
+        key_field : '$text.getText("onegate.admin.dict.key_field")',
+        value_field : 'Value',
+        desc_field : 'Description',
+        type_field: '$text.getText("onegate.admin.dict.type_field")',
+        order_field: 'Order',
+        name_field_required: 'The name field is required',
+        value_field_required: 'The value field is required',
+        desc_field_required: 'The description field is required',
+        order_number_valid: 'Enter a valid order number'
+        });
+    }
+    if (iNet.resources.onegate.admin.firm) {
+        iNet.apply(iNet.resources.onegate.admin.firm, {
+        name_field : 'Name',
+        code_field : 'Code',
+        url_field : 'URL',
+        order_field: 'Order',
+        name_field_required: 'The name field is required',
+        url_field_required: 'The value field is required',
+        order_number_valid: 'Enter a valid order number'
+        });
+    }
+    if (iNet.resources.onegate.admin.procedure) {
+        iNet.apply(iNet.resources.onegate.admin.procedure, {
+        name_field : 'Name',
+        code_field : 'Code',
+        url_field : 'URL',
+        order_field: 'Order',
+        time_field : 'Time',
+        name_field_required: 'The name field is required',
+        url_field_required: 'The value field is required',
+        order_number_valid: 'Enter a valid order number',
+        save_success: 'Save success',
+        update_success: 'Update success'
+        });
+    }
+    if (iNet.resources.onegate.admin.template_receipt) {
+        iNet.apply(iNet.resources.onegate.admin.template_receipt, {
+        name_field : 'Tên mẫu phiếu',
+        default_field : 'Mặc định',
+        name_field_required: 'Tên mẫu phiếu biên nhận không được để rỗng',
+        content_field_required: 'Nội dung mẫu phiếu biên nhận không được để trống',
+        save_success: 'Mẫu phiếu biên nhận đã tạo thành công',
+        update_success: 'Mẫu phiếu biên nhận đã cập nhật thành công'
+        });
+    }
+    if (iNet.resources.onegate.admin.template_tracking) {
+        iNet.apply(iNet.resources.onegate.admin.template_tracking, {
+        name_field : 'Tên mẫu phiếu',
+        default_field : 'Mặc định',
+        name_field_required: 'Tên mẫu phiếu kiểm soát không được để rỗng',
+        content_field_required: 'Nội dung mẫu phiếu kiểm soát không được để trống',
+        save_success: 'Mẫu phiếu kiểm soát đã tạo thành công',
+        update_success: 'Mẫu phiếu kiểm soát đã cập nhật thành công'
+        });
+    }
+    if (iNet.resources.onegate.admin.holiday) {
+        iNet.apply(iNet.resources.onegate.admin.holiday, {
+        date_field : 'Ngày',
+        description_field : 'Mô tả',
+        save_success: 'Ngày nghĩ, ngày lễ đã tạo thành công',
+        update_success: 'Ngày nghĩ, ngày lễ đã cập nhật thành công'
+        });
+    }
+    if (iNet.resources.onegate.admin.ImportTemplate) {
+        iNet.apply(iNet.resources.onegate.admin.ImportTemplate, {
+            template_not_null : '$text.getText("onegate.admin.import-template.template_not_null")',
+            invalid_type : '$text.getText("onegate.admin.import-template.invalid_type")',
+            over_file_size: '$text.getText("onegate.admin.import-template.over_file_size")',
+            name_not_null: '$text.getText("onegate.admin.import-template.name_not_null")',
+            name: '$text.getText("onegate.admin.import-template.name")',
+            template: '$text.getText("onegate.admin.import-template.template")',
+        });
+    }
+    if (iNet.resources.onegate.superadmin.report.SearchWidget) {
+        iNet.apply(iNet.resources.onegate.superadmin.report.SearchWidget, {
+            name: "Tên báo cáo",
+            created: "Ngày tạo",
+            creator: "Người tạo"
+        });
+    }
+    if (iNet.resources.onegate.superadmin.office) {
+        iNet.apply(iNet.resources.onegate.superadmin.office, {
+            name_not_empty: '$text.getText("onegate.admin.office.name_not_empty")',
+            org_id_not_empty: '$text.getText("onegate.admin.office.org_id_not_empty")',
+            save_title: '$text.getText("onegate.admin.office.save_title")',
+            saved: '$text.getText("onegate.admin.office.saved")',
+            save_failed: '$text.getText("onegate.admin.office.save_failed")'
+        });
+    }
+
+#end
+
+#end

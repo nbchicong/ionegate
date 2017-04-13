@@ -1,0 +1,97 @@
+#zone()
+
+#scriptBundle("onegate-common-script")
+    iNet.ns(
+        'iNet.resources.message',
+        'iNet.resources.message.errors',
+        'iNet.resources.form.selectUser',
+        'iNet.resources.dialog',
+        'iNet.resources.dialog.selectUserDialog',
+        'iNet.resources.onegate.message',
+        'iNet.resources.export_data.reportPanel',
+        'iNet.resources.export_data.reportPanel'
+
+    );
+
+    if (iNet.resources.message) {
+       iNet.apply(iNet.resources.message, {
+            dialog_confirm_title: '$text.getText("onegate.dialog.delete_title")',
+            dialog_confirm_content: '$text.getText("onegate.dialog.delete_content")'
+       });
+    }
+
+    if (iNet.resources.message.errors) {
+        iNet.apply(iNet.resources.message.errors, {
+            DEPARTMENT_ID_REQUIRED: 'Không tìm thấy ID của đơn vị',
+            DEPARTMENT_NOT_FOUND: 'Không tìm thấy đơn vị',
+            DEPARTMENT_BRIEF_EXISTED: 'Mã đơn vị đã tồn tại',
+            DEPARTMENT_PREFIX_EXISTED: 'Prefix của đơn vị đã tồn tại',
+            BUCKET_EXISTED: 'Bucket đã tồn tại',
+            INDUSTRY_NAME_EXISTED: 'Tên lĩnh vực đã tồn tại',
+            INDUSTRY_NOT_FOUND: 'Không tìm thấy lĩnh vực',
+            INDUSTRY_ID_REQUIRED: 'Không tìm thấy ID của lĩnh vực',
+            REQUEST_NOT_ACCEPTED: 'REQUEST_NOT_ACCEPTED'
+        });
+    }
+
+    if (iNet.resources.dialog) {
+        iNet.apply(iNet.resources.dialog, {
+            delete_title: '$text.getText("onegate.dialog.delete_title")',
+            delete_content: '$text.getText("onegate.dialog.delete_content")'
+        });
+    }
+
+    if (iNet.resources.form.selectUser) {
+        iNet.apply(iNet.resources.form.selectUser, {
+        allText:'Tất cả',
+        selectedText:'Đã chọn',
+        search_placeholder:'Tìm kiếm người dùng',
+        un_selected:'Bỏ chọn tất cả',
+        select_all:'Chọn tất cả',
+        dept_all_text: 'Tất cả phòng ban',
+        processingText:'Xử lý chính',
+        coordinateText:'Phối hợp',
+        watchText:'Theo dõi',
+        create_alias: 'Tạo mới'
+        });
+    }
+
+    if (iNet.resources.dialog.selectUserDialog) {
+        iNet.apply(iNet.resources.dialog.selectUserDialog, {
+        title: 'Chọn tài khoản trên Cloud'
+        });
+    }
+    if (iNet.resources.onegate.message) {
+        iNet.apply(iNet.resources.onegate.message, {
+            not_permission: "Bạn không có quyền thực hiện chức năng này ! </br> Vui lòng liên hệ với Quản trị để được cấp quyền.",
+            confirm_del_content: "Dữ liệu <b>{0}</b> xẽ bị xóa vĩnh viễn và không thể khôi phục.",
+            are_you_sure: "Bạn có chắc chắn đồng ý",
+            del_success: 'Dữ liệu đã được xóa thành công !',
+            del_error: 'Có lỗi trong quá trình xóa dữ liệu',
+            confirm_submit_content: 'Bạn có đồng ý lưu dữ liệu',
+            act_error:'Có lỗi trong khi thực hiện',
+            confirm_del_no_content: "Dữ liệu xẽ bị xóa vĩnh viễn và không thể khôi phục."
+        });
+    }
+    if (iNet.resources.export_data.downloadReportPanel) {
+        iNet.apply(iNet.resources.export_data.downloadReportPanel, {
+        txtDownloading: "Đang tải tập tin...",
+        txtWaiting: "Tập tin đang được tải, vui lòng đợi !",
+        txtDownloadError: "Có lỗi trong quá trình kết xuất dữ liệu",
+        txtDownloadSuccess: "Đã tải thành công"
+        });
+    }
+
+    if (iNet.resources.export_data.reportPanel) {
+        iNet.apply(iNet.resources.export_data.reportPanel, {
+        def_model_not_found : "Không tìm thấy mẫu lưu trữ mặc định",
+        select_template_export: "Chọn mẫu kết xuất",
+        down_template:'Tải mẫu excel',
+        exit: "Thoát",
+        template_not_found: 'Không tìm thấy mẫu kết xuất'
+        });
+    }
+
+#end
+
+#end

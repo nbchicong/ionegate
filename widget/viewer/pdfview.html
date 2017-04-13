@@ -1,0 +1,24 @@
+
+#docXUI({
+    "type":"docx-view-form",
+    "namespace":"viewer",
+    "id":"onegate-idoc",
+    "pdfVerify":"$ctx.xaction('onegate/dept/pdfconvert')",
+    "download":"$ctx.xaction('onegate/dept/download')",
+    "imgVerify":"$ctx.xaction('onegate/dept/imageview')",
+    "imgView":"$ctx.xaction('onegate/dept/imageload')",
+    "docLoad":"$ctx.xaction('onegate/dept/docview')"
+})
+#xscript()
+    iNet.prefix = "$ctx.site.prefix";
+    iNet.extension = "$ctx.extension()";
+    iNet.path = "$ctx.path()";
+    #if($ctx.pattern)
+        iNet.pattern = "$ctx.pattern";
+    #end
+    $(function(){
+        var docxView = new iNet.ui.viewer.iViewer();
+        docxView.getDataUrl('data');
+        docxView.open();
+    });
+#end

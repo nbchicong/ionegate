@@ -1,0 +1,105 @@
+<script type="text/javascript">
+ReportCommonService = {
+  modules : {
+    "REPORT_RESOLVE_UNIT" : {
+        name : 'Báo cáo tóm tắt tình hình xủ lý hồ sơ một cửa tại một đơn vị',
+        url : '',
+        fileType : 'xlsx',
+        type : 'report',
+        view : 'onegate/widget/superadmin/report/firm/widget-result',
+        roleView: true,
+        roleCreate: true,
+        module : 'REPORT_RESOLVE_UNIT',
+        packg: 'unit'
+    },
+    "REPORT_RESOLVE_PROVINCE" : {
+        name : 'Báo cáo tóm tắt tình hình xủ lý hồ sơ một cửa thành phố',
+        url : '',
+        fileType : 'xlsx',
+        type : 'report',
+        period : 'year;quarter;halfyear',
+        view : 'onegate/widget/superadmin/report/province/widget-result',
+        roleView: true,
+        module : 'REPORT_RESOLVE_PROVINCE',
+        packg: 'province'
+    },
+    "REPORT_PROCEDURES" : {
+        name : 'Báo cáo danh mục thủ tục hành chính được cung cấp trên cổng dịch vụ công trực tuyến',
+        url : '',
+        fileType : 'xlsx',
+        type : 'report',
+        view : 'onegate/widget/superadmin/report/procedures/widget-result',
+        roleView: true,
+        module : 'REPORT_PROCEDURES',
+        packg: 'procedures'
+    },
+    "REPORT_USAGE" : {
+        name : 'Báo cáo tóm tắt tình hình công dân/tổ chức sử dụng cổng dịch vụ công thành phố',
+        url : '',
+        fileType : 'xlsx',
+        type : 'report',
+        view : 'onegate/widget/superadmin/report/usage/widget-result',
+        roleView: true,
+        module : 'REPORT_USAGE',
+        packg: 'usage'
+    },
+    "REPORT_RECEIVER_SITUATION" : {
+        name : 'Báo cáo tình hình tiếp nhận hồ sơ một cửa',
+        url : '',
+        fileType : 'xlsx',
+        type : 'report',
+        view : 'onegate/widget/receiver/report/receive-situation-result',
+        roleView: true,
+        module : 'REPORT_RECEIVER_SITUATION',
+        packg: 'receiver'
+    },
+    "REPORT_OFFICER_SITUATION" : {
+        name : 'Báo cáo tình hình tiếp nhận hồ sơ sử dụng dịch vụ công tại nhà',
+        url : '',
+        fileType : 'xlsx',
+        type : 'report',
+        view : 'onegate/widget/officer/report/office-situation-result',
+        roleView: true,
+        module : 'REPORT_OFFICER_SITUATION',
+        packg: 'officer'
+    },
+    "REPORT_PROCESS" : {
+        name : 'Báo cáo chi tiết tình hình xử lý hồ sơ một cửa tại một đơn vị',
+        url : '',
+        fileType : 'xlsx',
+        type : 'report',
+        view : 'onegate/widget/superadmin/report/process/widget-result',
+        roleView: true,
+        module : 'REPORT_PROCESS',
+        packg: 'process'
+    },
+    "REPORT_UNIT" : {
+        name : 'Báo cáo thống kê số lượng hồ sơ của các đơn vị',
+        url : '',
+        fileType : 'xlsx',
+        type : 'report',
+        view : 'onegate/widget/superadmin/report/unit/widget-result',
+        roleView: true,
+        module : 'REPORT_UNIT',
+        packg: 'unit'
+    }
+  },
+  getModuleInfo : function(key) {
+    return this.modules[key] || {}
+  },
+  count : function(modules) {
+    return Object.keys(modules).length
+  },
+  getName : function(module) {
+    for ( var key in module) {
+      return module[key].name
+    }
+  },
+  getKey : function(module) {
+    for ( var key in module) {
+      return key;
+    }
+  }
+};
+</script>
+<i></i>

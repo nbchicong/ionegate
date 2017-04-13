@@ -1,0 +1,88 @@
+#theme("/common/css/grid.min")
+#theme("/onegate/css/jquery/jquery.select2")
+#theme("/onegate/css/jquery/jquery.select2-bootstrap")
+#script("/js/common/inet/lib/select.min.js")
+#script("/js/onegate/inet/lib/form-loading.min.js")
+#script("/js/onegate/jquery/plugins/jquery.form.min.js")
+#script("/js/common/inet/lib/grid-2.0.min.js")
+#script("/js/onegate/inet/lib/onegate-admin-import-template.min.js")
+
+<div id = "div-report-import-template">
+  <div class="main-container">
+      <div id="report-import-template-toolbar" class="navbar-fixed-top wg-toolbar">
+        <button id="import-template-btn-create" type="button" class="btn btn-primary btn-sm">
+          <i class="ace-icon icon-plus"></i> $text.getText("app.button.create")
+        </button>
+        <button id="import-template-btn-save" type="button" class="btn btn-primary btn-sm">
+          <i class="ace-icon icon-save"></i> $text.getText("app.button.save")
+        </button>
+      </div>
+      <div id="report-import-template-wg-content" class="wg-content">
+          <div class="span12 marg-t-20-im">
+            <form id="import-template-frm" method="post"  class="form-horizontal" action="" enctype="multipart/form-data">
+              <div class="row">
+                <input type="hidden" name="application" value="onegate" class="span12"/>
+              </div>
+              <div class="space-6"></div>
+              <div class="col-xs-12">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label class="col-sm-3 control-label no-padding-right" for="report-import-template-txt-name">$text.getText("onegate.admin.import-template.name")<span class="required">:</span></label>
+
+                    <div class="col-sm-9">
+                      <input type="text" id="report-import-template-txt-name" class="col-xs-12 col-sm-12" name="name"/>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label class="col-sm-3 control-label no-padding-right" for="report-import-template-model">
+                      $text.getText("onegate.admin.import-template.module")<span class="required"></span>:
+                    </label>
+                    <div class="col-sm-9">
+                      <!--<select id="report-import-template-model" class="width-100" name="module">-->
+                        <!--<option value="REPORT_RESOLVE_UNIT">Báo cáo tóm tắt tình hình xủ lý hồ sơ một cửa tại một đơn vị</option>-->
+                        <!--<option value="REPORT_RESOLVE_PROVINCE">Báo cáo tóm tắt tình hình xủ lý hồ sơ một cửa thành phố</option>-->
+                        <!--<option value="REPORT_PROCEDURES">Báo cáo danh mục thủ tục hành chính</option>-->
+                        <!--<option value="REPORT_USAGE">Báo cáo tóm tắt tình hình công dân/tổ chức sử dụng cổng dịch vụ công thành phố</option>-->
+                      <!--</select>-->
+                        <input id="report-import-template-model" name="module" class="width-100" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="space-6"></div>
+              <div class="col-xs-12">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label class="col-sm-3 control-label no-padding-right" for="import-template-value-template">$text.getText("onegate.admin.import-template.template") (<span class="required">):</span></label>
+                    <div class="col-sm-9">
+                      <input type="hidden" id="import-template-value-template" value="" name="template"/>
+                      <input class="span9 hide" id="import-template-upload-file" type="file" name="FileUpload"/>
+                      <div class="ace-file-input" id="import-template-file">
+                        <input type="file" id="id-input-file-2">
+                        <label class="ace-file-container" data-title='$text.getText("onegate.admin.import-template.chosen_file")'>
+                          <span class="ace-file-name" data-title='$text.getText("onegate.admin.import-template.no_file")'>
+                            <i class="ace-icon icon-upload-alt"></i>
+                          </span>
+                        </label>
+                     </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label class="col-sm-3 control-label no-padding-right" for="report-import-template-txt-description">$text.getText("onegate.admin.import-template.description"):</label>
+                    <div class="col-sm-9">
+                      <input type="text" id="report-import-template-txt-description" class="col-xs-12 col-sm-12" name="description"/>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+          <div id="report-import-template-search-grid"></div>
+      </div>
+  </div>
+</div>
+

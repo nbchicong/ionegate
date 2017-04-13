@@ -1,0 +1,47 @@
+#theme("/onegate/css/noskin")
+#theme("/onegate/css/jquery/jquery.select2")
+#script("/js/onegate/jquery/plugins/jquery.ba-hashchange.min.js")
+#script("/js/onegate/inet/lib/select.min.js")
+#script("/js/onegate/inet/lib/onegate-receiver-main.min.js")
+<div class="no-skin">
+    <div id="sidebar" class="sidebar h-sidebar navbar-collapse collapse">
+        <ul id="nav-list" class="nav nav-list">
+            <li id="menu-receiver" class="active open">
+                <a href="javascript:;" data-url="$ctx.xaction('onegate/page/receiver/sideview/ticket-self')">
+                    <i class="menu-icon icon-arrow-down"></i>
+                    <span class="menu-text"> $text.getText("onegate.receiver.reception")</span>
+                </a>
+            </li>
+
+            <li id="menu-communication">
+                <a href="javascript:;" data-url="$ctx.xaction('onegate/page/receiver/sideview/ticket-esb')">
+                    <i class="menu-icon icon-exchange"></i>
+                    <span class="menu-text"> $text.getText("onegate.receiver.exchange") <span class="badge badge-danger"></span> </span>
+
+                </a>
+            </li>
+            <li id="menu-processed">
+                <a href="javascript:;" data-url="$ctx.xaction('onegate/page/receiver/sideview/ticket-processing')">
+                    <i class="menu-icon icon-cog"></i>
+                    <span class="menu-text"> $text.getText("onegate.receiver.processing") <span class="badge badge-primary"></span></span>
+                </a>
+            </li>
+            <li id="menu-admin">
+                <a href="javascript:;" onclick='window.parent.window.location="$ctx.xaction('onegate/page/admin/index')";'>
+                    <i class="menu-icon icon-cogs"></i>
+                    <span class="menu-text"> $text.getText("onegate.admin.title") </span>
+                </a>
+            </li>
+            <li id="menu-report-situation">
+                <a href="javascript:;" data-url="$ctx.xaction('onegate/page/receiver/report/receive-situation')">
+                    <i class="menu-icon icon-bar-chart"></i>
+                    <span class="menu-text"> $text.getText("onegate.receiver.situation") <span class="badge badge-primary"></span></span>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div class="main-content">
+        <div id="loading-msg">$text.getText("onegate.common.loading_msg")</div>
+        <iframe id="onegate-iframe-content" src="$ctx.xaction('onegate/page/receiver/sideview/ticket-self')" style="display:none;border:none;width:100%;"></iframe>
+    </div><!-- /.page-content -->
+</div>

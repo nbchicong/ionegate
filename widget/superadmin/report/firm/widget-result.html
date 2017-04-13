@@ -1,0 +1,31 @@
+#dataservice("onegate_reportfirm_review")
+#set($data = $onegate_reportfirm_review.data)
+<table id="sample-table-1" class="table table-striped table-bordered table-hover">
+    <thead>
+        <tr>
+            <th class="text-left">Lĩnh vực</th>
+            <th class="text-center">Đã tiếp nhận</th>
+            <th class="text-center">Đã xử lý</th>
+            <th class="text-center">Đúng hạn</th>
+            <th class="text-center">Trễ hạn</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        #if($data.items.size() > 0)
+            #foreach($item in $data.items)
+                <tr>
+                    <td class="text-left">$item.industry</td>
+                    <td class="text-right">$item.received</td>
+                    <td class="text-right">#set($resolved = $item.resolved + $item.ontime + $item.outtime) $resolved</td>
+                    <td class="text-right">$item.ontime</td>
+                    <td class="text-right">$item.outtime</td>
+                </tr>
+            #end
+        #else
+        <tr colspan="5">
+            <td colspan="5"><i>Không có dữ liệu để hiển thị</i></td>
+        </tr>
+        #end
+    </tbody>
+</table>

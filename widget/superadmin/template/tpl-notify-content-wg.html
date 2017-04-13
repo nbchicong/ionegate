@@ -1,0 +1,56 @@
+#theme("/onegate/css/redactor")
+#script("/js/onegate/jquery/plugins/jquery.redactor-vi.min.js")
+#script("/js/onegate/jquery/plugins/jquery.redactor.min.js")
+#script("/js/onegate/inet/lib/template-notify-content.min.js")
+<div id="tpl-notify-content-wg" style="display: none;">
+    <div class="wg-toolbar navbar-fixed-top">
+        <button id="btn-tpl-back" class="btn btn-primary btn-sm" data-action="back">
+            <i class="fa fa-arrow-left"></i> $text.getText("app.button.back")
+        </button>
+        <button id="btn-tpl-save" class="btn btn-success btn-sm" data-action="save">
+            <i class="fa fa-save"></i> $text.getText("app.button.save")
+        </button>
+        <button id="btn-tpl-trash" class="btn btn-danger btn-sm" data-action="trash">
+            <i class="fa fa-trash"></i> $text.getText("app.button.del")
+        </button>
+    </div>
+    <div class="wg-content">
+        <div class="container-fluid">
+            <form class="form-horizontal">
+                <div class="form-group no-margin-bottom">
+                    <label for="txt-tpl-name" class="col-md-1 col-sm-1 control-label ilabel">Tên mẫu</label>
+                    <div class="col-md-4 col-sm-4">
+                        <input type="text" class="form-control" id="txt-tpl-name" name="name" placeholder="Tên mẫu">
+                    </div>
+                    <label for="cbb-tpl-type" class="col-md-1 col-sm-1 control-label ilabel">Loại mẫu</label>
+                    <div class="col-md-2 col-sm-2">
+                        <select id="cbb-tpl-type" class="form-control">
+                            <option value="SMS">SMS</option>
+                            <option value="EMAIL">EMAIL</option>
+                        </select>
+                    </div>
+                    <label for="cbb-tpl-status" class="col-md-1 col-sm-1 control-label ilabel">Trạng thái</label>
+                    <div class="col-md-3 col-sm-3">
+                        <select id="cbb-tpl-status" class="form-control">
+                            <option value="CREATED">Vừa tạo</option>
+                            <option value="VERIFIED">Tiếp nhận</option>
+                            <option value="SUBMITED">Chuyển xử lý</option>
+                            <option value="REJECTED">Từ chối tiếp nhận</option>
+                            <option value="NEED_INPUT_DATA">Bổ sung</option>
+                            <option value="PUBLISHED">Trả cho công dân</option>
+                            <option value="COMPLETED">Hoàn thành</option>
+                            <option value="CANCEL">Hủy</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group no-margin-bottom">
+                    <label class="col-md-1 col-sm-1 control-label ilabel">Nội dung</label>
+                    <div class="col-sm-11">
+                        <textarea id="txt-tpl-content" class="form-control" name="content" placeholder="Nội dung"></textarea>
+
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
