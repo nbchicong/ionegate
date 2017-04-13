@@ -1,0 +1,9 @@
+private Organization from;
+private List<Organization> toes = new ArrayList();
+private Date date;
+private Process process;
+private String type;
+private String subject;
+private String ticket;
+private String receiptCode;
+private String recordCode;
