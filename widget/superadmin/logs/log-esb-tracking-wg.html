@@ -1,0 +1,61 @@
+#theme("/common/css/grid.min")
+#theme("/onegate/css/jquery/bootstrap-datepicker")
+#script("/js/onegate/bootstrap/plugins/bootstrap-datepicker.min.js")
+#script("/js/common/inet/lib/grid-2.0.min.js")
+#script("/js/onegate/inet/lib/log-esb-tracking.min.js")
+<div id="log-esb-tracking-wg">
+    <div class="wg-toolbar navbar-fixed-top" style="min-height:41px">
+        <button id="log-esb-tracking-btn-trash" class="btn btn-warning btn-sm" style="display:none">
+            <i class="fa fa-trash"></i> $text.getText("Bỏ thùng rác")
+        </button>
+        <button id="log-esb-tracking-btn-remove" class="btn btn-danger btn-sm" style="display:none">
+            <i class="fa fa-times"></i> $text.getText("Xóa vĩnh viễn")
+        </button>
+    </div>
+    <div class="wg-content">
+        <div class="hide">
+            <div id="log-esb-tracking-list-basic-search">
+                <div class="log-quick-search">
+                    <div class="no-padding" style="float:left">
+                        <select class="grid-search-type form-control no-margin-bottom" style="height:30px">
+                            <option value="">--- Tất cả ---</option>
+                            <option value="receive">Nhận</option>
+                            <option value="send">Gửi</option>
+                        </select>
+                    </div>
+                    <div class="col-md-3 col-sm-4 col-xs-6 no-padding-right" style="height:30px">
+                        <span class="input-group search" style="margin-left:0">
+                            <span class="input-group">
+                                <input type="text" class="grid-search-from-time form-control" data-date="01/$ctx.month()/$ctx.year()" data-date-format="dd/mm/yyyy" placeholder="$text.getText('Từ ngày')" aria-describedby="grid-search-from-time">
+                                <span class="input-group-addon" id="log-esb-grid-search-from-time">
+                                    <i class="fa fa-clock-o"></i>
+                                </span>
+                            </span>
+                        </span>
+                    </div>
+                    <div class="col-md-3 col-sm-4 col-xs-6 no-padding-right" style="height:30px">
+                        <span class="input-group search" style="margin-left:0">
+                            <span class="input-group">
+                                <input type="text" class="grid-search-to-time form-control" data-date="$ctx.day()/$ctx.month()/$ctx.year()" data-date-format="dd/mm/yyyy" placeholder="$text.getText('Đến ngày')" aria-describedby="grid-search-to-time">
+                                <span class="input-group-addon" id="log-esb-grid-search-to-time">
+                                    <i class="fa fa-clock-o"></i>
+                                </span>
+                            </span>
+                        </span>
+                    </div>
+                    <div class="col-md-3 col-sm-4 col-xs-6 no-padding-right" style="height:30px">
+                        <span class="input-group search" style="margin-left:0">
+                            <span class="input-group-btn">
+                                <input type="text" class="grid-search-input form-control" placeholder="Từ khóa">
+                                <button data-action-search="search" type="button" class="btn btn-default grid-search-btn">
+                                    <i class="fa fa-search"></i>
+                                </button>
+                            </span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="log-esb-tracking-list"></div>
+    </div>
+</div>
