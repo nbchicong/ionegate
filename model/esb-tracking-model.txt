@@ -4,9 +4,9 @@ private String name;
 // The given name
 private String ticket;
 // The given org from
-private String orgFrom;
+private Organization orgFrom;
 // The given org to
-private String orgTo;
+private Organization orgTo;
 // The given status of record
 private String status;
 // Type Send/Receive
