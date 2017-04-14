@@ -1,0 +1,8 @@
+private String organId;
+private String organizationInCharge;
+private String organName;
+private String organAdd;
+private String email;
+private String telephone;
+private String fax;
+private String website;

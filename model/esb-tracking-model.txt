@@ -1,0 +1,33 @@
+private String uuid;
+// The given name
+private String name;
+// The given name
+private String ticket;
+// The given org from
+private Organization orgFrom;
+// The given org to
+private Organization orgTo;
+// The given status of record
+private String status;
+// Type Send/Receive
+private String type;
+// The given type of package
+private String packageType;
+// The Header
+private MessageHeader header;
+// The data transfer
+private String data;
+// The result
+private String result;
+// The receipt code
+private String receiptCode;
+
+private int resend;
+// created date
+private long created = new Date().getTime();
+// is trash
+private boolean trashed = false;
+// delay delete
+private int daysRetained = 5;
+// list error
+private List<String> errors;
