@@ -218,7 +218,7 @@ $(function () {
                     _search.search();
                 }).data('datepicker');
                 this.toTimeSearch = this.$inputToTime.datepicker().on('changeDate', function(e) {
-                    if (e.date.valueOf() > _search.fromTimeSearch.date.valueOf()) {
+                    if (e.date.valueOf() < _search.fromTimeSearch.date.valueOf()) {
                         var newDate = new Date(e.date);
                         newDate.setDate(newDate.getDate() - 1);
                         _search.fromTimeSearch.setValue(newDate);
