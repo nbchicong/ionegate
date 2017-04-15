@@ -214,7 +214,7 @@ $(function () {
                         _search.toTimeSearch.setValue(newDate);
                     }
                     _search.fromTimeSearch.hide();
-                    _search.toTimeSearch.focus();
+                    _search.$inputToTime.focus();
                     _search.search();
                 }).data('datepicker');
                 this.toTimeSearch = this.$inputToTime.datepicker().on('changeDate', function(e) {
