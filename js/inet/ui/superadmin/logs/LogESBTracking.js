@@ -127,47 +127,47 @@ $(function () {
                 width: 30
             }, {
                 property: 'name',
-                label: 'name',
+                label: 'Tiêu đề',
                 type: 'label',
                 sortable: true,
-                width: 250
+                width: 200
             }, {
                 property: 'receiptCode',
                 label: 'Mã hồ sơ',
                 type: 'label',
                 sortable: true,
-                width: 250
+                width: 150
             }, {
                 property: 'orgFrom',
-                label: 'orgFrom',
+                label: 'Nơi gửi',
                 sortable: true,
                 type: 'label',
-                fn: function (v) {
+                renderer: function (v) {
                     return !iNet.isEmpty(v.organName) ? v.organName : v.organId;
                 }
             }, {
                 property: 'orgTo',
-                label: 'orgTo',
+                label: 'Nơi nhận',
                 sortable: true,
                 type: 'label',
-                fn: function (v) {
+                renderer: function (v) {
                     return !iNet.isEmpty(v.organName) ? v.organName : v.organId;
                 }
             }, {
                 property: 'status',
-                label: 'status',
+                label: 'Trạng thái',
                 sortable: true,
                 type: 'label',
-                width: 120
+                width: 100
             }, {
                 property: 'created',
-                label: 'created',
+                label: 'Ngày tạo',
                 sortable: true,
                 type: 'label',
                 width: 120,
                 renderer: function (v) {
-                 return new Date(v).format('d/m/Y H:i');
-                 }
+                    return new Date(v).format('d/m/Y H:i');
+                }
             }, {
                 label: '',
                 type: 'action',
@@ -281,10 +281,9 @@ $(function () {
         iNet.apply(this, options || {});
         iNet.ui.logs.LogESBTracking.superclass.constructor.call(this);
         this.getGrid().on('selectionchange', function (sm, data) {
-            if (!iNet.isEmpty(data))
-                selected = sm.getSelection();
-            FormUtils.showButton(toolbar.TRASH, !iNet.isEmpty(selected));
-            FormUtils.showButton(toolbar.REMOVE, !iNet.isEmpty(selected));
+            selected = sm.getSelection();
+            FormUtils.showButton(toolbar.TRASH, !iNet.isEmpty(sm.getSelection()));
+            FormUtils.showButton(toolbar.REMOVE, !iNet.isEmpty(sm.getSelection()));
         });
         this.getGrid().on('click', function (record) {
             if (record)
