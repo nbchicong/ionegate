@@ -9,6 +9,7 @@ $(function () {
      * @extends iNet.ui.onegate.OnegateWidget
      */
 
+    var lastTime = 86399000;
     var selected = null;
     var url = {
         trash: iNet.getUrl('xgate/ad/track/esb/trash'),
@@ -141,18 +142,12 @@ $(function () {
                 property: 'orgFrom',
                 label: 'Nơi gửi',
                 sortable: true,
-                type: 'label',
-                renderer: function (v) {
-                    return !iNet.isEmpty(v.organName) ? v.organName : v.organId;
-                }
+                type: 'label'
             }, {
                 property: 'orgTo',
                 label: 'Nơi nhận',
                 sortable: true,
-                type: 'label',
-                renderer: function (v) {
-                    return !iNet.isEmpty(v.organName) ? v.organName : v.organId;
-                }
+                type: 'label'
             }, {
                 property: 'status',
                 label: 'Trạng thái',
@@ -242,15 +237,15 @@ $(function () {
             getUrl: function () {
                 return this.url;
             },
-            convertDateToLong: function (date) {
-                return !iNet.isEmpty(date) ? date.toDate().getTime() : "";
+            convertDateToLong: function (date, isLast) {
+                return !iNet.isEmpty(date) ? (date.toDate().getTime() + (isLast ? 86399000 : 0)) : 0;
             },
             getData: function () {
                 return {
                     keyword: this.$inputSearch.val(),
                     type: this.getTypes(),
                     start: this.convertDateToLong(this.$inputFromTime.val()),
-                    end: this.convertDateToLong(this.$inputToTime.val()),
+                    end: this.convertDateToLong(this.$inputToTime.val(), true),
                     pageSize: 10,
                     pageNumber: 0
                 };

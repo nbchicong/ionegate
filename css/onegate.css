@@ -297,3 +297,7 @@ textarea {
     height: 1.5em;
     line-height: 1.5em;
 }
+
+.profile-user-info {
+    width: 100%;
+}

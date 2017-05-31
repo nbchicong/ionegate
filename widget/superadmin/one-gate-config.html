@@ -1,0 +1,115 @@
+#script("/js/onegate/inet/lib/super-global-config.min.js")
+<div id="global-config-widget">
+    <div class="wg-toolbar navbar-fixed-top">
+        <button id="global-config-btn-save" class="btn btn-success">
+            <i class="icon-save"></i> $text.getText("onegate.button.save")
+        </button>
+    </div>
+    <div class="wg-content">
+        <div class="col-xs-12 col-sm-12">
+            <div class="form-horizontal" style="margin-top:5px">
+                <div id="config-container">
+                    <div class="row">
+                        <div class="alert alert-info col-xs-12 col-sm-12" style="padding:5px;margin-bottom:2px">
+                            <strong><i class="icon-cog"></i> $text.getText("Cấu hình MSSQL")</strong>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-12">
+                            <label class="col-sm-2 lbl-bold" for="onegate-config-txt-sql-host">
+                                $text.getText("SQL Host") (<span class="required"/>):
+                            </label>
+                            <div  class="col-sm-6">
+                                <input id="onegate-config-txt-sql-host" name="sqlHost" type="text" style="width: 100%">
+                            </div>
+                            <label class="col-sm-2 lbl-bold" for="onegate-config-txt-sql-port">
+                                $text.getText("SQL Port")
+                            </label>
+                            <div class="col-sm-2">
+                                <input id="onegate-config-txt-sql-port" name="sqlPort" type="text" style="width: 100%">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-12">
+                            <label class="col-sm-2 lbl-bold" for="onegate-config-txt-sql-db">
+                                $text.getText("DB Name") (<span class="required"/>):
+                            </label>
+                            <div class="col-sm-2">
+                                <input id="onegate-config-txt-sql-db" name="sqlDbName" type="text" style="width: 100%">
+                            </div>
+                            <label class="col-sm-2 lbl-bold" for="onegate-config-txt-sql-user">
+                                $text.getText("SQL User") (<span class="required"/>):
+                            </label>
+                            <div class="col-sm-2">
+                                <input id="onegate-config-txt-sql-user" name="sqlUser" type="text" style="width: 100%">
+                            </div>
+                            <label class="col-sm-2 lbl-bold" for="onegate-config-txt-sql-password">
+                                $text.getText("Password") (<span class="required"/>):
+                            </label>
+                            <div class="col-sm-2">
+                                <input id="onegate-config-txt-sql-password" name="sqlUserPassword" type="text" style="width: 100%">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-12">
+                            <label class="col-sm-2 lbl-bold" for="onegate-config-txt-jndi">
+                                $text.getText("JNDI Name") (<span class="required"/>):
+                            </label>
+                            <div  class="col-sm-10">
+                                <input id="onegate-config-txt-jndi" name="jndiName" type="text" style="width: 100%">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="alert alert-info col-xs-12 col-sm-12" style="padding:5px;margin-bottom:2px">
+                            <strong><i class="icon-cog"></i> $text.getText("Cấu hình ESB")</strong>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-12">
+                            <label class="col-sm-2 lbl-bold" for="onegate-config-txt-knobstick-slot">
+                                $text.getText("KnobStick Slot") (<span class="required"/>):
+                            </label>
+                            <div  class="col-sm-4">
+                                <input id="onegate-config-txt-knobstick-slot" name="knobStickSlot" type="number" min="10" step="5" value="10" style="width: 100%">
+                            </div>
+                            <label class="col-sm-2 lbl-bold" for="onegate-config-txt-thread-sleep">
+                                $text.getText("Thread Sleep") (<span class="required"/>):
+                            </label>
+                            <div  class="col-sm-4">
+                                <input id="onegate-config-txt-thread-sleep" name="threadSleep" type="number" min="2000" step="1000" value="2000" style="width: 100%">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="alert alert-info col-xs-12 col-sm-12" style="padding:5px;margin-bottom:2px">
+                            <strong><i class="icon-cog"></i> $text.getText("Cấu hình chung")</strong>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-12">
+                            <label class="col-sm-2 lbl-bold" for="onegate-config-txt-knobstick-slot">
+                                $text.getText("Định dạng tải lên") (<span class="required"/>):
+                            </label>
+                            <div  class="col-sm-10">
+                                <input id="onegate-config-txt-ext-upload" name="extUploadAccepted" type="text" style="width: 100%">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-12">
+                            <label class="col-sm-2 lbl-bold" for="onegate-config-txt-thread-sleep">
+                                $text.getText("Kích thước tải lên tối đa") (<span class="required"/>):
+                            </label>
+                            <div  class="col-sm-2">
+                                <input id="onegate-config-txt-max-size-upload" name="maxSizeUpload" type="number" min="31457280" step="1024" value="31457280" disabled style="width: 100%">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

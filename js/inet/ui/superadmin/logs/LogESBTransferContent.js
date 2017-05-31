@@ -18,9 +18,9 @@ $(function () {
    */
   var itemId = null;
   var url = {
-    load: iNet.getUrl('onegate/log/transfer/load'),
-    trash: iNet.getUrl('onegate/log/transfer/trash'),
-    remove: iNet.getUrl('onegate/log/transfer/remove')
+    load: iNet.getUrl('xgate/log/system/load'),
+    trash: iNet.getUrl('xgate/log/system/trash'),
+    remove: iNet.getUrl('xgate/log/system/remove')
   };
   var toolbar = {
     BACK: $('#tb-btn-back'),
@@ -31,8 +31,8 @@ $(function () {
     title: $('#lbl-log-title'),
     service: $('#lbl-log-service'),
     time: $('#lbl-log-time'),
-    status: $('#lbl-log-status'),
-    json: $('#lbl-log-json'),
+    warnings: $('#lbl-log-warnings'),
+    errors: $('#lbl-log-errors'),
     message: $('#lbl-log-message')
   };
   function load() {
@@ -43,14 +43,32 @@ $(function () {
       return;
     }
     var _this = this;
-    $.getJSON(url.load, {uuid: itemId}, function (result) {
+    $.getJSON(url.load, {id: itemId}, function (result) {
       _this.responseHandler(result, function (data) {
+        var warnings = data.warnings || [];
+        var errors = data.errors || [];
         form.title.text(data.title);
-        form.service.text(data.serviceName);
-        form.time.text(new Date(data.exTime).format('d/m/Y H:i'));
-        form.status.text(data.status);
-        form.json.text(data.dataJson);
-        form.message.text(data.exMessage);
+        form.service.text(data.service);
+        form.time.text(new Date(data.created).format('d/m/Y H:i'));
+        form.message.text(data.message);
+
+        if (warnings.length > 0) {
+          var warnHtml = '<ul class="no-margin-bottom">';
+          warnings.forEach(function (warn) {
+            warnHtml += '<li class="text-warning">' + warn + '</li>';
+          });
+          warnHtml += '</ul>';
+          form.warnings.html(warnHtml);
+        }
+
+        if (errors.length > 0) {
+          var errorHtml = '<ul class="no-margin-bottom">';
+          errors.forEach(function (error) {
+            errorHtml += '<li class="text-danger">' + error + '</li>';
+          });
+          errorHtml += '</ul>';
+          form.errors.html(errorHtml);
+        }
       });
     });
   }

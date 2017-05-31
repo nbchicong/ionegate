@@ -16,20 +16,21 @@
         <div class="hide">
             <div id="log-list-basic-search">
                 <div class="log-quick-search">
-                    <div class="no-padding" style="float:left">
-                        <select class="grid-search-status form-control no-margin-bottom" style="height:30px">
-                            <option value="">--- Tất cả ---</option>
-                            <option value="SUCCESS">SUCCESS</option>
-                            <option value="ERROR">ERROR</option>
-                            <option value="WARNING">WARNING</option>
-                            <option value="INFO">INFO</option>
-                        </select>
+                    <div class="col-md-3 col-sm-4 col-xs-6 no-padding-right" style="height:30px">
+                        <span class="input-group search" style="margin-left:0">
+                            <span class="input-group">
+                                <input type="text" class="grid-search-from-time form-control" data-date="01/$ctx.month()/$ctx.year()" data-date-format="dd/mm/yyyy" placeholder="$text.getText('Từ ngày')" aria-describedby="grid-search-from-time">
+                                <span class="input-group-addon" id="log-esb-grid-search-from-time">
+                                    <i class="fa fa-clock-o"></i>
+                                </span>
+                            </span>
+                        </span>
                     </div>
                     <div class="col-md-3 col-sm-4 col-xs-6 no-padding-right" style="height:30px">
                         <span class="input-group search" style="margin-left:0">
                             <span class="input-group">
-                                <input type="text" class="grid-search-time form-control" data-date="$ctx.day()/$ctx.month()/$ctx.year()" data-date-format="dd/mm/yyyy" placeholder="$text.getText('Từ ngày')" aria-describedby="grid-search-time">
-                                <span class="input-group-addon" id="grid-search-time">
+                                <input type="text" class="grid-search-to-time form-control" data-date="$ctx.day()/$ctx.month()/$ctx.year()" data-date-format="dd/mm/yyyy" placeholder="$text.getText('Đến ngày')" aria-describedby="grid-search-to-time">
+                                <span class="input-group-addon" id="log-esb-grid-search-to-time">
                                     <i class="fa fa-clock-o"></i>
                                 </span>
                             </span>

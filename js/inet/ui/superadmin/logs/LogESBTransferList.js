@@ -17,11 +17,13 @@ $(function () {
    * @extends iNet.ui.onegate.OnegateWidget
    */
 
+  var lastTime = 86399000;
+
   var selected = null;
   var url = {
-    search: iNet.getUrl('onegate/log/transfer/search'),
-    trash: iNet.getUrl('onegate/log/transfer/trash'),
-    remove: iNet.getUrl('onegate/log/transfer/remove')
+    search: iNet.getUrl('xgate/log/system/search'),
+    trash: iNet.getUrl('xgate/log/system/trash'),
+    remove: iNet.getUrl('xgate/log/system/remove')
   };
 
   /**
@@ -117,6 +119,10 @@ $(function () {
       ids.push(selected[i].uuid);
     return ids.join(',');
   }
+
+  function convertDateToLong(date, isLast) {
+    return !iNet.isEmpty(date) ? (date.toDate().getTime() + (isLast ? 86399000 : 0)) : '';
+  }
   iNet.ns('iNet.ui.logs.LogESBTransferList');
   iNet.ui.logs.LogESBTransferList = function (options) {
     var _this = this;
@@ -135,21 +141,15 @@ $(function () {
         property: 'title',
         label: 'Title',
         type: 'label',
-        sortable: true,
-        width: 250
+        sortable: true
       }, {
-        property: 'status',
-        label: 'Status',
-        sortable: true,
-        type: 'label',
-        width: 120
-      }, {
-        property: 'serviceName',
+        property: 'service',
         label: 'Service Name',
         sortable: true,
-        type: 'label'
+        type: 'label',
+        width: 250
       }, {
-        property: 'exTime',
+        property: 'created',
         label: 'Time',
         sortable: true,
         type: 'label',
@@ -192,18 +192,36 @@ $(function () {
       intComponent: function () {
         var _search = this;
         this.$inputSearch = this.getEl().find('.grid-search-input');
-        this.$inputTime = this.getEl().find('.grid-search-time');
-        this.$cbbStatus = this.getEl().find('.grid-search-status');
+        this.$inputFromTime = this.getEl().find('.grid-search-from-time');
+        this.$inputToTime = this.getEl().find('.grid-search-to-time');
         this.$btnSearch = this.getEl().find('[data-action-search="search"]');
-        this.timeSearch = this.$inputTime.datepicker().on('changeDate', function(e) {
-          _search.setTime(e.date.valueOf());
-          _search.timeSearch.hide();
+        this.fromTimeSearch = this.$inputFromTime.datepicker().on('changeDate', function(e) {
+          if (e.date.valueOf() > _search.toTimeSearch.date.valueOf()) {
+            var newDate = new Date(e.date);
+            newDate.setDate(newDate.getDate() + 1);
+            _search.toTimeSearch.setValue(newDate);
+          }
+          _search.fromTimeSearch.hide();
+          _search.$inputToTime.focus();
           _search.search();
         }).data('datepicker');
-        this.$cbbStatus.on('change', function () {
-          _search.setStatus(this.value);
+
+        this.toTimeSearch = this.$inputToTime.datepicker().on('changeDate', function(e) {
+          if (e.date.valueOf() < _search.fromTimeSearch.date.valueOf()) {
+            var newDate = new Date(e.date);
+            newDate.setDate(newDate.getDate() - 1);
+            _search.fromTimeSearch.setValue(newDate);
+          }
+          _search.toTimeSearch.hide();
           _search.search();
-        });
+
+        }).data('datepicker');
+
+        var nowDate = iNet.today.format(iNet.dateFormat);
+        var monthFirst = new Date().format('01/m/Y');
+
+        this.$inputFromTime.val(monthFirst);
+        this.$inputToTime.val(nowDate);
       },
       getUrl: function () {
         return this.url;
@@ -211,8 +229,8 @@ $(function () {
       getData: function () {
         return {
           keyword: this.$inputSearch.val(),
-          status: this.getStatus(),
-          time: this.getTime(),
+          start: convertDateToLong(this.$inputFromTime.val()),
+          end: convertDateToLong(this.$inputToTime.val(), true),
           pageSize: 10,
           pageNumber: 0
         };
@@ -222,12 +240,6 @@ $(function () {
       },
       getTime: function () {
         return this.time || new Date().getTime();
-      },
-      setStatus: function (status) {
-        this.status = status;
-      },
-      getStatus: function () {
-        return this.status || '';
       },
       search: function () {
         this.$btnSearch.trigger('click');

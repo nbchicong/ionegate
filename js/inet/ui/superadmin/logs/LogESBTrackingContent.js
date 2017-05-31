@@ -26,10 +26,25 @@ $(function () {
         receiptCode: $('#lbl-log-receiptCode'),
         recordCode: $('#lbl-log-recordCode'),
         ticket: $('#lbl-log-ticket'),
+        result: $('#lbl-log-result'),
+        errors: $('#lbl-log-errors'),
         header: $('#lbl-log-header'),
         data: $('#lbl-log-data')
     };
+    function clear() {
+      form.name.text('');
+      form.orgFrom.text('');
+      form.orgTo.text('');
+      form.receiptCode.text('');
+      form.recordCode.text('');
+      form.ticket.text('');
+      form.result.text('');
+      form.header.text('');
+      form.data.text('');
+      form.errors.html('');
+    }
     function load() {
+      clear();
         if (!itemId) {
             this.showMessage('error', 'ITEM_ID', 'ITEM_ID_NOT_FOUND');
             this.hide();
@@ -39,17 +54,26 @@ $(function () {
         var _this = this;
         $.getJSON(url.load, {id: itemId}, function (result) {
             _this.responseHandler(result, function (data) {
-                var _orgFrom = data.orgFrom || {};
-                var _orgTo = data.orgTo || {};
+                var orgFrom = data.orgFrom || {};
+                var orgTo = data.orgTo || {};
+                var errors = data.errors || [];
                 form.name.text(data.name);
-                form.orgFrom.text(_orgFrom.organName);
-                /*form.orgTo.text(new Date(data.exTime).format('d/m/Y H:i'));*/
-                form.orgTo.text(_orgTo.organName);
+                form.orgFrom.text(orgFrom);
+                form.orgTo.text(orgTo);
                 form.receiptCode.text(data.receiptCode);
                 form.recordCode.text(data.recordCode);
                 form.ticket.text(data.ticket);
-                form.header.text(JSON.stringify(data.header));
+                form.result.text(data.result);
+                form.header.text(data.header);
                 form.data.text(data.data);
+                if (errors.length > 0) {
+                  var errorHtml = '<ul class="no-margin-bottom">';
+                  errors.forEach(function (error) {
+                    errorHtml += '<li class="text-danger">' + error + '</li>';
+                  });
+                  errorHtml += '</ul>';
+                  form.errors.html(errorHtml);
+                }
             });
         });
     }
@@ -112,11 +136,9 @@ $(function () {
             _this.fireEvent('back', _this);
         });
         toolbar.TRASH.on('click', function () {
-            console.log("1");
             if (itemId)
                 trash.call(_this, itemId, function (data) {
                     _this.hide();
-                    console.log("2");
                     _this.fireEvent('removed', data, _this);
                 });
         });

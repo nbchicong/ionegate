@@ -11,6 +11,9 @@ $(function () {
       smsAccount: $('#notify-config-sms-txt-account'),
       smsPass: $('#notify-config-sms-txt-pass'),
       smsCondition: $('[name="notify-config-sms-select-status"]'),
+      emailUrl: $('#notify-config-email-txt-url'),
+      emailPort: $('#notify-config-email-txt-port'),
+      emailSender: $('#notify-config-email-txt-sender'),
       emailAccount: $('#notify-config-email-txt-account'),
       emailPass: $('#notify-config-email-txt-pass'),
       emailCondition: $('[name="notify-config-email-select-status"]')
@@ -47,6 +50,18 @@ $(function () {
     this.validateEmail = new iNet.ui.form.Validate({
       id: this.id,
       rules: [{
+          id: this.$input.emailUrl.prop('id'),
+          validate: function (v) {
+            if (iNet.isEmpty(v))
+              return 'Địa chỉ không được để rỗng';
+          }
+      }, {
+          id: this.$input.emailSender.prop('id'),
+          validate: function (v) {
+            if (iNet.isEmpty(v))
+              return 'Tài khoản người gửi không được để rỗng';
+          }
+      }, {
           id: this.$input.emailAccount.prop('id'),
           validate: function (v) {
             if (iNet.isEmpty(v))
@@ -102,6 +117,9 @@ $(function () {
         __condition.push($(this).val());
       });
       return {
+        endpoint: this.$input.emailUrl.val(),
+        port: this.$input.emailPort.val(),
+        sender: this.$input.emailSender.val(),
         username: this.$input.emailAccount.val(),
         password: this.$input.emailPass.val(),
         conditions: __condition.join(','),
@@ -111,9 +129,9 @@ $(function () {
     setSMSData: function(data){
       var __condition = data.conditions.split(',');
       var __cbxName = this.$input.smsCondition.attr('name');
-      this.$input.smsUrl.val(data.endpoint);
-      this.$input.smsAccount.val(data.username);
-      this.$input.smsPass.val(data.password);
+      this.$input.smsUrl.val(data.endpoint || '');
+      this.$input.smsAccount.val(data.username || '');
+      this.$input.smsPass.val(data.password || '');
       this.$input.smsCondition.each(function () {
         this.checked = false;
       });
@@ -124,8 +142,11 @@ $(function () {
     setEmailData: function (data) {
       var __condition = data.conditions.split(',');
       var __cbxName = this.$input.emailCondition.attr('name');
-      this.$input.emailAccount.val(data.username);
-      this.$input.emailPass.val(data.password);
+      this.$input.emailUrl.val(data.endpoint || '');
+      this.$input.emailPort.val(data.port || '');
+      this.$input.emailSender.val(data.sender || '');
+      this.$input.emailAccount.val(data.username || '');
+      this.$input.emailPass.val(data.password || '');
       this.$input.emailCondition.each(function () {
         this.checked = false;
       });
