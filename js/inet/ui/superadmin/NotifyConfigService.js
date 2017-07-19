@@ -11,12 +11,16 @@ $(function () {
       smsAccount: $('#notify-config-sms-txt-account'),
       smsPass: $('#notify-config-sms-txt-pass'),
       smsCondition: $('[name="notify-config-sms-select-status"]'),
+      smsBegin: $('#notify-config-sms-begin'),
+      smsEnd: $('#notify-config-sms-end'),
       emailUrl: $('#notify-config-email-txt-url'),
       emailPort: $('#notify-config-email-txt-port'),
       emailSender: $('#notify-config-email-txt-sender'),
       emailAccount: $('#notify-config-email-txt-account'),
       emailPass: $('#notify-config-email-txt-pass'),
-      emailCondition: $('[name="notify-config-email-select-status"]')
+      emailCondition: $('[name="notify-config-email-select-status"]'),
+      emailBegin: $('#notify-config-email-begin'),
+      emailEnd: $('#notify-config-email-end')
     };
 
     iNet.ui.onegate.superadmin.NotifyConfigWidget.superclass.constructor.call(this);
@@ -25,6 +29,37 @@ $(function () {
       SAVE: $('#notify-config-btn-save')
     };
 
+    // init sms limit time
+    this.smsBegin = this.$input.smsBegin.datepicker({
+    }).on('changeDate', function(ev) {
+      that.smsBegin.hide();
+      that.$input.smsEnd[0].focus();
+    }).data('datepicker');
+
+    this.smsEnd = this.$input.smsEnd.datepicker({
+      onRender: function(date) {
+        return date.valueOf() <= that.smsBegin.date.valueOf() ? 'disabled' : '';
+      }
+    }).on('changeDate', function(ev) {
+      that.smsEnd.hide();
+    }).data('datepicker');
+
+    // init email limit time
+    this.emailBegin = this.$input.emailBegin.datepicker({
+    }).on('changeDate', function(ev) {
+      that.emailBegin.hide();
+      that.$input.emailEnd[0].focus();
+    }).data('datepicker');
+
+    this.emailEnd = this.$input.emailEnd.datepicker({
+      onRender: function(date) {
+        return date.valueOf() <= that.emailBegin.date.valueOf() ? 'disabled' : '';
+      }
+    }).on('changeDate', function(ev) {
+      that.emailEnd.hide();
+    }).data('datepicker');
+
+    // validate sms
     this.validateSMS = new iNet.ui.form.Validate({
       id: this.id,
       rules: [{
@@ -47,6 +82,7 @@ $(function () {
         }
       }]
     });
+    // validate email
     this.validateEmail = new iNet.ui.form.Validate({
       id: this.id,
       rules: [{
@@ -106,6 +142,8 @@ $(function () {
         username: this.$input.smsAccount.val(),
         password: this.$input.smsPass.val(),
         endpoint: this.$input.smsUrl.val(),
+        timeStart: (this.$input.smsBegin.val() !== -1) ? new Date(this.smsBegin.date).getTime() : this.$input.smsBegin.val(),
+        timeEnd: (this.$input.smsEnd.val() !== -1) ? new Date(this.smsEnd.date).getTime() : this.$input.smsEnd.val(),
         conditions: __condition.join(','),
         type: 'SMS'
       };
@@ -122,6 +160,8 @@ $(function () {
         sender: this.$input.emailSender.val(),
         username: this.$input.emailAccount.val(),
         password: this.$input.emailPass.val(),
+        timeStart: (this.$input.emailBegin.val() !== -1) ? new Date(this.emailBegin.date).getTime() : this.$input.emailBegin.val(),
+        timeEnd: (this.$input.emailEnd.val() !== -1) ? new Date(this.emailEnd.date).getTime() : this.$input.emailEnd.val(),
         conditions: __condition.join(','),
         type: 'EMAIL'
       };
@@ -132,6 +172,17 @@ $(function () {
       this.$input.smsUrl.val(data.endpoint || '');
       this.$input.smsAccount.val(data.username || '');
       this.$input.smsPass.val(data.password || '');
+
+      if (!data.timeStart || data.timeStart === -1 || data.timeStart === 0)
+        this.$input.smsBegin.val(data.timeStart || 0);
+      else
+        this.smsBegin.setValue(new Date(data.timeStart));
+
+      if (!data.timeEnd || data.timeEnd === -1 || data.timeEnd === 0)
+        this.$input.smsEnd.val(data.timeEnd || 0);
+      else
+        this.smsEnd.setValue(new Date(data.timeEnd));
+
       this.$input.smsCondition.each(function () {
         this.checked = false;
       });
@@ -147,6 +198,17 @@ $(function () {
       this.$input.emailSender.val(data.sender || '');
       this.$input.emailAccount.val(data.username || '');
       this.$input.emailPass.val(data.password || '');
+
+      if (!data.timeStart || data.timeStart === -1 || data.timeStart === 0)
+        this.$input.emailBegin.val(data.timeStart || 0);
+      else
+        this.emailBegin.setValue(new Date(data.timeStart));
+
+      if (!data.timeEnd || data.timeEnd === -1 || data.timeEnd === 0)
+        this.$input.emailEnd.val(data.timeEnd || 0);
+      else
+        this.emailEnd.setValue(new Date(data.timeEnd));
+
       this.$input.emailCondition.each(function () {
         this.checked = false;
       });

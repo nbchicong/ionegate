@@ -1,3 +1,5 @@
+#theme("/onegate/css/jquery/bootstrap-datepicker")
+#script("/js/onegate/bootstrap/plugins/bootstrap-datepicker.min.js")
 #script("/js/onegate/inet/lib/superadmin-notify-config.min.js")
 <div id="notify-config-widget">
     <div class="wg-toolbar navbar-fixed-top">
@@ -99,6 +101,19 @@
                                             <span class="lbl"> $text.getText("onegate.admin.notify.send_when_cancel")</span>
                                         </label>
                                     </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-12" style="margin-bottom:10px">
+                            <label class="col-xs-2 col-sm-2" for="notify-config-sms-begin">Thời gian gửi: </label>
+                            <div class="col-xs-10 col-sm-10">
+                                <div class="input-group">
+                                    <div class="input-group-addon">Từ</div>
+                                    <input style="margin-bottom:0!important" data-date-format="dd/mm/yyyy" type="text" class="form-control" id="notify-config-sms-begin" placeholder="-1">
+                                    <div class="input-group-addon">đến</div>
+                                    <input style="margin-bottom:0!important" data-date-format="dd/mm/yyyy" type="text" class="form-control" id="notify-config-sms-end"  placeholder="-1">
                                 </div>
                             </div>
                         </div>
@@ -211,6 +226,19 @@
                                             <span class="lbl"> $text.getText("onegate.admin.notify.send_when_cancel")</span>
                                         </label>
                                     </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-12">
+                            <label class="col-xs-2 col-sm-2" for="notify-config-sms-begin">Thời gian gửi: </label>
+                            <div class="col-xs-10 col-sm-10">
+                                <div class="input-group">
+                                    <div class="input-group-addon">Từ</div>
+                                    <input style="margin-bottom:0!important" data-date-format="dd/mm/yyyy" type="text" class="form-control" id="notify-config-email-begin" placeholder="-1">
+                                    <div class="input-group-addon">đến</div>
+                                    <input style="margin-bottom:0!important" data-date-format="dd/mm/yyyy" type="text" class="form-control" id="notify-config-email-end"  placeholder="-1">
                                 </div>
                             </div>
                         </div>
