@@ -1,0 +1,23 @@
+{
+  "name": "ionegate",
+  "version": "4.0.3",
+  "description": "iOneGate Module",
+  "author": "Nguyen Ba Chi Cong <nbccong@inetcloud.vn>",
+  "license": "iNet Solutions",
+  "homepage": "http://inetcloud.vn",
+  "dependencies": {
+    "gulp": "~3.9.1",
+    "gulp-zip": "~3.2.0",
+    "fs-extra": "~0.30.0",
+    "uglify-js": "~2.6.2",
+    "clean-css": "~3.4.12",
+    "dateformat": "~2.0.0"
+  },
+  "repository": {
+    "type": "subversion",
+    "url": "https://svn.inetcloud.vn/svn/Products/Source/portal/root/view/modules/app-store/cms-admin"
+  },
+  "directories": {
+    "doc": "README.md"
+  }
+}

@@ -1,0 +1,41 @@
+#theme("/common/css/grid.min")
+#script("/js/common/inet/lib/grid-2.0.min.js")
+#script("/js/onegate/inet/lib/leader-account-list.min.js")
+
+#dataservice("glbonegatedepartmentlist")
+#set($departmentList = $glbonegatedepartmentlist)
+
+<div id="leader-account-wg">
+    <div class="wg-toolbar navbar-fixed-top">
+        <button id="list-btn-add" class="btn btn-warning btn-sm">
+            <i class="fa fa-plus"></i> $text.getText("app.button.create")
+        </button>
+    </div>
+    <div class="wg-content">
+        <div class="hide">
+            <div id="list-basic-search">
+                <div class="quick-search">
+                    <div class="col-md-3 col-sm-4 col-xs-6 no-padding-right" style="height:30px">
+                        <select class="cbb-organ col-md-12" style="margin-bottom:0">
+                            <option value="">--- Tất cả ---</option>
+                            #foreach($dept in $departmentList.items)
+                            <option value="$dept.brief">$dept.name</option>
+                            #end
+                        </select>
+                    </div>
+                    <div class="col-md-3 col-sm-4 col-xs-6 no-padding-right" style="height:30px">
+                        <span class="input-group search" style="margin-left:0">
+                            <span class="input-group-btn">
+                                <input type="text" class="grid-search-input form-control" placeholder="Từ khóa tìm kiếm...">
+                                <button data-action-search="search" type="button" class="btn btn-default grid-search-btn">
+                                    <i class="fa fa-search"></i>
+                                </button>
+                            </span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="leader-account-list"></div>
+    </div>
+</div>

@@ -1,0 +1,153 @@
+#script("/js/onegate/inet/lib/leader-account-content.min.js")
+
+#dataservice("glbonegatedepartmentlist")
+#dataservice("onegatetemplatenotifylist")
+#set($departmentList = $glbonegatedepartmentlist)
+#set($templateList = $onegatetemplatenotifylist)
+<div id="leader-content-wg" style="display: none;">
+    <div class="wg-toolbar navbar-fixed-top">
+        <button id="content-btn-back" class="btn btn-primary btn-sm">
+            <i class="fa fa-arrow-left"></i> $text.getText("app.button.back")
+        </button>
+        <button id="content-btn-save" class="btn btn-success btn-sm">
+            <i class="fa fa-save"></i> $text.getText("app.button.save")
+        </button>
+        <button id="content-btn-remove" class="btn btn-danger btn-sm" style="display:none">
+            <i class="fa fa-trash"></i> $text.getText("app.button.del")
+        </button>
+    </div>
+    <div class="wg-content">
+        <div class="col-xs-12 col-sm-12">
+            <div class="form-horizontal" style="margin-top:5px">
+                <div id="account-container">
+                    <div class="row">
+                        <div class="alert alert-info col-xs-12 col-sm-12" style="padding:5px;margin-bottom:2px">
+                            <strong><i class="icon-user"></i> $text.getText("Thông tin lãnh đạo")</strong>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-12">
+                            <label class="col-sm-2 lbl-bold" for="txt-leader-name">
+                                $text.getText("Họ và tên") (<span class="required"/>):
+                            </label>
+                            <div  class="col-sm-6">
+                                <input id="txt-leader-name" name="name" class="form-control" type="text">
+                            </div>
+                            <label class="col-sm-2 lbl-bold" for="cbb-leader-org-prefix">
+                                $text.getText("Đơn vị") (<span class="required"/>):
+                            </label>
+                            <div class="col-sm-2">
+                                <select id="cbb-leader-org-prefix" name="orgPrefix" class="form-control">
+                                    <option value="">--- Tất cả ---</option>
+                                    #foreach($dept in $departmentList.items)
+                                    <option data-code="$dept.orgcode" value="$dept.brief">$dept.name</option>
+                                    #end
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-12">
+                            <div class="col-sm-2">
+                                <div>
+                                    <label class="middle">
+                                        <input name="isSMS" id="chk-send-sms" type="checkbox" class="ace">
+                                        <span class="lbl"> $text.getText("Gửi SMS")</span>
+                                    </label>
+                                </div>
+                            </div>
+                            <label class="col-sm-2 lbl-bold" for="txt-leader-phone">
+                                $text.getText("Số điện thoại") (<span class="required"/>):
+                            </label>
+                            <div class="col-sm-2">
+                                <input id="txt-leader-phone" name="phone" type="text" style="width: 100%">
+                            </div>
+                            <div class="col-sm-2">
+                                <div>
+                                    <label class="middle">
+                                        <input name="isEmail" id="chk-send-email" type="checkbox" class="ace">
+                                        <span class="lbl"> $text.getText("Gửi SMS")</span>
+                                    </label>
+                                </div>
+                            </div>
+                            <label class="col-sm-2 lbl-bold" for="txt-leader-email">
+                                $text.getText("Thư điện tử") (<span class="required"/>):
+                            </label>
+                            <div class="col-sm-2">
+                                <input id="txt-leader-email" name="email" type="text" style="width: 100%">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-12">
+                            <label class="col-sm-2 lbl-bold" for="txt-leader-description">
+                                $text.getText("Mô tả"):
+                            </label>
+                            <div class="col-sm-10">
+                                <input id="txt-leader-description" name="description" type="text" style="width: 100%">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="alert alert-info col-xs-12 col-sm-12" style="padding:5px;margin-bottom:2px">
+                            <strong><i class="fa fa-list-alt"></i> $text.getText("Mẫu tin nhắn")</strong>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-12">
+                            <div class="col-sm-4">
+                                #foreach($template in $templateList.items)
+                                    #if ($foreach.count <= $templateList.items.size()/2)
+                                <div>
+                                    <label class="middle">
+                                        <input name="template-radio" type="radio" class="ace">
+                                        <span class="lbl"> $template.name</span>
+                                    </label>
+                                </div>
+                                    #end
+                                #end
+                            </div>
+                            <div class="col-sm-4">
+                                #foreach($template in $templateList.items)
+                                    #if ($foreach.count > $templateList.items.size()/2)
+                                <div>
+                                    <label class="middle">
+                                        <input name="template-radio" type="radio" class="ace">
+                                        <span class="lbl"> $template.name</span>
+                                    </label>
+                                </div>
+                                    #end
+                                #end
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="alert alert-info col-xs-12 col-sm-12" style="padding:5px;margin-bottom:2px">
+                            <strong><i class="icon-cog"></i> $text.getText("Lĩnh vực")</strong>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-12">
+                            <div class="col-sm-4">
+                                <div>
+                                    <label class="middle">
+                                        <input name="industry-checkbox" type="checkbox" class="ace">
+                                        <span class="lbl"> $template.name</span>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div>
+                                    <label class="middle">
+                                        <input name="industry-checkbox" type="checkbox" class="ace">
+                                        <span class="lbl"> $template.name</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -229,5 +229,70 @@ $(function () {
   //=====================
   var widget = new iNet.ui.onegate.superadmin.NotifyConfigWidget();
   widget.show();
+  var a = {
+    "firmContext": "inet",
+    "username": "nbccong@inetcloud.vn",
+    "$or": [{"appContext": {"$exists": false}}, {"$and": [{"appContext": {"$size": 1}}, {"appContext": {"$in": ["marketplace"]}}]}]
+  };
 
+  var b = {
+    "tenNguoiDaiDien": "TEST-LT-DVC-001",
+    "gioiTinh": 1,
+    //"maThuTuc": "005001",
+    //"ngayXuLy": "28/08/2017 10:53:53",
+    "ngayCapCMND": "31/08/2007",
+    //"maTrangThai": "VERIFIED",
+    "maNguoiTiepNhanHoSo": "TNQBT",
+    "dienThoai": "987654321",
+    "soCMND": "098765432",
+    //"maLinhVuc": "005",
+    "hanXuLy": "19/09/2017 17:00:00",
+    "noiDungMoRong": {
+      "thongTinChuyenPhat": {
+        "nguoiNhans": [{
+          "chidinh": 1,
+          "emailNhan": "nguyenthanhcong@gmail.com",
+          "diaChiNhan": {
+            "tenDuong": "Truong Dinnh",
+            "diaChi": "123 Truong Dinh, Phuong 14",
+            "quanHuyen": {"ten": "Quan 5", "ma": "730"},
+            "phuong": {"ten": "5", "ma": "26010"},
+            "thanhPho": {"ten": "'Ho Chi Minh", "ma": "75"}
+          },
+          "nguoiNhan": "Nguyen Thanh Cong",
+          "dienThoaiNhan": "0987654345"
+        }, {
+          "chidinh": 2,
+          "emailNhan": "nguyenthanhnhan@gmail.com",
+          "diaChiNhan": {
+            "tenDuong": "Truong Dinnh",
+            "diaChi": "123 Truong Dinh, Phuong 14",
+            "quanHuyen": {"ten": "Quan 5", "ma": "730"},
+            "phuong": {"ten": "5", "ma": "26010"},
+            "thanhPho": {"ten": "'Ho Chi Minh", "ma": "75"}
+          },
+          "nguoiNhan": "Nguyá»\u0085n Thanh Cong",
+          "dienThoaiNhan": "0987654346"
+        }],
+        "nguoiLH": "Nguyen Thanh Cong",
+        "diaChiLH": {
+          "quanHuyen": {"ten": "Quan 5", "ma": "730"},
+          "phuong": {"ten": "22", "ma": "26011"},
+          "thanhPho": {"ten": "Ho Chi Minh", "ma": "75"}
+        },
+        "loaiDichVu": "Nhan Ho So - Chuyen Tra KQ",
+        "dienThoaiLH": "0823234343"
+      }, "hoSoKemTheos": []
+    },
+    "diaChi": {
+      "tenDuong": "Truong Dinnh",
+      "diaChi": "123 Truong Dinh, Phuong 14",
+      "quanHuyen": {"ten": "Quan 5", "ma": "730"},
+      "phuong": {"ten": "5", "ma": "26010"},
+      "thanhPho": {"ten": "'Ho Chi Minh", "ma": "75"}
+    },
+    "ngaySinh": "11/07/1989",
+    "tenNguoiTiepNhanHoSo": "Nguyễn Văn Ngô",
+    //"soBienNhan": "77702201700500086"
+  };
 });
