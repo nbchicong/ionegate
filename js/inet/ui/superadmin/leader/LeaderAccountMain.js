@@ -24,7 +24,7 @@ $(function () {
   /**
    * @type {iNet.ui.form.History}
    */
-  var localHistory = new iNet.ui.form.History({id: 'log-tracking-history'});
+  var localHistory = new iNet.ui.form.History({id: 'leader-account-history'});
   /**
    * @param {iNet.ui.leader.LeaderAccountList} parent
    * @returns {iNet.ui.leader.LeaderAccountContent}
