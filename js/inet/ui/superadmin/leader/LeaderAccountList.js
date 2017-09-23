@@ -40,13 +40,13 @@ $(function () {
         property: 'name',
         label: 'Họ và tên',
         type: 'label',
-        sortable: true
+        sortable: true,
+        width: 250
       }, {
         property: 'orgName',
         label: 'Đơn vị',
         sortable: true,
-        type: 'label',
-        width: 250
+        type: 'label'
       }, {
         property: 'phone',
         label: 'Điện thoại',
@@ -58,7 +58,7 @@ $(function () {
         label: 'Email',
         sortable: true,
         type: 'label',
-        width: 120
+        width: 220
       }, {
         label: '',
         type: 'action',

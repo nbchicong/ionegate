@@ -19,9 +19,10 @@
     <div class="wg-content">
         <div class="col-xs-12 col-sm-12">
             <div class="form-horizontal" style="margin-top:5px">
-                <div id="account-container">
+                <form id="account-container">
+                    <input type="hidden" name="uuid" />
                     <div class="row">
-                        <div class="alert alert-info col-xs-12 col-sm-12" style="padding:5px;margin-bottom:2px">
+                        <div class="alert alert-info col-xs-12 col-sm-12" style="padding:5px;margin-bottom:10px">
                             <strong><i class="icon-user"></i> $text.getText("Thông tin lãnh đạo")</strong>
                         </div>
                     </div>
@@ -48,14 +49,6 @@
                     </div>
                     <div class="row">
                         <div class="col-xs-12 col-sm-12">
-                            <div class="col-sm-2">
-                                <div>
-                                    <label class="middle">
-                                        <input name="isSMS" id="chk-send-sms" type="checkbox" class="ace">
-                                        <span class="lbl"> $text.getText("Gửi SMS")</span>
-                                    </label>
-                                </div>
-                            </div>
                             <label class="col-sm-2 lbl-bold" for="txt-leader-phone">
                                 $text.getText("Số điện thoại") (<span class="required"/>):
                             </label>
@@ -63,10 +56,10 @@
                                 <input id="txt-leader-phone" name="phone" type="text" style="width: 100%">
                             </div>
                             <div class="col-sm-2">
-                                <div>
+                                <div style="padding-top:4px">
                                     <label class="middle">
-                                        <input name="isEmail" id="chk-send-email" type="checkbox" class="ace">
-                                        <span class="lbl"> $text.getText("Gửi SMS")</span>
+                                        <input name="sendSms" id="chk-send-sms" type="checkbox" class="ace" checked>
+                                        <span class="lbl lbl-bold"> $text.getText("Gửi SMS")</span>
                                     </label>
                                 </div>
                             </div>
@@ -75,6 +68,14 @@
                             </label>
                             <div class="col-sm-2">
                                 <input id="txt-leader-email" name="email" type="text" style="width: 100%">
+                            </div>
+                            <div class="col-sm-2">
+                                <div style="padding-top:4px">
+                                    <label class="middle">
+                                        <input name="sendEmail" id="chk-send-email" type="checkbox" class="ace" checked>
+                                        <span class="lbl lbl-bold"> $text.getText("Gửi Email")</span>
+                                    </label>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -89,30 +90,33 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="alert alert-info col-xs-12 col-sm-12" style="padding:5px;margin-bottom:2px">
-                            <strong><i class="fa fa-list-alt"></i> $text.getText("Mẫu tin nhắn")</strong>
+                        <div class="alert alert-info col-xs-6 col-sm-6" style="padding:5px;margin-bottom:10px">
+                            <strong><i class="fa fa-list-alt"></i> $text.getText("Mẫu tin nhắn SMS")</strong>
+                        </div>
+                        <div class="alert alert-info col-xs-6 col-sm-6" style="padding:5px;margin-bottom:10px">
+                            <strong><i class="fa fa-list-alt"></i> $text.getText("Mẫu tin nhắn Email")</strong>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-xs-12 col-sm-12">
-                            <div class="col-sm-4">
+                            <div class="col-sm-6">
                                 #foreach($template in $templateList.items)
-                                    #if ($foreach.count <= $templateList.items.size()/2)
+                                    #if ($template.status == "OTHER" && $template.type == "SMS")
                                 <div>
                                     <label class="middle">
-                                        <input name="template-radio" type="radio" class="ace">
+                                        <input name="smsTplId" type="radio" class="ace" value="$template.uuid">
                                         <span class="lbl"> $template.name</span>
                                     </label>
                                 </div>
                                     #end
                                 #end
                             </div>
-                            <div class="col-sm-4">
+                            <div class="col-sm-6" style="border-left:1px solid #d5d5d5">
                                 #foreach($template in $templateList.items)
-                                    #if ($foreach.count > $templateList.items.size()/2)
+                                    #if ($template.status == "OTHER" && $template.type == "EMAIL")
                                 <div>
                                     <label class="middle">
-                                        <input name="template-radio" type="radio" class="ace">
+                                        <input name="emailTplId" type="radio" class="ace" value="$template.uuid">
                                         <span class="lbl"> $template.name</span>
                                     </label>
                                 </div>
@@ -122,7 +126,7 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="alert alert-info col-xs-12 col-sm-12" style="padding:5px;margin-bottom:2px">
+                        <div class="alert alert-info col-xs-12 col-sm-12" style="padding:5px;margin-bottom:10px">
                             <strong><i class="icon-cog"></i> $text.getText("Lĩnh vực")</strong>
                         </div>
                     </div>
@@ -132,7 +136,7 @@
                             <div class="col-sm-4 right"></div>
                         </div>
                     </div>
-                </div>
+                </form>
             </div>
         </div>
     </div>

@@ -34,10 +34,6 @@ $(function () {
     };
     this.$form = $('#account-container');
     this.$cbbOrgan = $('#cbb-leader-org-prefix');
-    this.$checkSms = $('#chk-send-sms');
-    this.$checkEmail = $('#chk-send-email');
-    this.$template = $('[name="template-radio"]');
-    this.$industry = $('[name="industry-checkbox"]');
     this.$indContainer = $('#industry-list');
 
     iNet.ui.leader.LeaderAccountContent.superclass.constructor.call(this);
@@ -56,7 +52,33 @@ $(function () {
     });
 
     function save() {
+      var serializeData = _this.$form.serializeArray();
+      var params = {};
+      serializeData.forEach(function (item) {
+        if (params[item.name])
+          params[item.name] = params[item.name] + ';' + getValue(item.value);
+        else
+          params[item.name] = getValue(item.value);
+      });
 
+      if (params.uuid)
+        $.postJSON(url.update, params, function (results) {
+          if (results.success) {
+            _this.load(results.data);
+            _this.showMessage('success', 'Cập nhật', 'Cập nhật thành công!');
+          }
+          else
+            _this.showMessage('error', 'Cập nhật', 'Cập nhật xảy ra lỗi!');
+        });
+      else
+        $.postJSON(url.create, params, function (results) {
+          if (results.success) {
+            _this.load(results.data);
+            _this.showMessage('success', 'Tạo mới', 'Tạo mới thành công!');
+          }
+          else
+            _this.showMessage('error', 'Tạo mới', 'Tạo mới xảy ra lỗi!');
+        });
     }
 
     function loadIndustry(orgCode) {
@@ -68,7 +90,7 @@ $(function () {
           var item = items[i];
           var input = '<div>' +
               '<label class="middle">' +
-              '<input name="industry-checkbox" type="checkbox" class="ace" value="' + item.uuid + '">' +
+              '<input name="industries" type="checkbox" class="ace" value="' + item.uuid + '">' +
               '<span class="lbl"> ' + item.industry + '</span>' +
               '</label>' +
               '</div>';
@@ -84,6 +106,46 @@ $(function () {
     }
   };
   iNet.extend(iNet.ui.leader.LeaderAccountContent, iNet.ui.onegate.OnegateWidget, {
-
+    load: function (record) {
+      var _this = this;
+      var listKey = ['smsTplId', 'emailTplId', 'industries', 'isSMS', 'isEmail'];
+      for (var key in record) {
+        if (listKey.indexOf(key) === -1)
+          this.$form.find('input[name="' + key + '"]').val(record[key]);
+        else {
+          if (key === 'industries') {
+            var industries = record[key];
+            industries.forEach(function (item) {
+              _this.$form.find('input[value="' + item + '"]')[0].checked = true;
+            });
+          }
+          else
+            this.$form.find('input[value="' + record[key] + '"]')[0].checked = true;
+        }
+      }
+    },
+    newRecord: function () {
+      this.$form.reset();
+    }
   });
+
+  function getValue(value, convert) {
+    if (convert) {
+      if (value === true)
+        return 'on';
+
+      if (value === false)
+        return 'off';
+
+      return value;
+    }
+
+    if (value === 'on')
+      return true;
+
+    if (value === 'off')
+      return false;
+
+    return value;
+  }
 });

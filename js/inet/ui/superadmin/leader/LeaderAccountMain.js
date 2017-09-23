@@ -46,10 +46,14 @@ $(function () {
   };
 
   localHistory.setRoot(list);
+  localHistory.on('back', function (widget) {
+    widget.show();
+  });
   list.on('open', function (record, parent) {
     content = loadContent(parent);
+    content.load(record);
   });
-  list.on('create', function (record, parent) {
+  list.on('create', function (parent) {
     content = loadContent(parent);
   });
 });
