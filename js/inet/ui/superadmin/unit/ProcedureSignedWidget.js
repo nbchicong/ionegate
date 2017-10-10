@@ -19,6 +19,11 @@ $(function () {
       EDIT: $('#procedure-signed-btn-edit')
     };
 
+    this.url = {
+      procedureList: iNet.getUrl('onegate/department/prodlist'),
+      serviceList: iNet.getXUrl('onegate/dept/servicelist')
+    };
+
     var confirmDeleteDialog= null, procedureSignedAddDialog = null,procedureSignedUpdateDialog = null,procedureUpdateDialog = null;
 
     iNet.ui.dialog.ProcedureSignedAddDialog = function(config) {
@@ -355,20 +360,21 @@ $(function () {
       this.$txtIndustry = $('#procedure-firm-update-txt-industry');
       this.$txtProcedure = $('#procedure-firm-update-txt-procedure');
       this.$cbbGateway = $('#procedure-firm-update-cbb-gateway');
+      this.$serviceFeeContainer = $('#procedure-service-fee-container');
+      this.$serviceFee = $('#procedure-firm-txt-service-fee');
+
       var me= this;
 
       $btnOk.on('click', function() {
-        var __data = this.getData();
-        var me = this;
+        var __data = me.getData();
         $.postJSON(iNet.getUrl('onegate/department/produpdate'), __data, function (result) {
-          var __result = result || {};
-          me.hide();
-        }, {mask: this.getMask(), msg: iNet.resources.ajaxLoading.saving});
-      }.createDelegate(this));
+          me.hide()
+        }, {mask: me.getMask(), msg: iNet.resources.ajaxLoading.saving});
+      });
 
       $btnCancel.on('click', function() {
-        this.hide();
-      }.createDelegate(this));
+        me.hide();
+      });
       
 //      this.$chkExServiceLink.on('change', function () {
 //        if(this.checked) {
@@ -377,6 +383,15 @@ $(function () {
 //          me.$txtExServiceLink.hide().parent().hide();
 //        }
 //      });
+
+      this.$serviceLevel4Chk.on('change', function () {
+        if (this.checked) {
+          me.$serviceFeeContainer.show();
+          me.$serviceFee.focus();
+        }
+        else
+          me.$serviceFeeContainer.hide();
+      });
     };
     iNet.extend(iNet.ui.dialog.ProcedureFirmUpdateDialog, iNet.Component, {
       getEl: function(){
@@ -405,6 +420,8 @@ $(function () {
           __data.exUrl = this.$txtExServiceLink.val();
           __data.exService = true;
         }
+        __data.serviceFee = __data.serviceL4 ? this.$serviceFee.val() : 0;
+
         return __data;
       },
       setName: function(name) {
@@ -420,13 +437,14 @@ $(function () {
         this.$txtIndustry.val(__data.industryCode || '');
 
         this.$txtExServiceLink.val(__data.exUrl || '');
-        if (__data.exService) {
-          this.$chkExServiceLink[0].checked = true;
-          //this.$txtExServiceLink.show();
-        } else {
-          this.$chkExServiceLink[0].checked = false;
-          //this.$txtExServiceLink.hide();
+        this.$chkExServiceLink[0].checked = __data.exService;
+
+        if (__data.serviceL4) {
+          this.$serviceFeeContainer.show();
+          this.$serviceFee.val(__data.serviceFee);
         }
+        else
+          this.$serviceFeeContainer.hide();
         
         this.$cbbGateway.val(__data.gateway);
       },

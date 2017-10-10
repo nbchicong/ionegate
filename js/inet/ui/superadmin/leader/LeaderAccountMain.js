@@ -35,6 +35,14 @@ $(function () {
       content.on('back', function () {
         localHistory.back();
       });
+      content.on('created', function (record) {
+        parent.getGrid().insert(record);
+        parent.getGrid().commit();
+      });
+      content.on('updated', function (record) {
+        parent.getGrid().update(record);
+        parent.getGrid().commit();
+      });
     }
     if (parent) {
       content.setParent(parent);

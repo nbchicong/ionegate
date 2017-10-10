@@ -64,8 +64,9 @@ $(function () {
       if (params.uuid)
         $.postJSON(url.update, params, function (results) {
           if (results.success) {
-            _this.load(results.data);
             _this.showMessage('success', 'Cập nhật', 'Cập nhật thành công!');
+            _this.fireEvent('updated', results.data, _this);
+            _this.load(results.data);
           }
           else
             _this.showMessage('error', 'Cập nhật', 'Cập nhật xảy ra lỗi!');
@@ -73,8 +74,9 @@ $(function () {
       else
         $.postJSON(url.create, params, function (results) {
           if (results.success) {
-            _this.load(results.data);
             _this.showMessage('success', 'Tạo mới', 'Tạo mới thành công!');
+            _this.fireEvent('created', results.data, _this);
+            _this.load(results.data);
           }
           else
             _this.showMessage('error', 'Tạo mới', 'Tạo mới xảy ra lỗi!');
@@ -108,7 +110,7 @@ $(function () {
   iNet.extend(iNet.ui.leader.LeaderAccountContent, iNet.ui.onegate.OnegateWidget, {
     load: function (record) {
       var _this = this;
-      var listKey = ['smsTplId', 'emailTplId', 'industries', 'isSMS', 'isEmail'];
+      var listKey = ['smsTplId', 'emailTplId', 'industries', 'sendSms', 'sendEmail'];
       for (var key in record) {
         if (listKey.indexOf(key) === -1)
           this.$form.find('input[name="' + key + '"]').val(record[key]);

@@ -50,7 +50,7 @@
 
   gulp.task('zip', function () {
     return gulp.src([
-      '{css/**,font/**,images/**,message/**,page/**,widget/**,*.profile,js/jquery/**/*.min.js,js/storage/*.min.js,js/inet/lib/*.min.js,js/ide/**/*.js}',
+      '{css/**,font/**,images/**,message/**,page/**,widget/**,*.profile,js/bootstrap/**/*.min.js,js/jquery/**/*.min.js,js/storage/*.min.js,js/inet/lib/*.min.js,js/ide/**/*.js}',
       'build/**'])
         .pipe(zip(buildName + '.zip'))
         .pipe(gulp.dest('build'));
